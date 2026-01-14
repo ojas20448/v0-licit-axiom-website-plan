@@ -1,0 +1,266 @@
+import type React from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import { ArrowRight, Building2, Handshake, Scale, Home, Lightbulb, Users, Award, Globe, Clock } from "lucide-react"
+import attorneys from "@/data/attorneys.json"
+import practices from "@/data/practices.json"
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Building2,
+  Handshake,
+  Scale,
+  Home,
+  Lightbulb,
+  Users,
+}
+
+const stats = [
+  { value: "$50B+", label: "Transactions Advised" },
+  { value: "500+", label: "Clients Served" },
+  { value: "25+", label: "Years of Excellence" },
+  { value: "98%", label: "Client Satisfaction" },
+]
+
+export default function HomePage() {
+  const featuredPractices = practices.slice(0, 4)
+  const featuredAttorneys = attorneys.slice(0, 3)
+
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Header />
+
+      <main className="flex-1">
+        <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-primary">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/elegant-law-office-interior-with-navy-blue-and-gol.jpg"
+              alt="Law office"
+              fill
+              className="object-cover opacity-20"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/80 to-primary" />
+          </div>
+
+          <div className="container relative z-10 mx-auto px-4 py-24 text-center md:px-6">
+            <h1 className="font-serif text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl text-balance">
+              Legal Excellence.
+              <br />
+              <span className="text-accent">Trusted Counsel.</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground/80 leading-relaxed">
+              Licit Axiom provides sophisticated legal services to businesses and individuals. Our attorneys bring
+              decades of experience to every matter, delivering strategic solutions that protect your interests and
+              achieve your objectives.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <Button size="lg" variant="secondary" asChild>
+                <Link href="/contact">
+                  Schedule a Consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
+                asChild
+              >
+                <Link href="/practices">Our Practice Areas</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-border bg-background py-12">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="font-serif text-3xl font-bold text-accent md:text-4xl">{stat.value}</div>
+                  <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Practice Areas Section */}
+        <section className="py-20 lg:py-28">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                Our Practice Areas
+              </h2>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                We offer comprehensive legal services across key practice areas, providing expert counsel tailored to
+                your specific needs.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {featuredPractices.map((practice) => {
+                const Icon = iconMap[practice.icon] || Building2
+                return (
+                  <Card key={practice.id} className="group bg-card transition-colors hover:bg-secondary">
+                    <CardContent className="p-6">
+                      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                        <Icon className="h-6 w-6 text-accent" />
+                      </div>
+                      <h3 className="font-serif text-lg font-semibold text-foreground">{practice.name}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{practice.shortDescription}</p>
+                      <Link
+                        href={`/practices/${practice.slug}`}
+                        className="mt-4 inline-flex items-center text-sm font-medium text-primary hover:text-accent"
+                      >
+                        Learn More
+                        <ArrowRight className="ml-1 h-3 w-3" />
+                      </Link>
+                    </CardContent>
+                  </Card>
+                )
+              })}
+            </div>
+
+            <div className="mt-10 text-center">
+              <Button variant="outline" asChild>
+                <Link href="/practices">View All Practice Areas</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section className="bg-secondary py-20 lg:py-28">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div>
+                <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                  Why Choose Licit Axiom?
+                </h2>
+                <p className="mt-4 text-muted-foreground leading-relaxed">
+                  For over two decades, we have been the trusted legal partner for businesses navigating complex
+                  challenges. Our commitment to excellence and client service sets us apart.
+                </p>
+
+                <div className="mt-8 space-y-6">
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10">
+                      <Award className="h-5 w-5 text-accent" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Industry Recognition</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        Ranked among top law firms by Chambers & Partners and Legal 500.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10">
+                      <Globe className="h-5 w-5 text-accent" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Global Reach</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        Cross-border expertise with a network spanning major financial centers.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10">
+                      <Clock className="h-5 w-5 text-accent" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Responsive Service</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        24/7 availability for urgent matters with dedicated client teams.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <Image
+                  src="/professional-law-team-meeting-in-modern-conference.jpg"
+                  alt="Our team in action"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Attorneys Section */}
+        <section className="py-20 lg:py-28">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                Meet Our Team
+              </h2>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                Our team combines deep legal expertise with business acumen to deliver exceptional results for our
+                clients.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {featuredAttorneys.map((attorney) => (
+                <Link key={attorney.id} href={`/attorneys/${attorney.slug}`} className="group">
+                  <Card className="overflow-hidden bg-card transition-colors hover:bg-secondary">
+                    <div className="relative aspect-[3/4]">
+                      <Image
+                        src={attorney.image || "/placeholder.svg"}
+                        alt={attorney.name}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <CardContent className="p-6">
+                      <h3 className="font-serif text-lg font-semibold text-foreground">{attorney.name}</h3>
+                      <p className="text-sm text-accent">{attorney.title}</p>
+                      <p className="mt-2 text-sm text-muted-foreground">{attorney.practiceAreas.join(" • ")}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-10 text-center">
+              <Button variant="outline" asChild>
+                <Link href="/attorneys">View All Team Members</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-primary py-20">
+          <div className="container mx-auto px-4 text-center md:px-6">
+            <h2 className="font-serif text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
+              Ready to Discuss Your Legal Needs?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/80">
+              Contact us today to schedule a consultation with one of our experienced attorneys. We are here to help you
+              navigate complex legal challenges.
+            </p>
+            <Button size="lg" variant="secondary" className="mt-8" asChild>
+              <Link href="/contact">
+                Get in Touch
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  )
+}

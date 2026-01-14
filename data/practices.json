@@ -1,0 +1,164 @@
+[
+  {
+    "id": "1",
+    "slug": "corporate-law",
+    "name": "Corporate Law",
+    "shortDescription": "Comprehensive corporate legal services for businesses of all sizes.",
+    "description": "Our Corporate Law practice provides comprehensive legal counsel to businesses at every stage of their lifecycle. From formation and governance to complex restructurings, we guide our clients through critical business decisions with strategic insight and practical solutions.",
+    "icon": "Building2",
+    "services": [
+      "Entity Formation and Structuring",
+      "Corporate Governance",
+      "Board Advisory Services",
+      "Shareholder Agreements",
+      "Joint Ventures and Strategic Alliances",
+      "Corporate Restructuring"
+    ],
+    "keyAttorneys": ["sarah-chen", "emily-thompson", "amanda-patel"],
+    "faqs": [
+      {
+        "question": "What type of business entity should I form?",
+        "answer": "The optimal structure depends on your business goals, liability concerns, tax considerations, and growth plans. We analyze your specific situation to recommend the best entity type—whether LLC, corporation, or partnership."
+      },
+      {
+        "question": "How often should corporate governance documents be reviewed?",
+        "answer": "We recommend annual reviews of bylaws, operating agreements, and governance policies to ensure compliance with evolving regulations and alignment with business objectives."
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "slug": "mergers-acquisitions",
+    "name": "Mergers & Acquisitions",
+    "shortDescription": "Strategic M&A counsel for transformative transactions.",
+    "description": "Our M&A team has extensive experience advising buyers, sellers, and investors in transactions across industries. We combine deep legal expertise with business acumen to structure deals that maximize value and minimize risk.",
+    "icon": "Handshake",
+    "services": [
+      "Buy-Side Advisory",
+      "Sell-Side Advisory",
+      "Due Diligence",
+      "Transaction Structuring",
+      "Negotiation and Documentation",
+      "Post-Merger Integration Support"
+    ],
+    "keyAttorneys": ["sarah-chen", "david-kim"],
+    "faqs": [
+      {
+        "question": "How long does a typical M&A transaction take?",
+        "answer": "Timeline varies significantly based on deal complexity, but most transactions take 3-9 months from letter of intent to closing. We work efficiently to meet your timeline while protecting your interests."
+      },
+      {
+        "question": "What is involved in M&A due diligence?",
+        "answer": "Our comprehensive due diligence covers legal, financial, operational, and regulatory aspects of the target company to identify risks and opportunities that inform deal terms."
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "slug": "litigation",
+    "name": "Litigation",
+    "shortDescription": "Skilled advocacy in complex commercial disputes.",
+    "description": "Our Litigation team represents clients in high-stakes commercial disputes, from pre-litigation strategy through trial and appeal. We combine aggressive advocacy with sound judgment to achieve optimal outcomes.",
+    "icon": "Scale",
+    "services": [
+      "Commercial Litigation",
+      "Class Action Defense",
+      "Securities Litigation",
+      "Contract Disputes",
+      "Business Torts",
+      "Alternative Dispute Resolution"
+    ],
+    "keyAttorneys": ["michael-rodriguez"],
+    "faqs": [
+      {
+        "question": "Should we try to settle or go to trial?",
+        "answer": "We evaluate each case individually, considering potential outcomes, costs, business relationships, and precedent implications. Our goal is to achieve the best result—whether through negotiation, mediation, or courtroom victory."
+      },
+      {
+        "question": "How can we minimize litigation costs?",
+        "answer": "We employ efficient case management, early case assessment, and strategic use of technology to control costs while maintaining quality representation."
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "slug": "real-estate",
+    "name": "Real Estate",
+    "shortDescription": "Full-service real estate legal solutions.",
+    "description": "Our Real Estate practice handles all aspects of commercial and residential real estate transactions, from acquisition and financing to development, leasing, and disposition.",
+    "icon": "Home",
+    "services": [
+      "Acquisitions and Dispositions",
+      "Real Estate Finance",
+      "Commercial Leasing",
+      "Land Use and Zoning",
+      "Construction Contracts",
+      "REIT Formation"
+    ],
+    "keyAttorneys": ["emily-thompson"],
+    "faqs": [
+      {
+        "question": "What due diligence is needed for commercial real estate purchases?",
+        "answer": "We conduct comprehensive reviews of title, environmental conditions, zoning compliance, existing leases, and structural assessments to protect your investment."
+      },
+      {
+        "question": "How do you handle complex financing structures?",
+        "answer": "We have extensive experience with traditional mortgages, mezzanine financing, preferred equity, and creative structures tailored to each transaction's needs."
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "slug": "intellectual-property",
+    "name": "Intellectual Property",
+    "shortDescription": "Protecting and monetizing your innovations.",
+    "description": "Our IP team helps clients protect, enforce, and monetize their intellectual property assets. We combine legal expertise with technical understanding to deliver strategic IP counsel.",
+    "icon": "Lightbulb",
+    "services": [
+      "Patent Prosecution",
+      "Trademark Registration",
+      "IP Licensing",
+      "Trade Secret Protection",
+      "IP Litigation",
+      "Technology Transactions"
+    ],
+    "keyAttorneys": ["james-okonkwo"],
+    "faqs": [
+      {
+        "question": "How do I protect my software or technology?",
+        "answer": "Protection strategies may include patents, copyrights, trade secrets, and contractual protections. We develop comprehensive IP strategies tailored to your technology and business goals."
+      },
+      {
+        "question": "What should I do if someone is infringing my IP?",
+        "answer": "We assess the infringement, evaluate enforcement options, and develop a strategy that may include cease-and-desist letters, licensing negotiations, or litigation."
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "slug": "employment-law",
+    "name": "Employment Law",
+    "shortDescription": "Navigating complex workplace legal issues.",
+    "description": "Our Employment Law practice advises employers on all aspects of the employment relationship, from hiring through termination, helping clients minimize risk while maintaining productive workplaces.",
+    "icon": "Users",
+    "services": [
+      "Employment Agreements",
+      "Workplace Policies",
+      "Discrimination Defense",
+      "Wage and Hour Compliance",
+      "Executive Compensation",
+      "Workplace Investigations"
+    ],
+    "keyAttorneys": ["michael-rodriguez"],
+    "faqs": [
+      {
+        "question": "What employment policies should every company have?",
+        "answer": "Essential policies include anti-harassment, at-will employment, confidentiality, social media use, and leave policies. We tailor policies to your industry and company culture."
+      },
+      {
+        "question": "How should we handle employee terminations?",
+        "answer": "We guide clients through proper termination procedures, documentation, and separation agreements to minimize legal exposure."
+      }
+    ]
+  }
+]

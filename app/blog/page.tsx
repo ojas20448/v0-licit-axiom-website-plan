@@ -1,0 +1,84 @@
+import Link from "next/link"
+import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import { CalendarDays, User } from "lucide-react"
+import blogPosts from "@/data/blog.json"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Blog & Insights | Licit Axiom",
+  description: "Legal insights, industry updates, and thought leadership from the attorneys at Licit Axiom.",
+}
+
+export default function BlogPage() {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Header />
+
+      <main className="flex-1">
+        <section className="bg-primary py-16 lg:py-24">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="mx-auto max-w-3xl text-center">
+              <h1 className="font-serif text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
+                Blog & Insights
+              </h1>
+              <p className="mt-4 text-lg text-primary-foreground/80 leading-relaxed">
+                Stay informed with the latest legal developments, industry insights, and thought leadership from our
+                experienced attorneys.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Blog Grid */}
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {blogPosts.map((post) => (
+                <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+                  <Card className="h-full overflow-hidden bg-card transition-colors hover:bg-secondary">
+                    <div className="relative aspect-[16/9]">
+                      <Image
+                        src={post.image || "/placeholder.svg"}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute left-4 top-4">
+                        <span className="rounded-full bg-accent px-3 py-1 text-xs font-medium text-accent-foreground">
+                          {post.category}
+                        </span>
+                      </div>
+                    </div>
+                    <CardContent className="p-6">
+                      <h2 className="font-serif text-xl font-semibold text-foreground line-clamp-2">{post.title}</h2>
+                      <p className="mt-3 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
+                      <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <User className="h-3 w-3" />
+                          {post.author}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <CalendarDays className="h-3 w-3" />
+                          {new Date(post.date).toLocaleDateString("en-US", {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                          })}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  )
+}

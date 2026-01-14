@@ -1,0 +1,89 @@
+[
+  {
+    "id": "1",
+    "slug": "sarah-chen",
+    "name": "Sarah Chen",
+    "title": "Managing Partner",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "sarah.chen@licitaxiom.com",
+    "phone": "+1 (555) 123-4567",
+    "practiceAreas": ["Corporate Law", "M&A"],
+    "education": ["J.D., Harvard Law School", "B.A., Economics, Yale University"],
+    "experience": "25+ years of corporate law experience",
+    "bio": "Sarah Chen is the Managing Partner of Licit Axiom and leads the firm's Corporate and M&A practice groups. She has advised on transactions valued at over $50 billion throughout her career and is recognized as a leading corporate lawyer by Chambers & Partners.",
+    "publications": [
+      "The Future of Cross-Border M&A (Harvard Business Review)",
+      "Corporate Governance Best Practices (Corporate Law Journal)"
+    ]
+  },
+  {
+    "id": "2",
+    "slug": "michael-rodriguez",
+    "name": "Michael Rodriguez",
+    "title": "Senior Partner",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "michael.rodriguez@licitaxiom.com",
+    "phone": "+1 (555) 234-5678",
+    "practiceAreas": ["Litigation", "Employment Law"],
+    "education": ["J.D., Stanford Law School", "B.A., Political Science, UC Berkeley"],
+    "experience": "20+ years of litigation experience",
+    "bio": "Michael Rodriguez leads our Litigation and Employment Law practices. He has successfully represented Fortune 500 companies in complex commercial disputes and class action litigation, recovering over $2 billion for clients.",
+    "publications": ["Employment Law in the Digital Age", "Litigation Strategies for Corporate Defendants"]
+  },
+  {
+    "id": "3",
+    "slug": "emily-thompson",
+    "name": "Emily Thompson",
+    "title": "Partner",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "emily.thompson@licitaxiom.com",
+    "phone": "+1 (555) 345-6789",
+    "practiceAreas": ["Real Estate", "Corporate Law"],
+    "education": ["J.D., Columbia Law School", "B.S., Finance, NYU Stern"],
+    "experience": "15+ years in real estate and corporate law",
+    "bio": "Emily Thompson specializes in complex real estate transactions and corporate structuring. She has closed over $10 billion in commercial real estate deals and advises major developers and REITs.",
+    "publications": ["Commercial Real Estate Due Diligence Guide", "REIT Formation and Compliance"]
+  },
+  {
+    "id": "4",
+    "slug": "james-okonkwo",
+    "name": "James Okonkwo",
+    "title": "Partner",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "james.okonkwo@licitaxiom.com",
+    "phone": "+1 (555) 456-7890",
+    "practiceAreas": ["Intellectual Property", "Technology"],
+    "education": ["J.D., MIT Sloan/Harvard Law", "Ph.D., Computer Science, MIT"],
+    "experience": "12+ years in IP and technology law",
+    "bio": "James Okonkwo brings a unique combination of legal expertise and technical knowledge to our IP and Technology practice. He advises leading tech companies on patent portfolios, licensing, and technology transactions.",
+    "publications": ["AI and Intellectual Property: Legal Frameworks", "Software Patent Prosecution Strategies"]
+  },
+  {
+    "id": "5",
+    "slug": "amanda-patel",
+    "name": "Amanda Patel",
+    "title": "Counsel",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "amanda.patel@licitaxiom.com",
+    "phone": "+1 (555) 567-8901",
+    "practiceAreas": ["Corporate Law", "Securities"],
+    "education": ["J.D., University of Chicago Law School", "B.A., Economics, Princeton University"],
+    "experience": "10+ years in securities and corporate law",
+    "bio": "Amanda Patel advises public and private companies on securities offerings, corporate governance, and regulatory compliance. She has led numerous IPOs and debt offerings totaling over $15 billion.",
+    "publications": ["SEC Compliance for Emerging Companies", "The SPAC Revolution: Legal Considerations"]
+  },
+  {
+    "id": "6",
+    "slug": "david-kim",
+    "name": "David Kim",
+    "title": "Associate",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "david.kim@licitaxiom.com",
+    "phone": "+1 (555) 678-9012",
+    "practiceAreas": ["M&A", "Private Equity"],
+    "education": ["J.D., NYU School of Law", "B.A., Business Administration, UCLA"],
+    "experience": "5+ years in M&A and private equity",
+    "bio": "David Kim focuses on mergers and acquisitions and private equity transactions. He has worked on deals across various industries including technology, healthcare, and manufacturing.",
+    "publications": []
+  }
+]

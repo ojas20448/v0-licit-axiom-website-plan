@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "slug": "senior-associate-corporate",
+    "title": "Senior Associate - Corporate",
+    "department": "Corporate Law",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "description": "We are seeking a Senior Associate to join our Corporate Law practice. The ideal candidate will have 5-7 years of experience in corporate transactions, including M&A, joint ventures, and general corporate matters.",
+    "responsibilities": [
+      "Lead due diligence efforts on complex transactions",
+      "Draft and negotiate transaction documents",
+      "Advise clients on corporate governance matters",
+      "Mentor junior associates",
+      "Manage client relationships and develop business"
+    ],
+    "requirements": [
+      "J.D. from a top law school",
+      "5-7 years of corporate law experience at a major law firm",
+      "Strong academic credentials",
+      "Excellent written and verbal communication skills",
+      "New York bar admission required"
+    ],
+    "benefits": [
+      "Competitive compensation package",
+      "Comprehensive health, dental, and vision insurance",
+      "401(k) with firm matching",
+      "Professional development opportunities",
+      "Hybrid work arrangement"
+    ]
+  },
+  {
+    "id": "2",
+    "slug": "litigation-associate",
+    "title": "Litigation Associate",
+    "department": "Litigation",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "description": "Our Litigation practice is growing, and we're looking for a talented associate to join our team. You'll work on complex commercial disputes alongside experienced partners.",
+    "responsibilities": [
+      "Conduct legal research and draft memoranda",
+      "Prepare pleadings, motions, and briefs",
+      "Take and defend depositions",
+      "Participate in trial preparation",
+      "Assist with case strategy development"
+    ],
+    "requirements": [
+      "J.D. from an accredited law school",
+      "2-4 years of litigation experience",
+      "Strong research and writing skills",
+      "Ability to manage multiple matters",
+      "New York bar admission required"
+    ],
+    "benefits": [
+      "Competitive salary and bonus structure",
+      "Health and wellness benefits",
+      "Continuing legal education support",
+      "Mentorship program",
+      "Path to partnership"
+    ]
+  },
+  {
+    "id": "3",
+    "slug": "ip-counsel",
+    "title": "Intellectual Property Counsel",
+    "department": "Intellectual Property",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "description": "We're expanding our IP practice and seeking experienced counsel to advise technology clients on patent strategy, IP transactions, and technology licensing.",
+    "responsibilities": [
+      "Advise clients on IP portfolio strategy",
+      "Draft and negotiate technology licenses",
+      "Conduct IP due diligence for transactions",
+      "Manage outside patent counsel",
+      "Provide strategic IP counseling"
+    ],
+    "requirements": [
+      "J.D. and technical degree (preferably computer science or engineering)",
+      "8+ years of IP experience",
+      "Patent bar registration preferred",
+      "Experience with technology companies",
+      "California bar admission required"
+    ],
+    "benefits": [
+      "Market-leading compensation",
+      "Equity participation opportunity",
+      "Flexible work arrangements",
+      "Technology allowance",
+      "Relocation assistance available"
+    ]
+  },
+  {
+    "id": "4",
+    "slug": "legal-secretary",
+    "title": "Legal Secretary",
+    "department": "Administration",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "description": "We're seeking an experienced legal secretary to support our Corporate Law practice. The ideal candidate will have strong organizational skills and attention to detail.",
+    "responsibilities": [
+      "Manage attorney calendars and scheduling",
+      "Prepare and format legal documents",
+      "Coordinate client meetings and calls",
+      "Handle billing and expense reporting",
+      "Maintain client files and records"
+    ],
+    "requirements": [
+      "5+ years of legal secretary experience",
+      "Proficiency in Microsoft Office Suite",
+      "Experience with document management systems",
+      "Strong communication skills",
+      "Ability to work under pressure"
+    ],
+    "benefits": [
+      "Competitive hourly rate",
+      "Overtime opportunities",
+      "Health benefits",
+      "Paid time off",
+      "Professional development"
+    ]
+  }
+]
