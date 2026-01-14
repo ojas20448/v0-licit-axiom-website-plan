@@ -70,25 +70,27 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-sm font-semibold text-foreground">Contact</h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 text-accent" />
-                <span className="text-sm text-muted-foreground">
-                  100 Park Avenue, 25th Floor
-                  <br />
-                  New York, NY 10017
-                </span>
-              </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-accent" />
-                <a href="tel:+15551234567" className="text-sm text-muted-foreground hover:text-primary">
-                  +1 (555) 123-4567
-                </a>
+                <div className="text-sm text-muted-foreground">
+                  <a href="tel:+919811331306" className="hover:text-primary block">
+                    +91 9811331306 (Udayan)
+                  </a>
+                  <a href="tel:+919999671943" className="hover:text-primary block">
+                    +91 9999671943 (Shubhankar)
+                  </a>
+                </div>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-accent" />
-                <a href="mailto:info@licitaxiom.com" className="text-sm text-muted-foreground hover:text-primary">
-                  info@licitaxiom.com
-                </a>
+              <li className="flex items-start gap-3">
+                <Mail className="mt-0.5 h-4 w-4 text-accent" />
+                <div className="text-sm text-muted-foreground">
+                  <a href="mailto:licitaxiom@gmail.com" className="hover:text-primary block">
+                    licitaxiom@gmail.com
+                  </a>
+                  <a href="mailto:udayankhandelwal@gmail.com" className="hover:text-primary block">
+                    udayankhandelwal@gmail.com
+                  </a>
+                </div>
               </li>
             </ul>
           </div>

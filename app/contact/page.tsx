@@ -158,32 +158,19 @@ export default function ContactPage() {
                   <Card className="bg-card">
                     <CardContent className="flex items-start gap-4 p-6">
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10">
-                        <MapPin className="h-6 w-6 text-accent" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground">Office Address</h3>
-                        <p className="mt-1 text-muted-foreground">
-                          100 Park Avenue, 25th Floor
-                          <br />
-                          New York, NY 10017
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="bg-card">
-                    <CardContent className="flex items-start gap-4 p-6">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10">
                         <Phone className="h-6 w-6 text-accent" />
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <h3 className="font-semibold text-foreground">Phone</h3>
                         <p className="mt-1 text-muted-foreground">
-                          <a href="tel:+15551234567" className="hover:text-accent">
-                            +1 (555) 123-4567
+                          <a href="tel:+919811331306" className="hover:text-accent block">
+                            +91 9811331306 (Udayan Khandelwal)
+                          </a>
+                          <a href="tel:+919999671943" className="hover:text-accent block">
+                            +91 9999671943 (Shubhankar Sharma)
                           </a>
                         </p>
-                        <p className="mt-1 text-sm text-muted-foreground">Monday - Friday, 9am - 6pm EST</p>
+                        <p className="mt-2 text-sm text-muted-foreground">Monday - Saturday, 10am - 6pm IST</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -193,14 +180,17 @@ export default function ContactPage() {
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10">
                         <Mail className="h-6 w-6 text-accent" />
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <h3 className="font-semibold text-foreground">Email</h3>
                         <p className="mt-1 text-muted-foreground">
-                          <a href="mailto:info@licitaxiom.com" className="hover:text-accent">
-                            info@licitaxiom.com
+                          <a href="mailto:licitaxiom@gmail.com" className="hover:text-accent block">
+                            licitaxiom@gmail.com
+                          </a>
+                          <a href="mailto:udayankhandelwal@gmail.com" className="hover:text-accent block">
+                            udayankhandelwal@gmail.com
                           </a>
                         </p>
-                        <p className="mt-1 text-sm text-muted-foreground">We respond within 24 hours</p>
+                        <p className="mt-2 text-sm text-muted-foreground">We respond within 24 hours</p>
                       </div>
                     </CardContent>
                   </Card>

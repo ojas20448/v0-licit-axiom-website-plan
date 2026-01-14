@@ -1,89 +1,165 @@
 [
   {
     "id": "1",
-    "slug": "sarah-chen",
-    "name": "Sarah Chen",
-    "title": "Managing Partner",
+    "slug": "surender-kumar",
+    "name": "Mr Surender Kumar, IFS (Retd.)",
+    "title": "Senior Advisor",
     "image": "/placeholder.svg?height=400&width=400",
-    "email": "sarah.chen@licitaxiom.com",
-    "phone": "+1 (555) 123-4567",
-    "practiceAreas": ["Corporate Law", "M&A"],
-    "education": ["J.D., Harvard Law School", "B.A., Economics, Yale University"],
-    "experience": "25+ years of corporate law experience",
-    "bio": "Sarah Chen is the Managing Partner of Licit Axiom and leads the firm's Corporate and M&A practice groups. She has advised on transactions valued at over $50 billion throughout her career and is recognized as a leading corporate lawyer by Chambers & Partners.",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Environmental Law", "Corporate Governance", "Technology Laws", "Energy & Power"],
+    "education": [
+      "M.Phil. in Social Sciences",
+      "Masters in Physics",
+      "Law Degree, Delhi University"
+    ],
+    "experience": "33+ years in Indian Forest Service and legal practice",
+    "bio": "Mr Surender Kumar took voluntary retirement from Indian Forest Service after a distinguished career spanning more than 33 years. During his tenure, he held diverse assignments including Secretary, Environment Department, Member Secretary, Tripura Bio-diversity, CEO Indo-German Development Project, and Director, Ministry of Development of North Eastern Region. He contributed to the drafting of the amendment to the Wildlife Protection Act, 1972, and represented India in the Interpol group on wildlife crime. He has considerable experience in corporate governance and served as MD, TRPC, and represented the central government on the board of North Eastern Developmental Finance Corporation (NEDFi) and NERAMAC.",
     "publications": [
-      "The Future of Cross-Border M&A (Harvard Business Review)",
-      "Corporate Governance Best Practices (Corporate Law Journal)"
+      "Policy for eco-tourism",
+      "Enforcement of CITES",
+      "Ban on single use polythene and Noise Pollution Rules"
     ]
   },
   {
     "id": "2",
-    "slug": "michael-rodriguez",
-    "name": "Michael Rodriguez",
-    "title": "Senior Partner",
+    "slug": "hem-chandra-pant",
+    "name": "Mr Hem Chandra Pant",
+    "title": "Senior Counsel",
     "image": "/placeholder.svg?height=400&width=400",
-    "email": "michael.rodriguez@licitaxiom.com",
-    "phone": "+1 (555) 234-5678",
-    "practiceAreas": ["Litigation", "Employment Law"],
-    "education": ["J.D., Stanford Law School", "B.A., Political Science, UC Berkeley"],
-    "experience": "20+ years of litigation experience",
-    "bio": "Michael Rodriguez leads our Litigation and Employment Law practices. He has successfully represented Fortune 500 companies in complex commercial disputes and class action litigation, recovering over $2 billion for clients.",
-    "publications": ["Employment Law in the Digital Age", "Litigation Strategies for Corporate Defendants"]
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Telecom Law", "Corporate Law", "M&A", "Securities Law"],
+    "education": [
+      "MBA (HR)",
+      "M.Com (Commerce)",
+      "FCS (Fellow of the Institute of Company Secretaries of India)",
+      "Law Graduate"
+    ],
+    "experience": "30+ years in legal field, 20+ years with BSNL as Chief General Manager (Legal)",
+    "bio": "Mr Hem Chandra Pant has extensive hands-on experience dealing with a comprehensive range of legal issues. While working with BSNL as Chief General Manager (Legal) for over two decades, he advised top management on Corporate Laws, Capital market regulatory and Securities laws, contracts, Telecom regulatory & business laws, arbitration, employment & service laws, anti-corruption laws and compliance mechanism. He has handled high stake litigation involving direct and indirect taxes, contracts, employment and service matters. He has been a member of management teams for joint ventures, M&As, demergers and disinvestment.",
+    "publications": [
+      "Legal opinions on draft legislations",
+      "Parliamentary Committee reports"
+    ]
   },
   {
     "id": "3",
-    "slug": "emily-thompson",
-    "name": "Emily Thompson",
-    "title": "Partner",
+    "slug": "namrata-khandelwal",
+    "name": "Ms Namrata Khandelwal, C.A.",
+    "title": "Financial & Business Advisor",
     "image": "/placeholder.svg?height=400&width=400",
-    "email": "emily.thompson@licitaxiom.com",
-    "phone": "+1 (555) 345-6789",
-    "practiceAreas": ["Real Estate", "Corporate Law"],
-    "education": ["J.D., Columbia Law School", "B.S., Finance, NYU Stern"],
-    "experience": "15+ years in real estate and corporate law",
-    "bio": "Emily Thompson specializes in complex real estate transactions and corporate structuring. She has closed over $10 billion in commercial real estate deals and advises major developers and REITs.",
-    "publications": ["Commercial Real Estate Due Diligence Guide", "REIT Formation and Compliance"]
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Financial Management", "Project Management", "Government Liaison", "Accounting"],
+    "education": [
+      "Chartered Accountant"
+    ],
+    "experience": "20+ years in Business, Financial and Project Management",
+    "bio": "Ms Namrata Khandelwal is a Chartered Accountant with more than 20 years of experience in Business, Financial and Project Management, Accounting, liaison and coordination with Government officials at all levels. She has handled ICAI Accounting Research Foundation (ICAI ARF), the research arm of the Institute of Chartered Accountants of India for more than 7 years. She has executed several projects for Government Ministries like Indian Railways, Ministry of Housing & Urban Affairs, Ministry of Rural Development, Ministry of Panchayati Raj, and regulators like Office of Comptroller & Auditor General of India. An expert at multi-tasking, handling multiple projects simultaneously with teams ranging from 5 to 100+ professionals.",
+    "publications": []
   },
   {
     "id": "4",
-    "slug": "james-okonkwo",
-    "name": "James Okonkwo",
-    "title": "Partner",
+    "slug": "devender-kumar-sharma",
+    "name": "Mr Devender Kumar Sharma",
+    "title": "Senior Advocate",
     "image": "/placeholder.svg?height=400&width=400",
-    "email": "james.okonkwo@licitaxiom.com",
-    "phone": "+1 (555) 456-7890",
-    "practiceAreas": ["Intellectual Property", "Technology"],
-    "education": ["J.D., MIT Sloan/Harvard Law", "Ph.D., Computer Science, MIT"],
-    "experience": "12+ years in IP and technology law",
-    "bio": "James Okonkwo brings a unique combination of legal expertise and technical knowledge to our IP and Technology practice. He advises leading tech companies on patent portfolios, licensing, and technology transactions.",
-    "publications": ["AI and Intellectual Property: Legal Frameworks", "Software Patent Prosecution Strategies"]
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Property Law", "Contracts", "Land Acquisition", "Asset Management"],
+    "education": [
+      "Law Degree"
+    ],
+    "experience": "32+ years in legal practice",
+    "bio": "Mr Devender Kumar Sharma is a practicing advocate with over 32 years of experience in managing and strategizing complex legal issues. Over his long and illustrious career, he has handled high-profile cases involving Land Acquisition, Contracts, and Corporate Disputes. He is an expert in property due diligence and handles high-value property deals on a regular basis. He also advises clients on asset management, company and LLP registration, and estate planning.",
+    "publications": []
   },
   {
     "id": "5",
-    "slug": "amanda-patel",
-    "name": "Amanda Patel",
-    "title": "Counsel",
+    "slug": "udayan-khandelwal",
+    "name": "Mr Udayan Khandelwal",
+    "title": "Managing Partner",
     "image": "/placeholder.svg?height=400&width=400",
-    "email": "amanda.patel@licitaxiom.com",
-    "phone": "+1 (555) 567-8901",
-    "practiceAreas": ["Corporate Law", "Securities"],
-    "education": ["J.D., University of Chicago Law School", "B.A., Economics, Princeton University"],
-    "experience": "10+ years in securities and corporate law",
-    "bio": "Amanda Patel advises public and private companies on securities offerings, corporate governance, and regulatory compliance. She has led numerous IPOs and debt offerings totaling over $15 billion.",
-    "publications": ["SEC Compliance for Emerging Companies", "The SPAC Revolution: Legal Considerations"]
+    "email": "udayankhandelwal@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Arbitration", "Litigation", "Competition Law", "Insolvency & Bankruptcy"],
+    "education": [
+      "Law Degree",
+      "Member, Bar Council of Delhi",
+      "Member, Delhi High Court Bar Association"
+    ],
+    "experience": "15+ years in litigation and dispute resolution",
+    "bio": "Mr Udayan Khandelwal is a practising Advocate in various courts and quasi-judicial tribunals across the country including Arbitration. He has immense experience in successfully representing clients including high net-worth individuals and companies before various judicial and quasi-judicial fora. Mr Khandelwal is a result-oriented lawyer with extensive experience in Arbitral Claims, Defences, Petitions Under the Arbitration and Conciliation Act, Civil and Commercial Litigation, Economic Offences, Anti-Corruption Laws, Competition Law, Insolvency and Bankruptcy, and Family & Personal Laws. He also advises clients on alternative dispute resolution including mediation and conciliation.",
+    "publications": []
   },
   {
     "id": "6",
-    "slug": "david-kim",
-    "name": "David Kim",
+    "slug": "rahul-dubey",
+    "name": "Mr Rahul Dubey, LLM (UCL, London)",
+    "title": "Intellectual Property Counsel",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Intellectual Property", "Patents", "Trademarks", "Corporate Law"],
+    "education": [
+      "LL.M. in Intellectual Property Rights, University College London",
+      "Law Degree",
+      "Certificates in IPR and Competition Laws from WIPO, Geneva"
+    ],
+    "experience": "10+ years in IP litigation and corporate law",
+    "bio": "Mr Rahul Dubey is an alumnus of University College London holding a degree of Masters in Law (LL.M.) in Intellectual Property Rights. He was Delhi ambassador for World Bank Group in its programmes of Ease of Doing Business in India and Enforcement of Contracts in India. Mr Dubey has represented clients in high profile IPR litigation culminating into textbook cases. He has appeared in landmark cases including Monsanto Technology LLC vs Nuziveedu Seeds Ltd., Sungro Seeds Ltd. vs S.K. Tripathi, Delhi Public School Society vs DPS World Foundation, and Prabhat Agri Biotech Ltd. vs Registrar of Plant Varieties. He was invited by University of Helsinki, Finland to speak on IPR and Artificial Intelligence.",
+    "publications": [
+      "Arbitrability of IPR disputes (Satyam International Publication, ISBN: 978-93-91345-11-2)",
+      "IPR and Artificial Intelligence (University of Helsinki)"
+    ]
+  },
+  {
+    "id": "7",
+    "slug": "shubhankar-sharma",
+    "name": "Mr Shubhankar Sharma",
+    "title": "Partner",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9999671943",
+    "practiceAreas": ["Food & Beverage", "Hospitality & Tourism", "Drone Law", "Real Estate"],
+    "education": [
+      "Law Degree"
+    ],
+    "experience": "10+ years in litigation and regulatory compliance",
+    "bio": "Mr Shubhankar Sharma, a practicing advocate, has immense experience in the field of Litigation & Dispute Resolution. He has worked extensively with Food & Beverage industry, Hospitality & Tourism businesses and Education Companies, advising them on company incorporation, statutory registrations including FSSAI, Weights and Measures, Real Estate, Compliances & other documentation. He is also an expert in the newly drafted Drone Rules, 2021 and Certification Scheme for Unmanned Aircraft Systems.",
+    "publications": []
+  },
+  {
+    "id": "8",
+    "slug": "abhishek-tewathia",
+    "name": "Mr Abhishek Tewathia",
     "title": "Associate",
     "image": "/placeholder.svg?height=400&width=400",
-    "email": "david.kim@licitaxiom.com",
-    "phone": "+1 (555) 678-9012",
-    "practiceAreas": ["M&A", "Private Equity"],
-    "education": ["J.D., NYU School of Law", "B.A., Business Administration, UCLA"],
-    "experience": "5+ years in M&A and private equity",
-    "bio": "David Kim focuses on mergers and acquisitions and private equity transactions. He has worked on deals across various industries including technology, healthcare, and manufacturing.",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Criminal Law", "Matrimonial Law", "Bail Matters"],
+    "education": [
+      "Law Degree"
+    ],
+    "experience": "8+ years in criminal and matrimonial litigation",
+    "bio": "Mr Abhishek Tewathia, a practicing advocate, has immense experience in the field of Criminal and Matrimonial Litigation & Dispute Resolution. He has extensive experience and a good success rate in securing Bail and Anticipatory Bail for clients. His expertise includes handling complex criminal matters, matrimonial disputes, and providing strategic legal counsel in sensitive cases.",
+    "publications": []
+  },
+  {
+    "id": "9",
+    "slug": "rakshit-jain",
+    "name": "Mr. Rakshit Jain",
+    "title": "Tax & Financial Advisor",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Taxation", "Startups", "Insolvency & Bankruptcy", "Business Advisory"],
+    "education": [
+      "Professional Qualification in Finance and Taxation"
+    ],
+    "experience": "12+ years in Audit, Banking, Finance and Taxation",
+    "bio": "Mr. Rakshit Jain is a well qualified professional with over 12 years of experience in the field of Audit, Banking, Finance and Direct & Indirect Taxation. Given his effective liaison skills, he has an impressive track record of successfully coordinating with Government organizations in various matters. He specializes in business advisory with a special focus on Startups including documentation, Mergers and De-mergers, and Insolvency & Bankruptcy Advisory.",
     "publications": []
   }
 ]

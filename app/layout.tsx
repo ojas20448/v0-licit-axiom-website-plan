@@ -8,11 +8,20 @@ const _inter = Inter({ subsets: ["latin"] })
 const _playfair = Playfair_Display({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Licit Axiom | Corporate Law Excellence",
+  title: "Licit Axiom | Expert Legal Services Across India",
   description:
-    "Licit Axiom is a premier law firm specializing in corporate law, M&A, real estate, and litigation. Expert legal counsel for businesses and individuals.",
-  keywords: "law firm, corporate law, M&A, litigation, real estate law, legal services",
-    generator: 'v0.app'
+    "Licit Axiom - A federate rostrum of expert professionals providing cost-effective legal solutions across 26+ practice areas. Empanelled with ONGC, Coal India, BSNL, and SBI.",
+  keywords: "law firm India, legal services India, corporate law, litigation, intellectual property, real estate law, taxation India, arbitration, legal consultants India, empanelled lawyers",
+  generator: 'v0.app',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 }
 
 export default function RootLayout({

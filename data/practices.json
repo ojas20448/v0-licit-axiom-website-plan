@@ -1,164 +1,580 @@
 [
   {
     "id": "1",
-    "slug": "corporate-law",
-    "name": "Corporate Law",
-    "shortDescription": "Comprehensive corporate legal services for businesses of all sizes.",
-    "description": "Our Corporate Law practice provides comprehensive legal counsel to businesses at every stage of their lifecycle. From formation and governance to complex restructurings, we guide our clients through critical business decisions with strategic insight and practical solutions.",
-    "icon": "Building2",
+    "slug": "litigation",
+    "name": "Litigation",
+    "shortDescription": "Comprehensive dispute resolution across all courts and tribunals in India.",
+    "description": "Our dedicated dispute resolution team represents clients in litigation, arbitration (international & domestic), conciliation and mediation proceedings pertaining to civil, commercial, debt recovery, company and insolvency, real estate, criminal litigation including white collar crimes, constitutional and administrative law before the Supreme Court of India, State High Courts, District Courts, and various tribunals.",
+    "icon": "Scale",
     "services": [
-      "Entity Formation and Structuring",
-      "Corporate Governance",
-      "Board Advisory Services",
-      "Shareholder Agreements",
-      "Joint Ventures and Strategic Alliances",
-      "Corporate Restructuring"
+      "Arbitration (International & Domestic)",
+      "Business and Commercial Laws",
+      "Banking Laws",
+      "Competition Laws",
+      "Consumer Laws",
+      "Corporate Laws including M&As",
+      "Criminal Laws",
+      "Employment and HR Laws",
+      "Insolvency Laws",
+      "Intellectual Property Rights",
+      "Mediation/Conciliation",
+      "Property Laws",
+      "Securities Laws",
+      "Taxation Laws"
     ],
-    "keyAttorneys": ["sarah-chen", "emily-thompson", "amanda-patel"],
+    "keyAttorneys": [
+      "udayan-khandelwal",
+      "abhishek-tewathia",
+      "devender-kumar-sharma"
+    ],
     "faqs": [
       {
-        "question": "What type of business entity should I form?",
-        "answer": "The optimal structure depends on your business goals, liability concerns, tax considerations, and growth plans. We analyze your specific situation to recommend the best entity type—whether LLC, corporation, or partnership."
+        "question": "What courts do you practice in?",
+        "answer": "We represent clients before the Supreme Court of India, State High Courts, District Courts, Consumer Protection fora, Competition Commission, and various tribunals including NCLT, ITAT, DRT, NGT, and Labour Courts."
       },
       {
-        "question": "How often should corporate governance documents be reviewed?",
-        "answer": "We recommend annual reviews of bylaws, operating agreements, and governance policies to ensure compliance with evolving regulations and alignment with business objectives."
+        "question": "Do you handle arbitration matters?",
+        "answer": "Yes, we have extensive experience in both domestic and international arbitration, including filing petitions under Sections 9, 11, 14, 15, 34 and 37 of the Arbitration and Conciliation Act."
       }
     ]
   },
   {
     "id": "2",
-    "slug": "mergers-acquisitions",
-    "name": "Mergers & Acquisitions",
-    "shortDescription": "Strategic M&A counsel for transformative transactions.",
-    "description": "Our M&A team has extensive experience advising buyers, sellers, and investors in transactions across industries. We combine deep legal expertise with business acumen to structure deals that maximize value and minimize risk.",
-    "icon": "Handshake",
+    "slug": "corporate-commercial",
+    "name": "Corporate & Commercial",
+    "shortDescription": "End-to-end corporate legal services for businesses of all sizes.",
+    "description": "Our corporate team is well versed in legal aspects of subsidiaries & joint ventures, collaborations, structuring of investment routes, inbound and outbound investments, restructuring, transactional due diligence, franchising, technology transfers & licensing, corporate governance, CSR initiatives, statutory compliances and allied services.",
+    "icon": "Building2",
     "services": [
-      "Buy-Side Advisory",
-      "Sell-Side Advisory",
-      "Due Diligence",
-      "Transaction Structuring",
-      "Negotiation and Documentation",
-      "Post-Merger Integration Support"
+      "Subsidiaries & Joint Ventures",
+      "Investment Structuring",
+      "Inbound and Outbound Investments",
+      "Corporate Restructuring",
+      "Transactional Due Diligence",
+      "Franchising",
+      "Technology Transfers & Licensing",
+      "Corporate Governance",
+      "CSR Initiatives",
+      "Statutory Compliances",
+      "Commercial Contracts",
+      "Shareholders' Agreements"
     ],
-    "keyAttorneys": ["sarah-chen", "david-kim"],
-    "faqs": [
-      {
-        "question": "How long does a typical M&A transaction take?",
-        "answer": "Timeline varies significantly based on deal complexity, but most transactions take 3-9 months from letter of intent to closing. We work efficiently to meet your timeline while protecting your interests."
-      },
-      {
-        "question": "What is involved in M&A due diligence?",
-        "answer": "Our comprehensive due diligence covers legal, financial, operational, and regulatory aspects of the target company to identify risks and opportunities that inform deal terms."
-      }
-    ]
+    "keyAttorneys": [
+      "hem-chandra-pant",
+      "surender-kumar"
+    ],
+    "faqs": []
   },
   {
     "id": "3",
-    "slug": "litigation",
-    "name": "Litigation",
-    "shortDescription": "Skilled advocacy in complex commercial disputes.",
-    "description": "Our Litigation team represents clients in high-stakes commercial disputes, from pre-litigation strategy through trial and appeal. We combine aggressive advocacy with sound judgment to achieve optimal outcomes.",
-    "icon": "Scale",
+    "slug": "mergers-acquisitions",
+    "name": "Mergers & Acquisitions",
+    "shortDescription": "Strategic M&A counsel for transformative transactions.",
+    "description": "Our M&A team advises on merger & amalgamation, demerger, reconstruction, acquisitions & divestments of assets and businesses, leveraged buy-outs, distressed transactions and restructuring, buy-back of securities and reduction of capital. We work closely with in-house counsels, accounting firms and investment banks.",
+    "icon": "Handshake",
     "services": [
-      "Commercial Litigation",
-      "Class Action Defense",
-      "Securities Litigation",
-      "Contract Disputes",
-      "Business Torts",
-      "Alternative Dispute Resolution"
+      "Merger & Amalgamation",
+      "Demerger",
+      "Acquisitions & Divestments",
+      "Leveraged Buy-outs",
+      "Distressed Transactions",
+      "Corporate Restructuring",
+      "Buy-back of Securities",
+      "Reduction of Capital"
     ],
-    "keyAttorneys": ["michael-rodriguez"],
-    "faqs": [
-      {
-        "question": "Should we try to settle or go to trial?",
-        "answer": "We evaluate each case individually, considering potential outcomes, costs, business relationships, and precedent implications. Our goal is to achieve the best result—whether through negotiation, mediation, or courtroom victory."
-      },
-      {
-        "question": "How can we minimize litigation costs?",
-        "answer": "We employ efficient case management, early case assessment, and strategic use of technology to control costs while maintaining quality representation."
-      }
-    ]
+    "keyAttorneys": [
+      "hem-chandra-pant",
+      "udayan-khandelwal"
+    ],
+    "faqs": []
   },
   {
     "id": "4",
-    "slug": "real-estate",
-    "name": "Real Estate",
-    "shortDescription": "Full-service real estate legal solutions.",
-    "description": "Our Real Estate practice handles all aspects of commercial and residential real estate transactions, from acquisition and financing to development, leasing, and disposition.",
-    "icon": "Home",
+    "slug": "intellectual-property",
+    "name": "Intellectual Property",
+    "shortDescription": "Comprehensive IP protection, prosecution and enforcement.",
+    "description": "We have notable experience in IP-based transactional, regulatory and litigation matters including protection and enforcement of IP rights, negotiating contractual arrangements, joint ownership and assignments. We advise on prosecution and registration of trademark, patent, copyright and design, conduct IP audits and due diligence, and handle enforcement litigation.",
+    "icon": "Lightbulb",
     "services": [
-      "Acquisitions and Dispositions",
-      "Real Estate Finance",
-      "Commercial Leasing",
-      "Land Use and Zoning",
-      "Construction Contracts",
-      "REIT Formation"
+      "Patent Prosecution & Registration",
+      "Trademark Registration",
+      "Copyright Protection",
+      "Design Registration",
+      "IP Litigation",
+      "IP Audits & Due Diligence",
+      "Technology Transfer Agreements",
+      "Licensing Agreements",
+      "Anti-Counterfeiting",
+      "Anti-Piracy Litigation"
     ],
-    "keyAttorneys": ["emily-thompson"],
-    "faqs": [
-      {
-        "question": "What due diligence is needed for commercial real estate purchases?",
-        "answer": "We conduct comprehensive reviews of title, environmental conditions, zoning compliance, existing leases, and structural assessments to protect your investment."
-      },
-      {
-        "question": "How do you handle complex financing structures?",
-        "answer": "We have extensive experience with traditional mortgages, mezzanine financing, preferred equity, and creative structures tailored to each transaction's needs."
-      }
-    ]
+    "keyAttorneys": [
+      "rahul-dubey"
+    ],
+    "faqs": []
   },
   {
     "id": "5",
-    "slug": "intellectual-property",
-    "name": "Intellectual Property",
-    "shortDescription": "Protecting and monetizing your innovations.",
-    "description": "Our IP team helps clients protect, enforce, and monetize their intellectual property assets. We combine legal expertise with technical understanding to deliver strategic IP counsel.",
-    "icon": "Lightbulb",
+    "slug": "real-estate",
+    "name": "Real Estate",
+    "shortDescription": "Complete real estate legal solutions for developers and investors.",
+    "description": "We advise and assist developers, investors and owners on legal and regulatory issues regarding Indian property laws covering transfer, sale, stamping & registration of property, land revenue and tenancy laws. We conduct due diligence and handle all transactional documentation.",
+    "icon": "Home",
     "services": [
-      "Patent Prosecution",
-      "Trademark Registration",
-      "IP Licensing",
-      "Trade Secret Protection",
-      "IP Litigation",
-      "Technology Transactions"
+      "Property Due Diligence",
+      "Development Agreements",
+      "Joint Development Agreements",
+      "Sale & Purchase Agreements",
+      "Lease Agreements",
+      "Leave & License Agreements",
+      "Property Registration",
+      "Mutation in Land Records",
+      "Land Acquisition",
+      "RERA Compliance"
     ],
-    "keyAttorneys": ["james-okonkwo"],
-    "faqs": [
-      {
-        "question": "How do I protect my software or technology?",
-        "answer": "Protection strategies may include patents, copyrights, trade secrets, and contractual protections. We develop comprehensive IP strategies tailored to your technology and business goals."
-      },
-      {
-        "question": "What should I do if someone is infringing my IP?",
-        "answer": "We assess the infringement, evaluate enforcement options, and develop a strategy that may include cease-and-desist letters, licensing negotiations, or litigation."
-      }
-    ]
+    "keyAttorneys": [
+      "devender-kumar-sharma",
+      "shubhankar-sharma"
+    ],
+    "faqs": []
   },
   {
     "id": "6",
-    "slug": "employment-law",
-    "name": "Employment Law",
-    "shortDescription": "Navigating complex workplace legal issues.",
-    "description": "Our Employment Law practice advises employers on all aspects of the employment relationship, from hiring through termination, helping clients minimize risk while maintaining productive workplaces.",
+    "slug": "banking-finance",
+    "name": "Banking & Finance",
+    "shortDescription": "Comprehensive banking and finance legal services.",
+    "description": "Our practice in the banking and finance sector covers loans, restructuring, external commercial borrowings, asset securitization, acquisition & leverage finance, structured finance, asset finance, project finance and related regulatory issues including risk management.",
+    "icon": "Building2",
+    "services": [
+      "Loan Documentation",
+      "Debt Restructuring",
+      "External Commercial Borrowings",
+      "Asset Securitization",
+      "Acquisition Finance",
+      "Project Finance",
+      "Structured Finance",
+      "Regulatory Compliance"
+    ],
+    "keyAttorneys": [
+      "hem-chandra-pant",
+      "rahul-dubey"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "7",
+    "slug": "insolvency-bankruptcy",
+    "name": "Insolvency & Bankruptcy",
+    "shortDescription": "Expert guidance through insolvency and restructuring processes.",
+    "description": "Our insolvency & bankruptcy team advises financial creditors, operational creditors, corporate debtors and insolvency professionals on all aspects of the insolvency, liquidation and restructuring processes under the Insolvency and Bankruptcy Code.",
+    "icon": "Scale",
+    "services": [
+      "NCLT Applications",
+      "Claims Filing",
+      "Resolution Plan Preparation",
+      "Liquidation Proceedings",
+      "CIRP Representation",
+      "Creditor Rights",
+      "Debtor Counseling"
+    ],
+    "keyAttorneys": [
+      "udayan-khandelwal",
+      "rakshit-jain"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "8",
+    "slug": "employment-labour",
+    "name": "Employment & Labour",
+    "shortDescription": "Comprehensive employment law and HR compliance services.",
+    "description": "Our employment and labour law practice focuses on labour law compliances, drafting and reviewing employment agreements, policies, termination procedures, non-compete agreements, POSH compliance, and handling employee misconduct inquiries.",
     "icon": "Users",
     "services": [
       "Employment Agreements",
-      "Workplace Policies",
-      "Discrimination Defense",
-      "Wage and Hour Compliance",
-      "Executive Compensation",
-      "Workplace Investigations"
+      "Labour Law Compliance",
+      "POSH Compliance & Inquiries",
+      "Termination Policies",
+      "Non-Compete Agreements",
+      "Employee Handbooks",
+      "Grievance Settlement",
+      "Trade Union Negotiations",
+      "Service Bonds"
     ],
-    "keyAttorneys": ["michael-rodriguez"],
-    "faqs": [
-      {
-        "question": "What employment policies should every company have?",
-        "answer": "Essential policies include anti-harassment, at-will employment, confidentiality, social media use, and leave policies. We tailor policies to your industry and company culture."
-      },
-      {
-        "question": "How should we handle employee terminations?",
-        "answer": "We guide clients through proper termination procedures, documentation, and separation agreements to minimize legal exposure."
-      }
-    ]
+    "keyAttorneys": [
+      "surender-kumar",
+      "hem-chandra-pant"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "9",
+    "slug": "taxation",
+    "name": "Taxation",
+    "shortDescription": "Direct and indirect taxation advisory and compliance.",
+    "description": "We advise clients on both direct and indirect taxation issues, structuring complex transactions and business models, cross-border and domestic transactions, India entry and exit strategies, permanent establishment and DTAA issues, and transfer pricing.",
+    "icon": "Building2",
+    "services": [
+      "Direct Tax Advisory",
+      "Indirect Tax (GST)",
+      "Tax Structuring",
+      "Transfer Pricing",
+      "DTAA Issues",
+      "Tax Litigation",
+      "Tax Compliance"
+    ],
+    "keyAttorneys": [
+      "rakshit-jain"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "10",
+    "slug": "competition-antitrust",
+    "name": "Competition / Anti-Trust",
+    "shortDescription": "Competition law compliance and representation.",
+    "description": "We specialize in all aspects of Indian competition law including concession arrangements, cartels, anti-competitive agreements, abuse of dominant position, representations before the Competition Commission of India and Competition Appellate Tribunal.",
+    "icon": "Scale",
+    "services": [
+      "Competition Law Compliance",
+      "Cartel Investigations",
+      "Abuse of Dominance",
+      "CCI Representations",
+      "Merger Control",
+      "Competition Litigation"
+    ],
+    "keyAttorneys": [
+      "udayan-khandelwal",
+      "rahul-dubey"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "11",
+    "slug": "data-protection-privacy",
+    "name": "Data Protection & Privacy",
+    "shortDescription": "Navigating India's data privacy and cyber security landscape.",
+    "description": "We provide expert legal services in navigating the robust Indian legal framework dealing with data privacy and protection. We advise on evolving legal, technological and business issues relating to cyber security, data collection & protection and privacy.",
+    "icon": "Lightbulb",
+    "services": [
+      "Privacy Policy Drafting",
+      "Data Protection Compliance",
+      "Cyber Security Advisory",
+      "GDPR Compliance",
+      "Data Breach Response",
+      "Confidentiality Agreements"
+    ],
+    "keyAttorneys": [
+      "rahul-dubey",
+      "udayan-khandelwal"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "12",
+    "slug": "environment-law",
+    "name": "Environment Law",
+    "shortDescription": "Environmental compliance and regulatory advisory.",
+    "description": "We assist clients on compliances and liabilities under environment legislations including the Environment Protection Act, 1986 and substantive areas of environment laws. We conduct environmental audits and environmental impact assessments.",
+    "icon": "Lightbulb",
+    "services": [
+      "Environmental Clearances",
+      "Environmental Audits",
+      "EIA Studies",
+      "Pollution Control Compliance",
+      "Waste Management",
+      "Green Tribunal Matters"
+    ],
+    "keyAttorneys": [
+      "surender-kumar"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "13",
+    "slug": "energy-power-infrastructure",
+    "name": "Energy, Power & Infrastructure",
+    "shortDescription": "End-to-end services for energy and infrastructure projects.",
+    "description": "We render end-to-end services in bidding, project development, financing, M&A, conducting due diligence and drafting power purchase agreements, EPC contracts, O&M contracts, state support agreements, and fuel supply contracts.",
+    "icon": "Building2",
+    "services": [
+      "Project Development",
+      "Power Purchase Agreements",
+      "EPC Contracts",
+      "O&M Contracts",
+      "Fuel Supply Agreements",
+      "Regulatory Approvals"
+    ],
+    "keyAttorneys": [
+      "surender-kumar",
+      "hem-chandra-pant"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "14",
+    "slug": "food-beverage",
+    "name": "Food & Beverage",
+    "shortDescription": "Regulatory compliance for F&B industry.",
+    "description": "We have expertise in advising on regulatory matters and legislations impacting the Food & Beverage industry including product labeling, packaging, permissibility of ingredients, weights & measures, FSSAI approvals and compliance with food safety laws.",
+    "icon": "Building2",
+    "services": [
+      "FSSAI Registration & Licensing",
+      "Product Labeling Compliance",
+      "Food Safety Audits",
+      "Weights & Measures Compliance",
+      "Product Approvals",
+      "Regulatory Representation"
+    ],
+    "keyAttorneys": [
+      "shubhankar-sharma"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "15",
+    "slug": "hospitality-tourism-retail",
+    "name": "Hospitality, Tourism & Retail",
+    "shortDescription": "Integrated legal services for hospitality and retail sectors.",
+    "description": "We provide integrated financing, real estate, tax, corporate, and intellectual property services including sale and acquisition, property due diligence, documentation, financing, contracts and franchises, M&A, and dispute resolution.",
+    "icon": "Building2",
+    "services": [
+      "Hotel Acquisitions",
+      "Franchise Agreements",
+      "Licensing",
+      "Tourism Permits",
+      "Retail Agreements",
+      "Property Documentation"
+    ],
+    "keyAttorneys": [
+      "shubhankar-sharma",
+      "devender-kumar-sharma"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "16",
+    "slug": "startups",
+    "name": "Start-ups",
+    "shortDescription": "Supporting emerging businesses and entrepreneurs.",
+    "description": "We advise, guide and assist the startup ecosystem by engaging with governmental bodies, incubators and accelerators to support emerging businesses and budding entrepreneurs covering the entire spectrum of new businesses and managing their legal and compliance issues.",
+    "icon": "Lightbulb",
+    "services": [
+      "Company Incorporation",
+      "Startup India Registration",
+      "Funding Documentation",
+      "Investor Agreements",
+      "Compliance Management",
+      "IP Protection"
+    ],
+    "keyAttorneys": [
+      "rakshit-jain",
+      "rahul-dubey"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "17",
+    "slug": "admiralty-maritime",
+    "name": "Admiralty & Maritime",
+    "shortDescription": "Maritime law and shipping contracts.",
+    "description": "We draft and facilitate negotiations of ship building contracts, vessel acquisition or lease. We advise on pollution liabilities, UNCLOS and other International Conventions, and issues arising from bill of lading, charter-parties, cargo liens and vessel arrest.",
+    "icon": "Building2",
+    "services": [
+      "Ship Building Contracts",
+      "Vessel Acquisition",
+      "Charter-Party Agreements",
+      "Bill of Lading Disputes",
+      "Cargo Claims",
+      "Vessel Arrest & Release"
+    ],
+    "keyAttorneys": [
+      "udayan-khandelwal"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "18",
+    "slug": "anti-corruption-compliance",
+    "name": "Anti-Corruption & Compliance",
+    "shortDescription": "Anti-bribery compliance and internal investigations.",
+    "description": "We advise clients on Indian anti-corruption and anti-bribery laws as well as implications of the U.S. Foreign Corrupt Practices Act and U.K. Bribery Act. We specialize in both preventive and responsive approaches including internal investigations.",
+    "icon": "Scale",
+    "services": [
+      "Compliance Policy Drafting",
+      "Internal Investigations",
+      "FCPA Compliance",
+      "UK Bribery Act Compliance",
+      "Anti-Money Laundering",
+      "Fraud Prevention"
+    ],
+    "keyAttorneys": [
+      "udayan-khandelwal",
+      "hem-chandra-pant"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "19",
+    "slug": "drones-unmanned-aircraft",
+    "name": "Drones / Unmanned Aircrafts",
+    "shortDescription": "Legal advisory for drone operations and compliance.",
+    "description": "We assist clients in the registration process and advise on the evolving legal, regulatory and compliance issues with regard to drones and unmanned aircrafts in India under the Drone Rules, 2021 and Certification Scheme for UAS.",
+    "icon": "Lightbulb",
+    "services": [
+      "Drone Registration",
+      "DGCA Approvals",
+      "Drone Rules Compliance",
+      "UAS Certification",
+      "Operational Permits",
+      "Regulatory Advisory"
+    ],
+    "keyAttorneys": [
+      "shubhankar-sharma"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "20",
+    "slug": "ecommerce",
+    "name": "E-commerce",
+    "shortDescription": "Legal support for e-commerce and FinTech businesses.",
+    "description": "We cater to the legal, transactional and regulatory needs in the e-commerce and retail sectors covering the corporate and operational sides of the business including FinTech.",
+    "icon": "Building2",
+    "services": [
+      "E-commerce Compliance",
+      "Consumer Protection",
+      "Payment Gateway Regulations",
+      "Terms & Conditions",
+      "Privacy Policies",
+      "Marketplace Regulations"
+    ],
+    "keyAttorneys": [
+      "udayan-khandelwal",
+      "rahul-dubey"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "21",
+    "slug": "estate-planning-trusts-wills",
+    "name": "Estate Planning, Trusts & Wills",
+    "shortDescription": "Private client services for wealth succession.",
+    "description": "We specialize in private client areas such as trusts, estate planning, inheritance and succession, taxation, Hindu Undivided Family (HUF), wills and other testamentary instruments, obtaining probates and handling court-related dispute resolution.",
+    "icon": "Building2",
+    "services": [
+      "Will Drafting",
+      "Trust Formation",
+      "Estate Planning",
+      "Probate",
+      "Succession Planning",
+      "HUF Management"
+    ],
+    "keyAttorneys": [
+      "devender-kumar-sharma",
+      "udayan-khandelwal"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "22",
+    "slug": "pharmaceutical-life-sciences",
+    "name": "Pharmaceutical & Life Sciences",
+    "shortDescription": "Regulatory compliance for pharma and healthcare.",
+    "description": "We advise on regulatory issues and compliances related to clinical trials, research and development, marketing, manufacturing and distribution, medical devices and stem cell research in India.",
+    "icon": "Building2",
+    "services": [
+      "Clinical Trial Agreements",
+      "Drug Regulatory Compliance",
+      "Medical Device Approvals",
+      "Licensing",
+      "R&D Agreements",
+      "Patent Protection"
+    ],
+    "keyAttorneys": [
+      "rahul-dubey"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "23",
+    "slug": "media-entertainment",
+    "name": "Media & Entertainment",
+    "shortDescription": "Legal services for media, entertainment and sports.",
+    "description": "We specialize in regulatory, technological, legal and tax issues in the industry and advise clients on broadcasting, publication, intellectual property, online gaming laws, entertainment laws, sports laws and ancillary matters.",
+    "icon": "Building2",
+    "services": [
+      "Broadcasting Licenses",
+      "Content Licensing",
+      "IP Protection",
+      "Sports Law",
+      "Online Gaming Compliance",
+      "Defamation Matters"
+    ],
+    "keyAttorneys": [
+      "rahul-dubey",
+      "udayan-khandelwal"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "24",
+    "slug": "technology-telecommunications",
+    "name": "Technology & Telecommunications",
+    "shortDescription": "Tech sector legal and regulatory advisory.",
+    "description": "Our dedicated Tech team advises clients on regulatory, policy and compliance issues covering information technology, outsourcing, data privacy & protection, and contractual and interconnection agreements.",
+    "icon": "Lightbulb",
+    "services": [
+      "Telecom Licensing",
+      "IT Agreements",
+      "Outsourcing Contracts",
+      "Data Privacy",
+      "Interconnection Agreements",
+      "Technology Transfer"
+    ],
+    "keyAttorneys": [
+      "hem-chandra-pant",
+      "rahul-dubey"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "25",
+    "slug": "education",
+    "name": "Education",
+    "shortDescription": "Legal advisory for educational institutions.",
+    "description": "We advise educational institutions, non-profit organizations and charitable foundations on legal and regulatory aspects with respect to UGC, AICTE pertaining to Indian education sector. We assist in structuring entry options for foreign universities.",
+    "icon": "Building2",
+    "services": [
+      "UGC/AICTE Compliance",
+      "Foreign Collaboration Agreements",
+      "Institution Registration",
+      "Regulatory Approvals",
+      "Non-Profit Formation",
+      "Education Policy Advisory"
+    ],
+    "keyAttorneys": [
+      "shubhankar-sharma"
+    ],
+    "faqs": []
+  },
+  {
+    "id": "26",
+    "slug": "insurance",
+    "name": "Insurance",
+    "shortDescription": "Insurance regulatory and transactional advisory.",
+    "description": "We advise insurers, reinsurers, intermediaries, investors, investment banks and policyholders on legal, regulatory and commercial issues including insurance registrations, distribution channels, fund raising, and claim filing.",
+    "icon": "Building2",
+    "services": [
+      "Insurance Registration",
+      "IRDAI Compliance",
+      "Policy Drafting",
+      "Claims Management",
+      "Distribution Agreements",
+      "Regulatory Advisory"
+    ],
+    "keyAttorneys": [
+      "hem-chandra-pant"
+    ],
+    "faqs": []
   }
 ]
