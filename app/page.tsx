@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AnimatedSection } from "@/components/animated-section"
+import { AnimatedStat } from "@/components/animated-counter"
 import { ArrowRight, Building2, Handshake, Scale, Home, Lightbulb, Users, Award, Globe, Clock } from "lucide-react"
 import attorneys from "@/data/attorneys.json"
 import practices from "@/data/practices.json"
@@ -102,11 +103,13 @@ export default function HomePage() {
         <section className="border-y border-border bg-background py-12">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="font-serif text-3xl font-bold text-accent md:text-4xl">{stat.value}</div>
-                  <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
-                </div>
+              {stats.map((stat, index) => (
+                <AnimatedStat
+                  key={stat.label}
+                  value={stat.value}
+                  label={stat.label}
+                  delay={index * 0.1}
+                />
               ))}
             </div>
           </div>
