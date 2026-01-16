@@ -63,7 +63,16 @@
       "hem-chandra-pant",
       "surender-kumar"
     ],
-    "faqs": []
+    "faqs": [
+      {
+        "question": "What are the compliance requirements for a new company?",
+        "answer": "New companies must comply with various statutory requirements including obtaining a PAN/TAN, GST registration, ongoing ROC filings (Annual Returns, Financial Statements), and maintaining statutory registers. We assist with all initial and ongoing compliance."
+      },
+      {
+        "question": "How can you help with contract negotiations?",
+        "answer": "We review, draft, and negotiate commercial contracts to ensure your interests are protected. We identify potential risks in clauses related to indemnity, enhance liability protection, and ensure clear termination rights."
+      }
+    ]
   },
   {
     "id": "3",
@@ -86,7 +95,16 @@
       "hem-chandra-pant",
       "udayan-khandelwal"
     ],
-    "faqs": []
+    "faqs": [
+      {
+        "question": "How long does the M&A process typically take?",
+        "answer": "The timeline varies significantly based on complexity, but typically ranges from 4-6 months. This includes preliminary negotiations, due diligence (4-6 weeks), drafting definitive agreements, and obtaining regulatory approvals (NCLT, CCI, etc.)."
+      },
+      {
+        "question": "What is the importance of due diligence?",
+        "answer": "Due diligence is critical to identify potential legal, financial, and operational risks before finalizing a transaction. It helps in correct valuation and structuring of the deal to mitigate identified risks."
+      }
+    ]
   },
   {
     "id": "4",
@@ -110,7 +128,16 @@
     "keyAttorneys": [
       "rahul-dubey"
     ],
-    "faqs": []
+    "faqs": [
+      {
+        "question": "What is the difference between specific IP rights?",
+        "answer": "A Trademark protects your brand name and logo. Copyright protects original creative works like software, books, and art. Patents protect new inventions and processes. Designs protect the aesthetic appearance of a product."
+      },
+      {
+        "question": "How do I enforce my IP rights against infringement?",
+        "answer": "Enforcement can involve sending Cease & Desist notices, filing civil suits for injunctions and damages, or initiating criminal action in certain cases. We assist in devising the most effective enforcement strategy."
+      }
+    ]
   },
   {
     "id": "5",
@@ -135,7 +162,16 @@
       "devender-kumar-sharma",
       "shubhankar-sharma"
     ],
-    "faqs": []
+    "faqs": [
+      {
+        "question": "What due diligence is required before buying property?",
+        "answer": "It is essential to verify the title chain for at least 30 years, check for encumbrances (mortgages, liens), verify land use permissions (CLU), and ensure compliance with RERA and local municipal bylaws."
+      },
+      {
+        "question": "How does RERA protect property buyers?",
+        "answer": "RERA mandates transparency in project details, ensures deposits are kept in separate accounts, enforces strict delivery timelines, and provides a specialized forum for quick dispute resolution against builders."
+      }
+    ]
   },
   {
     "id": "6",
@@ -204,7 +240,16 @@
       "surender-kumar",
       "hem-chandra-pant"
     ],
-    "faqs": []
+    "faqs": [
+      {
+        "question": "Is POSH compliance mandatory for all companies?",
+        "answer": "Yes, any workplace with 10 or more employees must constitute an Internal Committee (IC) under the POSH Act. Even smaller organizations have specific compliance obligations to ensure a safe workplace."
+      },
+      {
+        "question": "Are non-compete agreements enforceable in India?",
+        "answer": "Generally, non-compete agreements extending beyond the term of employment are considered void under Section 27 of the Contract Act. However, confidentiality and non-solicitation clauses are usually enforceable to protect trade secrets."
+      }
+    ]
   },
   {
     "id": "9",
