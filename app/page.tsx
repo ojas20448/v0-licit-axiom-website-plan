@@ -239,14 +239,14 @@ export default function HomePage() {
         </section>
 
         {/* Featured Attorneys Section */}
-        <section className="py-20 lg:py-28">
+        <section className="py-20 lg:py-28 bg-primary bg-pattern text-primary-foreground">
           <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection animation="fadeUp">
               <div className="mx-auto max-w-2xl text-center">
-                <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                <h2 className="font-serif text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
                   Meet Our Team
                 </h2>
-                <p className="mt-4 text-muted-foreground leading-relaxed">
+                <p className="mt-4 text-primary-foreground/80 leading-relaxed">
                   Our team combines deep legal expertise with business acumen to deliver exceptional results for our
                   clients.
                 </p>
@@ -261,7 +261,7 @@ export default function HomePage() {
                       whileHover={{ y: -8, transition: { duration: 0.3 } }}
                       className="h-full"
                     >
-                      <Card className="overflow-hidden bg-card transition-all hover:shadow-lg h-full">
+                      <Card className="overflow-hidden bg-card border-none transition-all hover:shadow-lg h-full">
                         <div className="relative aspect-[3/4] overflow-hidden">
                           <motion.div
                             whileHover={{ scale: 1.05 }}
@@ -289,7 +289,7 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10 text-center">
-              <Button variant="outline" asChild>
+              <Button variant="secondary" asChild>
                 <Link href="/attorneys">View All Team Members</Link>
               </Button>
             </div>
@@ -297,10 +297,10 @@ export default function HomePage() {
         </section>
 
         {/* Clients Section */}
-        <section className="py-16 lg:py-24 bg-secondary">
+        <section className="py-16 lg:py-24 bg-secondary overflow-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection animation="fadeUp">
-              <div className="mx-auto max-w-3xl text-center">
+              <div className="mx-auto max-w-3xl text-center mb-12">
                 <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                   Trusted by Leading Organizations
                 </h2>
@@ -310,47 +310,42 @@ export default function HomePage() {
               </div>
             </AnimatedSection>
 
-            <div className="mt-12">
-              <AnimatedSection animation="fadeIn" delay={0.2}>
-                <h3 className="text-center text-sm font-semibold text-accent mb-6">EMPANELLED WITH</h3>
-              </AnimatedSection>
-              <div className="grid grid-cols-2 gap-6 md:grid-cols-4 mb-12">
-                {["ONGC", "Coal India Ltd.", "BSNL", "State Bank of India"].map((client, index) => (
-                  <AnimatedSection key={client} animation="fadeUp" delay={0.3 + index * 0.1}>
-                    <motion.div
-                      whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                      className="flex items-center justify-center p-6 bg-card rounded-lg border border-border h-full"
-                    >
-                      <span className="font-semibold text-foreground text-center">{client}</span>
-                    </motion.div>
-                  </AnimatedSection>
-                ))}
-              </div>
-
-              <h3 className="text-center text-sm font-semibold text-muted-foreground mb-6">SELECT CLIENTS</h3>
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-                {[
-                  "PVR Cinemas",
-                  "Neemrana Hotels",
-                  "National Housing Bank",
-                  "Karim Hotels",
-                  "Promotech Fabrication",
-                  "Premier Safeguards",
-                  "Keltech Infrastructure",
-                  "YG Consulting",
-                  "Pedo Planet Dental",
-                  "Hi-Tech Sweet Water"
-                ].map((client) => (
-                  <div key={client} className="flex items-center justify-center p-4 bg-background rounded border border-border">
-                    <span className="text-sm text-muted-foreground text-center">{client}</span>
+            <div className="relative w-full overflow-hidden pause-on-hover">
+              <div className="flex w-max animate-scroll whitespace-nowrap items-center">
+                {[...Array(2)].map((_, i) => (
+                  <div key={i} className="flex items-center gap-12 mx-6">
+                    {[
+                      { name: "ONGC", logo: "/clients/ongc.png" },
+                      { name: "Coal India Ltd.", logo: "/clients/coal-india.png" },
+                      { name: "BSNL", logo: "/clients/bsnl.png" },
+                      { name: "State Bank of India", logo: "/clients/sbi.png" },
+                      { name: "PVR Cinemas", logo: "/clients/pvr.png" },
+                      { name: "Neemrana Hotels", logo: "/clients/neemrana.png" },
+                      { name: "National Housing Bank", logo: "/clients/nhb.png" },
+                      { name: "Karim Hotels", logo: "/clients/karims.png" },
+                    ].map((client) => (
+                      <div key={`${i}-${client.name}`} className="relative h-24 w-48 shrink-0 transition-all duration-300">
+                        <Image
+                          src={client.logo}
+                          alt={client.name}
+                          fill
+                          className="object-contain mix-blend-multiply"
+                        />
+                      </div>
+                    ))}
+                    <div className="text-xl font-serif font-semibold text-muted-foreground shrink-0 px-4">
+                      And Many More...
+                    </div>
                   </div>
                 ))}
               </div>
+              <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-secondary to-transparent z-10" />
+              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-secondary to-transparent z-10" />
             </div>
           </div>
         </section>
 
-        <section className="bg-primary py-20">
+        <section className="bg-primary bg-pattern py-20">
           <div className="container mx-auto px-4 text-center md:px-6">
             <h2 className="font-serif text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
               Ready to Discuss Your Legal Needs?

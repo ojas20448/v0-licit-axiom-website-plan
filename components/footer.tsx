@@ -71,6 +71,13 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-sm font-semibold text-foreground">Contact</h3>
             <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 text-accent" />
+                <div className="text-sm text-muted-foreground">
+                  <p>G-I/75, Lajpat Nagar-1</p>
+                  <p>New Delhi 110024</p>
+                </div>
+              </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-accent" />
                 <div className="text-sm text-muted-foreground">

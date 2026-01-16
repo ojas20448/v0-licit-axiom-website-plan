@@ -86,22 +86,22 @@ export default function ContactPage() {
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="firstName">First Name</Label>
-                        <Input id="firstName" placeholder="John" required className="bg-card" />
+                        <Input id="firstName" placeholder="Amit" required className="bg-card" />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="lastName">Last Name</Label>
-                        <Input id="lastName" placeholder="Doe" required className="bg-card" />
+                        <Input id="lastName" placeholder="Sharma" required className="bg-card" />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="john@example.com" required className="bg-card" />
+                      <Input id="email" type="email" placeholder="amit.sharma@example.com" required className="bg-card" />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone (Optional)</Label>
-                      <Input id="phone" type="tel" placeholder="+1 (555) 000-0000" className="bg-card" />
+                      <Input id="phone" type="tel" placeholder="+91 98765 43210" className="bg-card" />
                     </div>
 
                     <div className="space-y-2">
@@ -158,6 +158,20 @@ export default function ContactPage() {
                   <Card className="bg-card">
                     <CardContent className="flex items-start gap-4 p-6">
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10">
+                        <MapPin className="h-6 w-6 text-accent" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-foreground">Office Address</h3>
+                        <p className="mt-1 text-muted-foreground">
+                          G-I/75, Lajpat Nagar-1<br />
+                          New Delhi 110024
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-card">
+                    <CardContent className="flex items-start gap-4 p-6">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10">
                         <Phone className="h-6 w-6 text-accent" />
                       </div>
                       <div className="flex-1">
@@ -200,7 +214,7 @@ export default function ContactPage() {
                 <Card className="overflow-hidden bg-card">
                   <div className="aspect-video w-full bg-secondary">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1838415889953!2d-73.97632568459393!3d40.75634797932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258ff31d9a7c9%3A0x8ef5c32b9b5a5e8a!2s100%20Park%20Ave%2C%20New%20York%2C%20NY%2010017!5e0!3m2!1sen!2sus!4v1674567890123!5m2!1sen!2sus"
+                      src="https://maps.google.com/maps?q=G-I%2F75%2C%20Lajpat%20Nagar-1%2C%20New%20Delhi%20110024&t=&z=15&ie=UTF8&iwloc=&output=embed"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}

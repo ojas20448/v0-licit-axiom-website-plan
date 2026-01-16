@@ -140,3 +140,30 @@
     @apply bg-accent/30 text-accent-foreground;
   }
 }
+
+@layer utilities {
+  .bg-pattern {
+    background-color: var(--primary);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .pause-on-hover:hover .animate-scroll {
+    animation-play-state: paused;
+  }
+}
