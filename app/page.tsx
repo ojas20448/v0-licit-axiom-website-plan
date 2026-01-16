@@ -10,7 +10,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AnimatedSection } from "@/components/animated-section"
 import { AnimatedStat } from "@/components/animated-counter"
-import { ArrowRight, Building2, Handshake, Scale, Home, Lightbulb, Users, Award, Globe, Clock } from "lucide-react"
+import { ArrowRight, Building2, Handshake, Scale, Home, Lightbulb, Users, Award, Globe, Clock, HeartHandshake, Coins, Gavel, ShieldCheck, Zap } from "lucide-react"
 import attorneys from "@/data/attorneys.json"
 import practices from "@/data/practices.json"
 
@@ -176,62 +176,96 @@ export default function HomePage() {
         {/* Why Choose Us Section */}
         <section className="bg-secondary py-20 lg:py-28">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="grid items-center gap-12 lg:grid-cols-2">
-              <div>
-                <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-                  Why Choose Licit Axiom?
-                </h2>
-                <p className="mt-4 text-muted-foreground leading-relaxed">
-                  For over two decades, we have been the trusted legal partner for businesses navigating complex
-                  challenges. Our commitment to excellence and client service sets us apart.
-                </p>
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                Why Clients Trust Licit Axiom
+              </h2>
+              <p className="mt-4 text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                We believe that legal help should be accessible, expert-driven, and results-oriented.
+              </p>
+            </div>
 
-                <div className="mt-8 space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10">
-                      <Award className="h-5 w-5 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Industry Recognition</h3>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        Ranked among top law firms by Chambers & Partners and Legal 500.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10">
-                      <Globe className="h-5 w-5 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Global Reach</h3>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        Cross-border expertise with a network spanning major financial centers.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10">
-                      <Clock className="h-5 w-5 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Responsive Service</h3>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        24/7 availability for urgent matters with dedicated client teams.
-                      </p>
-                    </div>
-                  </div>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {/* 1. Step Into Your Shoes */}
+              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                  <HeartHandshake className="h-6 w-6 text-accent" />
                 </div>
+                <h3 className="font-bold text-lg mb-2">"Step Into Your Shoes" Approach</h3>
+                <p className="text-sm text-muted-foreground">
+                  We treat your legal challenges with the same urgency and care as if they were our own personal matters.
+                </p>
               </div>
 
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                <Image
-                  src="/professional-law-team-meeting-in-modern-conference.jpg"
-                  alt="Our team in action"
-                  fill
-                  className="object-cover"
-                />
+              {/* 2. Cost-Effective */}
+              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                  <Coins className="h-6 w-6 text-accent" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Cost-Effective Solutions</h3>
+                <p className="text-sm text-muted-foreground">
+                  Our primary goal is to provide relief that solves your problem without unnecessary financial burden.
+                </p>
+              </div>
+
+              {/* 3. Diverse Brain Trust */}
+              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                  <Users className="h-6 w-6 text-accent" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Diverse Brain Trust</h3>
+                <p className="text-sm text-muted-foreground">
+                  Our team includes professionals with decades of experience in the bureaucracy, Chartered Accountancy,
+                  and Corporate Leadership.
+                </p>
+              </div>
+
+              {/* 4. Proven Courtroom Success */}
+              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                  <Gavel className="h-6 w-6 text-accent" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Proven Courtroom Success</h3>
+                <p className="text-sm text-muted-foreground">
+                  Our advocates have handled high-stakes cases and secured landmark judgments in the Supreme Court of
+                  India, High Courts, and tribunals.
+                </p>
+              </div>
+
+              {/* 5. Comprehensive Coverage */}
+              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                  <ShieldCheck className="h-6 w-6 text-accent" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Comprehensive Coverage</h3>
+                <p className="text-sm text-muted-foreground">
+                  We assist with the entire lifecycle of a business, including company registration, taxation, contract
+                  drafting, and mergers.
+                </p>
+              </div>
+
+              {/* 6. Future-Ready Expertise */}
+              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                  <Zap className="h-6 w-6 text-accent" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Future-Ready Expertise</h3>
+                <p className="text-sm text-muted-foreground">
+                  We stay ahead of the curve by specializing in modern legal areas like drone laws, cybersecurity, data
+                  privacy, power and energy and e-commerce.
+                </p>
+              </div>
+
+              {/* 7. Deep Industry Knowledge */}
+              <div className="bg-card p-6 rounded-lg border border-border shadow-sm md:col-span-2 lg:col-span-3 xl:col-span-2 xl:col-start-2">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                  <Building2 className="h-6 w-6 text-accent" />
+                </div>
+                <h3 className="font-bold text-lg mb-2">Deep Industry Knowledge</h3>
+                <p className="text-sm text-muted-foreground">
+                  We have specialized teams for sectors including Banking, Food & Beverage, Hospitality, Real Estate,
+                  power and energy, and Pharmaceuticals.
+                </p>
               </div>
             </div>
           </div>
