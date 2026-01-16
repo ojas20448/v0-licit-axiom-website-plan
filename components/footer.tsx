@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone } from "lucide-react"
 
 const navigation = {
   practices: [
-    { name: "Corporate Law", href: "/practices/corporate-law" },
+    { name: "Corporate Law", href: "/practices/corporate-commercial" },
     { name: "Mergers & Acquisitions", href: "/practices/mergers-acquisitions" },
     { name: "Litigation", href: "/practices/litigation" },
     { name: "Real Estate", href: "/practices/real-estate" },
