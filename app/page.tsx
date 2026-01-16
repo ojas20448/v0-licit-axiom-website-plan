@@ -185,88 +185,55 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {/* 1. Step Into Your Shoes */}
-              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-                  <HeartHandshake className="h-6 w-6 text-accent" />
+            <div className="flex flex-wrap justify-center gap-8">
+              {[
+                {
+                  title: '"Step Into Your Shoes" Approach',
+                  description: "We treat your legal challenges with the same urgency and care as if they were our own personal matters.",
+                  icon: HeartHandshake
+                },
+                {
+                  title: "Cost-Effective Solutions",
+                  description: "Our primary goal is to provide relief that solves your problem without unnecessary financial burden.",
+                  icon: Coins
+                },
+                {
+                  title: "Diverse Brain Trust",
+                  description: "Our team includes professionals with decades of experience in the bureaucracy, Chartered Accountancy, and Corporate Leadership.",
+                  icon: Users
+                },
+                {
+                  title: "Proven Courtroom Success",
+                  description: "Our advocates have handled high-stakes cases and secured landmark judgments in the Supreme Court of India, High Courts, and tribunals.",
+                  icon: Gavel
+                },
+                {
+                  title: "Comprehensive Coverage",
+                  description: "We assist with the entire lifecycle of a business, including company registration, taxation, contract drafting, and mergers.",
+                  icon: ShieldCheck
+                },
+                {
+                  title: "Future-Ready Expertise",
+                  description: "We stay ahead of the curve by specializing in modern legal areas like drone laws, cybersecurity, data privacy, power and energy and e-commerce.",
+                  icon: Zap
+                },
+                {
+                  title: "Deep Industry Knowledge",
+                  description: "We have specialized teams for sectors including Banking, Food & Beverage, Hospitality, Real Estate, power and energy, and Pharmaceuticals.",
+                  icon: Building2
+                }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-card p-6 rounded-lg border border-border shadow-sm w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.34rem)] xl:w-[calc(25%-1.5rem)] flex flex-col"
+                >
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                    <item.icon className="h-6 w-6 text-accent" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
                 </div>
-                <h3 className="font-bold text-lg mb-2">"Step Into Your Shoes" Approach</h3>
-                <p className="text-sm text-muted-foreground">
-                  We treat your legal challenges with the same urgency and care as if they were our own personal matters.
-                </p>
-              </div>
-
-              {/* 2. Cost-Effective */}
-              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-                  <Coins className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Cost-Effective Solutions</h3>
-                <p className="text-sm text-muted-foreground">
-                  Our primary goal is to provide relief that solves your problem without unnecessary financial burden.
-                </p>
-              </div>
-
-              {/* 3. Diverse Brain Trust */}
-              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-                  <Users className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Diverse Brain Trust</h3>
-                <p className="text-sm text-muted-foreground">
-                  Our team includes professionals with decades of experience in the bureaucracy, Chartered Accountancy,
-                  and Corporate Leadership.
-                </p>
-              </div>
-
-              {/* 4. Proven Courtroom Success */}
-              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-                  <Gavel className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Proven Courtroom Success</h3>
-                <p className="text-sm text-muted-foreground">
-                  Our advocates have handled high-stakes cases and secured landmark judgments in the Supreme Court of
-                  India, High Courts, and tribunals.
-                </p>
-              </div>
-
-              {/* 5. Comprehensive Coverage */}
-              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-                  <ShieldCheck className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Comprehensive Coverage</h3>
-                <p className="text-sm text-muted-foreground">
-                  We assist with the entire lifecycle of a business, including company registration, taxation, contract
-                  drafting, and mergers.
-                </p>
-              </div>
-
-              {/* 6. Future-Ready Expertise */}
-              <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-                  <Zap className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Future-Ready Expertise</h3>
-                <p className="text-sm text-muted-foreground">
-                  We stay ahead of the curve by specializing in modern legal areas like drone laws, cybersecurity, data
-                  privacy, power and energy and e-commerce.
-                </p>
-              </div>
-
-              {/* 7. Deep Industry Knowledge */}
-              <div className="bg-card p-6 rounded-lg border border-border shadow-sm md:col-span-2 lg:col-span-3 xl:col-span-2 xl:col-start-2">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-                  <Building2 className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Deep Industry Knowledge</h3>
-                <p className="text-sm text-muted-foreground">
-                  We have specialized teams for sectors including Banking, Food & Beverage, Hospitality, Real Estate,
-                  power and energy, and Pharmaceuticals.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
