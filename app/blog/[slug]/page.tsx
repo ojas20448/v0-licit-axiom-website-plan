@@ -3,6 +3,7 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { AnimatedSection } from "@/components/animated-section"
 import { ArrowLeft, CalendarDays, User } from "lucide-react"
 import blogPosts from "@/data/blog.json"
 import attorneys from "@/data/attorneys.json"
@@ -65,82 +66,88 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="mx-auto max-w-3xl">
               {/* Header */}
               <header className="text-center">
-                <span className="inline-block rounded-full bg-accent px-4 py-1 text-sm font-medium text-accent-foreground">
-                  {post.category}
-                </span>
-                <h1 className="mt-6 font-serif text-3xl font-bold text-foreground md:text-4xl lg:text-5xl text-balance">
-                  {post.title}
-                </h1>
-                <div className="mt-6 flex items-center justify-center gap-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <User className="h-4 w-4" />
-                    {post.author}
+                <AnimatedSection animation="fadeUp">
+                  <span className="inline-block rounded-full bg-accent px-4 py-1 text-sm font-medium text-accent-foreground">
+                    {post.category}
+                  </span>
+                  <h1 className="mt-6 font-serif text-3xl font-bold text-foreground md:text-4xl lg:text-5xl text-balance">
+                    {post.title}
+                  </h1>
+                  <div className="mt-6 flex items-center justify-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <User className="h-4 w-4" />
+                      {post.author}
+                    </div>
+                    <span>•</span>
+                    <div className="flex items-center gap-2">
+                      <CalendarDays className="h-4 w-4" />
+                      {new Date(post.date).toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </div>
                   </div>
-                  <span>•</span>
-                  <div className="flex items-center gap-2">
-                    <CalendarDays className="h-4 w-4" />
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      month: "long",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
-                  </div>
-                </div>
+                </AnimatedSection>
               </header>
 
               {/* Featured Image */}
-              <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-lg">
-                <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" priority />
-              </div>
+              <AnimatedSection animation="scale" delay={0.1}>
+                <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-lg">
+                  <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" priority />
+                </div>
+              </AnimatedSection>
 
               {/* Content */}
-              <div className="prose prose-gray dark:prose-invert mx-auto mt-10 max-w-none">
-                {post.content.split("\n\n").map((paragraph, index) => {
-                  if (paragraph.startsWith("## ")) {
+              <AnimatedSection animation="fadeUp" delay={0.2}>
+                <div className="prose prose-gray dark:prose-invert mx-auto mt-10 max-w-none">
+                  {post.content.split("\n\n").map((paragraph, index) => {
+                    if (paragraph.startsWith("## ")) {
+                      return (
+                        <h2 key={index} className="mt-10 font-serif text-2xl font-semibold text-foreground">
+                          {paragraph.replace("## ", "")}
+                        </h2>
+                      )
+                    }
+                    if (paragraph.startsWith("### ")) {
+                      return (
+                        <h3 key={index} className="mt-8 font-serif text-xl font-semibold text-foreground">
+                          {paragraph.replace("### ", "")}
+                        </h3>
+                      )
+                    }
+                    if (paragraph.startsWith("- ")) {
+                      const items = paragraph.split("\n").filter((line) => line.startsWith("- "))
+                      return (
+                        <ul key={index} className="mt-4 space-y-2">
+                          {items.map((item, i) => (
+                            <li key={i} className="text-muted-foreground">
+                              {item.replace("- ", "").replace(/\*\*(.*?)\*\*/g, "$1")}
+                            </li>
+                          ))}
+                        </ul>
+                      )
+                    }
+                    if (paragraph.match(/^\d+\./)) {
+                      const items = paragraph.split("\n").filter((line) => line.match(/^\d+\./))
+                      return (
+                        <ol key={index} className="mt-4 list-decimal space-y-2 pl-6">
+                          {items.map((item, i) => (
+                            <li key={i} className="text-muted-foreground">
+                              {item.replace(/^\d+\.\s*/, "")}
+                            </li>
+                          ))}
+                        </ol>
+                      )
+                    }
                     return (
-                      <h2 key={index} className="mt-10 font-serif text-2xl font-semibold text-foreground">
-                        {paragraph.replace("## ", "")}
-                      </h2>
+                      <p key={index} className="mt-4 text-muted-foreground leading-relaxed">
+                        {paragraph}
+                      </p>
                     )
-                  }
-                  if (paragraph.startsWith("### ")) {
-                    return (
-                      <h3 key={index} className="mt-8 font-serif text-xl font-semibold text-foreground">
-                        {paragraph.replace("### ", "")}
-                      </h3>
-                    )
-                  }
-                  if (paragraph.startsWith("- ")) {
-                    const items = paragraph.split("\n").filter((line) => line.startsWith("- "))
-                    return (
-                      <ul key={index} className="mt-4 space-y-2">
-                        {items.map((item, i) => (
-                          <li key={i} className="text-muted-foreground">
-                            {item.replace("- ", "").replace(/\*\*(.*?)\*\*/g, "$1")}
-                          </li>
-                        ))}
-                      </ul>
-                    )
-                  }
-                  if (paragraph.match(/^\d+\./)) {
-                    const items = paragraph.split("\n").filter((line) => line.match(/^\d+\./))
-                    return (
-                      <ol key={index} className="mt-4 list-decimal space-y-2 pl-6">
-                        {items.map((item, i) => (
-                          <li key={i} className="text-muted-foreground">
-                            {item.replace(/^\d+\.\s*/, "")}
-                          </li>
-                        ))}
-                      </ol>
-                    )
-                  }
-                  return (
-                    <p key={index} className="mt-4 text-muted-foreground leading-relaxed">
-                      {paragraph}
-                    </p>
-                  )
-                })}
-              </div>
+                  })}
+                </div>
+              </AnimatedSection>
 
               {/* Author */}
               {author && (

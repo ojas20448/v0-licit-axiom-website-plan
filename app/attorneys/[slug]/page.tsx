@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { AnimatedSection } from "@/components/animated-section"
 import { ArrowLeft, Mail, Phone, GraduationCap, Briefcase, FileText } from "lucide-react"
 import attorneys from "@/data/attorneys.json"
 import type { Metadata } from "next"
@@ -68,35 +69,39 @@ export default async function AttorneyPage({ params }: Props) {
               {/* Sidebar */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
-                    <Image
-                      src={attorney.image || "/placeholder.svg"}
-                      alt={attorney.name}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
+                  <AnimatedSection animation="scale">
+                    <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+                      <Image
+                        src={attorney.image || "/placeholder.svg"}
+                        alt={attorney.name}
+                        fill
+                        className="object-cover"
+                        priority
+                      />
+                    </div>
+                  </AnimatedSection>
 
-                  <Card className="bg-card">
-                    <CardContent className="space-y-4 p-6">
-                      <div className="flex items-center gap-3">
-                        <Mail className="h-5 w-5 text-accent" />
-                        <a href={`mailto:${attorney.email}`} className="text-sm text-foreground hover:text-accent">
-                          {attorney.email}
-                        </a>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <Phone className="h-5 w-5 text-accent" />
-                        <a href={`tel:${attorney.phone}`} className="text-sm text-foreground hover:text-accent">
-                          {attorney.phone}
-                        </a>
-                      </div>
-                      <Button className="w-full" asChild>
-                        <Link href={`/contact?attorney=${attorney.slug}`}>Contact {attorney.name.split(" ")[0]}</Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
+                  <AnimatedSection animation="fadeUp" delay={0.1}>
+                    <Card className="bg-card">
+                      <CardContent className="space-y-4 p-6">
+                        <div className="flex items-center gap-3">
+                          <Mail className="h-5 w-5 text-accent" />
+                          <a href={`mailto:${attorney.email}`} className="text-sm text-foreground hover:text-accent">
+                            {attorney.email}
+                          </a>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Phone className="h-5 w-5 text-accent" />
+                          <a href={`tel:${attorney.phone}`} className="text-sm text-foreground hover:text-accent">
+                            {attorney.phone}
+                          </a>
+                        </div>
+                        <Button className="w-full" asChild>
+                          <Link href={`/contact?attorney=${attorney.slug}`}>Contact {attorney.name.split(" ")[0]}</Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </AnimatedSection>
                 </div>
               </div>
 
@@ -104,65 +109,73 @@ export default async function AttorneyPage({ params }: Props) {
               <div className="lg:col-span-2">
                 <div className="space-y-8">
                   {/* Header */}
-                  <div>
-                    <h1 className="font-serif text-3xl font-bold text-foreground md:text-4xl">{attorney.name}</h1>
-                    <p className="mt-2 text-xl text-accent">{attorney.title}</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {attorney.practiceAreas.map((area) => (
-                        <span key={area} className="rounded-full bg-secondary px-3 py-1 text-sm text-muted-foreground">
-                          {area}
-                        </span>
-                      ))}
+                  <AnimatedSection animation="fadeUp">
+                    <div>
+                      <h1 className="font-serif text-3xl font-bold text-foreground md:text-4xl">{attorney.name}</h1>
+                      <p className="mt-2 text-xl text-accent">{attorney.title}</p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {attorney.practiceAreas.map((area) => (
+                          <span key={area} className="rounded-full bg-secondary px-3 py-1 text-sm text-muted-foreground">
+                            {area}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  </AnimatedSection>
 
                   {/* Bio */}
-                  <div>
-                    <h2 className="flex items-center gap-2 font-serif text-xl font-semibold text-foreground">
-                      <Briefcase className="h-5 w-5 text-accent" />
-                      Biography
-                    </h2>
-                    <p className="mt-4 text-muted-foreground leading-relaxed">{attorney.bio}</p>
-                  </div>
+                  <AnimatedSection animation="fadeUp" delay={0.1}>
+                    <div>
+                      <h2 className="flex items-center gap-2 font-serif text-xl font-semibold text-foreground">
+                        <Briefcase className="h-5 w-5 text-accent" />
+                        Biography
+                      </h2>
+                      <p className="mt-4 text-muted-foreground leading-relaxed">{attorney.bio}</p>
+                    </div>
+                  </AnimatedSection>
 
                   {/* Education */}
-                  <Card className="bg-card">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2 font-serif text-lg">
-                        <GraduationCap className="h-5 w-5 text-accent" />
-                        Education
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2">
-                        {attorney.education.map((edu, index) => (
-                          <li key={index} className="text-muted-foreground">
-                            {edu}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-
-                  {/* Publications */}
-                  {attorney.publications.length > 0 && (
+                  <AnimatedSection animation="fadeUp" delay={0.2}>
                     <Card className="bg-card">
                       <CardHeader>
                         <CardTitle className="flex items-center gap-2 font-serif text-lg">
-                          <FileText className="h-5 w-5 text-accent" />
-                          Publications
+                          <GraduationCap className="h-5 w-5 text-accent" />
+                          Education
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
                         <ul className="space-y-2">
-                          {attorney.publications.map((pub, index) => (
+                          {attorney.education.map((edu, index) => (
                             <li key={index} className="text-muted-foreground">
-                              {pub}
+                              {edu}
                             </li>
                           ))}
                         </ul>
                       </CardContent>
                     </Card>
+                  </AnimatedSection>
+
+                  {/* Publications */}
+                  {attorney.publications.length > 0 && (
+                    <AnimatedSection animation="fadeUp" delay={0.3}>
+                      <Card className="bg-card">
+                        <CardHeader>
+                          <CardTitle className="flex items-center gap-2 font-serif text-lg">
+                            <FileText className="h-5 w-5 text-accent" />
+                            Publications
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="space-y-2">
+                            {attorney.publications.map((pub, index) => (
+                              <li key={index} className="text-muted-foreground">
+                                {pub}
+                              </li>
+                            ))}
+                          </ul>
+                        </CardContent>
+                      </Card>
+                    </AnimatedSection>
                   )}
                 </div>
               </div>

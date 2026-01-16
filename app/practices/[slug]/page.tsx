@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { AnimatedSection } from "@/components/animated-section"
 import { ArrowLeft, ArrowRight, CheckCircle, Building2, Handshake, Scale, Home, Lightbulb, Users } from "lucide-react"
 import practices from "@/data/practices.json"
 import attorneys from "@/data/attorneys.json"
@@ -77,17 +78,22 @@ export default async function PracticePage({ params }: Props) {
         </div>
 
         {/* Hero Section */}
-        <section className="bg-primary py-16">
+        {/* Hero Section */}
+        <section className="bg-primary bg-pattern py-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex items-start gap-6">
-              <div className="hidden h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-accent/20 md:flex">
-                <Icon className="h-8 w-8 text-accent" />
-              </div>
+              <AnimatedSection animation="scale" className="hidden md:block">
+                <div className="h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-accent/20 flex">
+                  <Icon className="h-8 w-8 text-accent" />
+                </div>
+              </AnimatedSection>
               <div>
-                <h1 className="font-serif text-3xl font-bold text-primary-foreground md:text-4xl">{practice.name}</h1>
-                <p className="mt-4 max-w-3xl text-lg text-primary-foreground/80 leading-relaxed">
-                  {practice.description}
-                </p>
+                <AnimatedSection animation="fadeUp">
+                  <h1 className="font-serif text-3xl font-bold text-primary-foreground md:text-4xl">{practice.name}</h1>
+                  <p className="mt-4 max-w-3xl text-lg text-primary-foreground/80 leading-relaxed">
+                    {practice.description}
+                  </p>
+                </AnimatedSection>
               </div>
             </div>
           </div>
