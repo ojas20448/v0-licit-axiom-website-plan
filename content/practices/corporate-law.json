@@ -1,0 +1,34 @@
+{
+  "name": "Corporate Law",
+  "slug": "corporate-law",
+  "icon": "🏢",
+  "shortDescription": "Comprehensive corporate legal solutions for businesses of all sizes.",
+  "description": "Our Corporate Law practice provides end-to-end legal support for businesses, from incorporation to complex restructuring. We advise on corporate governance, regulatory compliance, joint ventures, and strategic transactions. Our team has extensive experience working with both multinational corporations and emerging enterprises across diverse industries.",
+  "services": [
+    "Company Formation and Incorporation",
+    "Corporate Governance and Compliance",
+    "Shareholder Agreements and Joint Ventures",
+    "Board Advisory Services",
+    "Regulatory Filings and Compliance",
+    "Corporate Restructuring",
+    "Due Diligence"
+  ],
+  "faqs": [
+    {
+      "question": "What type of company structure is best for my business?",
+      "answer": "The ideal structure depends on factors like ownership, liability preferences, tax implications, and funding needs. Options include Private Limited Companies, LLPs, and One Person Companies. We analyze your specific situation to recommend the most suitable structure."
+    },
+    {
+      "question": "How can you help with corporate governance?",
+      "answer": "We assist with drafting board resolutions, conducting board meetings, ensuring compliance with Companies Act requirements, implementing governance policies, and advising independent directors on their duties and liabilities."
+    },
+    {
+      "question": "What is involved in corporate due diligence?",
+      "answer": "Due diligence involves a comprehensive review of a company's legal, financial, and operational aspects. We examine corporate records, contracts, litigation history, regulatory compliance, IP assets, and employment matters to identify risks before transactions."
+    }
+  ],
+  "relatedAttorneys": [
+    "rajesh-sharma",
+    "neha-gupta"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Dispute Resolution",
+  "slug": "dispute-resolution",
+  "icon": "⚖️",
+  "shortDescription": "Strategic litigation and arbitration for complex disputes.",
+  "description": "Our Dispute Resolution practice represents clients in high-stakes commercial disputes before courts, tribunals, and arbitral forums. We are known for our thorough preparation, strategic thinking, and persuasive advocacy. Our team has successfully handled matters across the Supreme Court, High Courts, NCLT, and international arbitration venues.",
+  "services": [
+    "Commercial Litigation",
+    "International Arbitration",
+    "Domestic Arbitration",
+    "Mediation and Conciliation",
+    "Insolvency Proceedings",
+    "White Collar Defense",
+    "Appellate Practice"
+  ],
+  "faqs": [
+    {
+      "question": "Should I opt for arbitration or court litigation?",
+      "answer": "Arbitration offers confidentiality, flexibility, and potentially faster resolution, but can be more expensive. Courts provide established procedures and appeal mechanisms. We analyze your specific dispute to recommend the most suitable forum."
+    },
+    {
+      "question": "How long does commercial litigation take in India?",
+      "answer": "Timelines vary significantly based on court, complexity, and case management. Commercial courts have expedited procedures, but matters can still take 2-5 years. We employ strategies to accelerate proceedings and obtain interim relief when needed."
+    },
+    {
+      "question": "What is the enforcement of foreign arbitral awards?",
+      "answer": "India is a signatory to the New York Convention, enabling enforcement of foreign awards. We handle enforcement proceedings and defend against challenges, navigating the procedural requirements for successful execution."
+    }
+  ],
+  "relatedAttorneys": [
+    "arjun-kapoor"
+  ]
+}

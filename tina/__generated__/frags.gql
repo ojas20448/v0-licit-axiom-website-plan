@@ -1,0 +1,58 @@
+fragment AttorneyParts on Attorney {
+  __typename
+  name
+  slug
+  title
+  photo
+  email
+  phone
+  education
+  experience
+  practiceAreas
+  bio
+}
+
+fragment BlogParts on Blog {
+  __typename
+  title
+  slug
+  excerpt
+  author
+  authorSlug
+  date
+  category
+  readTime
+  image
+  body
+}
+
+fragment CareerParts on Career {
+  __typename
+  title
+  slug
+  location
+  type
+  department
+  experience
+  description
+  responsibilities
+  requirements
+  benefits
+  postedDate
+}
+
+fragment PracticeParts on Practice {
+  __typename
+  name
+  slug
+  icon
+  shortDescription
+  description
+  services
+  faqs {
+    __typename
+    question
+    answer
+  }
+  relatedAttorneys
+}

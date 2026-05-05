@@ -1,13 +1,17 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { blogPosts } from '@/data/blog';
+import { ArrowRight, Calendar, Clock, ChevronRight } from 'lucide-react';
+import client from "../../../tina/__generated__/client";
 
 export const metadata: Metadata = {
-    title: 'Insights & News',
-    description: 'Stay updated with the latest legal insights, news, and analysis from Licit Axiom Legal Consultants. Expert perspectives on corporate law, employment, IP, and more.',
+    title: 'Blog & Insights | Licit Axiom Legal Consultants',
+    description: 'Read the latest legal insights, news, and updates from the experts at Licit Axiom.',
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+    const blogResponse = await client.queries.blogConnection();
+    const posts = blogResponse.data.blogConnection.edges?.map(edge => edge?.node) || [];
+
     return (
         <>
             {/* Hero Section */}
@@ -30,7 +34,7 @@ export default function BlogPage() {
             <section className="section-padding bg-white">
                 <div className="container-custom">
                     <div className="grid gap-8">
-                        {blogPosts.map((post, index) => (
+                        {posts.map((post: Record<string, unknown>, index: number) => (
                             <Link
                                 key={post.slug}
                                 href={`/blog/${post.slug}`}

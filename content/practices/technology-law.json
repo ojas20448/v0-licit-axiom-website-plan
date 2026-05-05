@@ -1,0 +1,33 @@
+{
+  "name": "Technology Law",
+  "slug": "technology-law",
+  "icon": "💻",
+  "shortDescription": "Legal expertise for the digital age and emerging technologies.",
+  "description": "Our Technology Law practice advises on the legal dimensions of digital business. From data privacy compliance to technology contracts, we help clients navigate the regulatory landscape while enabling innovation. Our team combines legal expertise with deep technology understanding.",
+  "services": [
+    "Data Privacy Compliance",
+    "Technology Contracts",
+    "Software Licensing",
+    "Cybersecurity Advisory",
+    "AI and ML Governance",
+    "E-commerce Regulations",
+    "Cloud Computing Agreements"
+  ],
+  "faqs": [
+    {
+      "question": "How do I ensure data privacy compliance?",
+      "answer": "Compliance requires mapping data flows, implementing privacy policies, obtaining consents, ensuring security measures, and establishing data subject rights processes. We conduct gap assessments and help implement comprehensive privacy programs."
+    },
+    {
+      "question": "What should technology contracts include?",
+      "answer": "Key provisions include scope, SLAs, IP ownership, data handling, liability caps, indemnities, termination rights, and transition assistance. We negotiate terms that protect your interests while maintaining commercial relationships."
+    },
+    {
+      "question": "What are the legal considerations for AI deployment?",
+      "answer": "AI deployment raises issues around liability, bias, transparency, and data usage. We help develop AI governance frameworks, review training data rights, and ensure compliance with emerging regulations."
+    }
+  ],
+  "relatedAttorneys": [
+    "vikram-singh"
+  ]
+}

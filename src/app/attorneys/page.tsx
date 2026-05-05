@@ -1,14 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { attorneys } from '@/data/attorneys';
+import client from "../../../tina/__generated__/client";
 
 export const metadata: Metadata = {
     title: 'Our Attorneys',
     description: 'Meet our team of experienced attorneys at Licit Axiom Legal Consultants. Expert lawyers in corporate law, M&A, employment, IP, real estate, and dispute resolution.',
 };
 
-export default function AttorneysPage() {
+export default async function AttorneysPage() {
+    const attorneysResponse = await client.queries.attorneyConnection();
+    const attorneys = attorneysResponse.data.attorneyConnection.edges?.map(edge => edge?.node) || [];
+
     return (
         <>
             {/* Hero Section */}

@@ -1,0 +1,33 @@
+{
+  "name": "Real Estate",
+  "slug": "real-estate",
+  "icon": "🏗️",
+  "shortDescription": "Full-service real estate legal support for all property matters.",
+  "description": "Our Real Estate practice advises on the full range of property transactions and development projects. We represent developers, investors, REITs, and corporates in acquisitions, leasing, joint developments, and financing. Our deep market knowledge helps clients navigate complex title issues and regulatory requirements.",
+  "services": [
+    "Property Acquisitions and Sales",
+    "Title Due Diligence",
+    "Commercial Leasing",
+    "Joint Development Agreements",
+    "RERA Compliance",
+    "Construction Contracts",
+    "Real Estate Financing"
+  ],
+  "faqs": [
+    {
+      "question": "What does title due diligence involve?",
+      "answer": "Title due diligence involves examining ownership history, verifying documents, checking for encumbrances and litigation, reviewing approvals, and confirming clear marketable title. We provide detailed reports identifying risks and recommending mitigation measures."
+    },
+    {
+      "question": "What are RERA requirements for developers?",
+      "answer": "RERA requires project registration, disclosure of project details, deposit of 70% collections in escrow, and compliance with timelines. We help developers with registration, documentation, and ongoing compliance requirements."
+    },
+    {
+      "question": "How do you structure joint development agreements?",
+      "answer": "JDAs are structured based on factors like land contribution, construction costs, revenue sharing, project control, and exit mechanisms. We negotiate terms that protect landowner interests while enabling successful project execution."
+    }
+  ],
+  "relatedAttorneys": [
+    "ananya-krishnan"
+  ]
+}

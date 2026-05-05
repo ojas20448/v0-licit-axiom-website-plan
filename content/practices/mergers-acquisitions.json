@@ -1,0 +1,33 @@
+{
+  "name": "Mergers & Acquisitions",
+  "slug": "mergers-acquisitions",
+  "icon": "🤝",
+  "shortDescription": "Strategic M&A advisory for transformative business transactions.",
+  "description": "Our M&A practice has a proven track record of advising on landmark transactions across sectors. We guide clients through the entire deal lifecycle – from strategy and target identification to negotiation, documentation, and post-merger integration. Our team combines legal expertise with commercial acumen to maximize deal value.",
+  "services": [
+    "Buy-side and Sell-side Advisory",
+    "Cross-border Transactions",
+    "Private Equity Investments",
+    "Venture Capital Deals",
+    "Management Buyouts",
+    "Demergers and Spin-offs",
+    "Post-merger Integration Support"
+  ],
+  "faqs": [
+    {
+      "question": "How long does an M&A transaction typically take?",
+      "answer": "Timelines vary based on deal complexity, regulatory requirements, and negotiation dynamics. Simple transactions may close in 2-3 months, while complex cross-border deals can take 6-12 months. We work to expedite processes while ensuring thorough protection of your interests."
+    },
+    {
+      "question": "What role do you play in deal negotiations?",
+      "answer": "We lead or support negotiations on key deal terms, including valuation, representations and warranties, indemnities, conditions precedent, and post-closing adjustments. Our goal is to achieve optimal outcomes while maintaining deal momentum."
+    },
+    {
+      "question": "How do you handle confidentiality in M&A deals?",
+      "answer": "We implement robust confidentiality protocols including NDAs, clean team arrangements for sensitive information, and secure data room management. Protecting deal confidentiality is crucial for preventing market speculation and competitive risks."
+    }
+  ],
+  "relatedAttorneys": [
+    "rajesh-sharma"
+  ]
+}

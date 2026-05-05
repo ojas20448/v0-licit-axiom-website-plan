@@ -1,0 +1,19 @@
+{
+  "name": "Ananya Krishnan",
+  "slug": "ananya-krishnan",
+  "title": "Partner",
+  "photo": "/images/attorneys/ananya-krishnan.jpg",
+  "email": "ananya.krishnan@licitaxiom.com",
+  "phone": "+91 98765 43213",
+  "education": [
+    "LL.M., London School of Economics",
+    "B.A. LL.B. (Hons.), Symbiosis Law School"
+  ],
+  "experience": [
+    "12+ years of legal practice",
+    "Specialist in real estate and infrastructure projects",
+    "Advised on projects worth over ₹10,000 crores"
+  ],
+  "practiceAreas": ["Real Estate", "Infrastructure", "Project Finance"],
+  "bio": "Ananya Krishnan is a Partner specializing in real estate and infrastructure law. She has extensive experience advising developers, investors, and financial institutions on complex real estate transactions, including land acquisitions, joint ventures, and REIT formations. Ananya has played a key role in several landmark infrastructure projects across India."
+}

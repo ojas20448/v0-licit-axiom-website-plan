@@ -1,0 +1,19 @@
+{
+  "name": "Neha Gupta",
+  "slug": "neha-gupta",
+  "title": "Senior Associate",
+  "photo": "/images/attorneys/neha-gupta.jpg",
+  "email": "neha.gupta@licitaxiom.com",
+  "phone": "+91 98765 43215",
+  "education": [
+    "LL.M., National University of Singapore",
+    "B.A. LL.B. (Hons.), ILS Law College"
+  ],
+  "experience": [
+    "8+ years of legal practice",
+    "Specialist in banking and finance",
+    "Advised on financing transactions worth over $2 billion"
+  ],
+  "practiceAreas": ["Banking & Finance", "Structured Finance", "Regulatory Compliance"],
+  "bio": "Neha Gupta is a Senior Associate in the Banking and Finance practice. She advises banks, financial institutions, and borrowers on a wide range of financing transactions including project finance, acquisition finance, and debt restructuring. Neha is well-versed in RBI regulations and has helped numerous fintech companies navigate the regulatory landscape."
+}

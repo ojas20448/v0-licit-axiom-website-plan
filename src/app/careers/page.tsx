@@ -1,13 +1,17 @@
-import Link from 'next/link';
-import { Metadata } from 'next';
-import { jobPostings } from '@/data/careers';
+import Link from "next/link";
+import { Metadata } from "next";
+import { ArrowRight, Briefcase, MapPin, Clock } from "lucide-react";
+import client from "../../../tina/__generated__/client";
 
 export const metadata: Metadata = {
-    title: 'Careers',
-    description: 'Join Licit Axiom Legal Consultants. Explore career opportunities and grow with a leading law firm. We are looking for talented legal professionals.',
+  title: "Careers | Licit Axiom Legal Consultants",
+  description: "Join our team of legal professionals. We are always looking for talented individuals to join our firm.",
 };
 
-export default function CareersPage() {
+export default async function CareersPage() {
+  const careersResponse = await client.queries.careerConnection();
+  const jobs = careersResponse.data.careerConnection.edges?.map(edge => edge?.node) || [];
+
     return (
         <>
             {/* Hero Section */}
@@ -71,7 +75,7 @@ export default function CareersPage() {
                     <h2 className="text-2xl font-bold text-navy-800 mb-8">Open Positions</h2>
 
                     <div className="space-y-6">
-                        {jobPostings.map((job) => (
+                        {jobs.map((job) => (
                             <Link
                                 key={job.slug}
                                 href={`/careers/${job.slug}`}

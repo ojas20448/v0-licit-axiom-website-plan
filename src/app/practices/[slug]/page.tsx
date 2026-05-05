@@ -1,21 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { practiceAreas, getPracticeAreaBySlug } from '@/data/practices';
-import { attorneys, getAttorneyBySlug } from '@/data/attorneys';
+import client from "../../../../tina/__generated__/client";
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
-
-export function generateStaticParams() {
-    return practiceAreas.map((practice) => ({
-        slug: practice.slug,
-    }));
-}
 
 function FAQAccordion({ faqs }: { faqs: { question: string; answer: string }[] }) {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -53,17 +45,39 @@ function FAQAccordion({ faqs }: { faqs: { question: string; answer: string }[] }
     );
 }
 
-export default async function PracticeDetailPage({ params }: Props) {
-    const { slug } = await params;
-    const practice = getPracticeAreaBySlug(slug);
+export default function PracticeDetailPage({ params }: Props) {
+    const [practice, setPractice] = useState<Record<string, unknown> | null>(null);
+    const [relatedAttorneys, setRelatedAttorneys] = useState<Record<string, unknown>[]>([]);
+    const [otherPractices, setOtherPractices] = useState<Record<string, unknown>[]>([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            const resolvedParams = await params;
+            try {
+                const response = await client.queries.practice({ relativePath: `${resolvedParams.slug}.json` });
+                const practiceData = response.data.practice;
+                setPractice(practiceData);
+
+                if (practiceData.relatedAttorneys && practiceData.relatedAttorneys.length > 0) {
+                    const attorneysResponse = await client.queries.attorneyConnection();
+                    const allAttorneys = attorneysResponse.data.attorneyConnection.edges?.map((edge: { node: Record<string, unknown> }) => edge?.node) || [];
+                    const related = allAttorneys.filter((a: Record<string, unknown>) => practiceData.relatedAttorneys.includes(a._sys && (a._sys as Record<string, unknown>).filename));
+                    setRelatedAttorneys(related);
+                }
+
+                const practicesResponse = await client.queries.practiceConnection();
+                const allPractices = practicesResponse.data.practiceConnection.edges?.map((edge: { node: Record<string, unknown> }) => edge?.node) || [];
+                setOtherPractices(allPractices);
+            } catch {
+                notFound();
+            }
+        }
+        fetchData();
+    }, [params]);
 
     if (!practice) {
-        notFound();
+        return <div className="py-20 text-center">Loading...</div>;
     }
-
-    const relatedAttorneyData = practice.relatedAttorneys
-        .map(slug => getAttorneyBySlug(slug))
-        .filter(Boolean);
 
     return (
         <>
@@ -75,7 +89,7 @@ export default async function PracticeDetailPage({ params }: Props) {
                         <span className="text-navy-300">/</span>
                         <Link href="/practices" className="text-navy-500 hover:text-navy-700">Practice Areas</Link>
                         <span className="text-navy-300">/</span>
-                        <span className="text-navy-800 font-medium">{practice.name}</span>
+                        <span className="text-navy-800 font-medium">{practice.name as string}</span>
                     </nav>
                 </div>
             </div>
@@ -85,14 +99,14 @@ export default async function PracticeDetailPage({ params }: Props) {
                 <div className="container-custom">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-16 h-16 rounded-xl bg-gold-500/20 flex items-center justify-center text-4xl">
-                            {practice.icon}
+                            {practice.icon as string}
                         </div>
                         <h1 className="text-3xl md:text-4xl font-bold text-white">
-                            {practice.name}
+                            {practice.name as string}
                         </h1>
                     </div>
                     <p className="text-navy-200 text-lg leading-relaxed max-w-3xl">
-                        {practice.shortDescription}
+                        {practice.shortDescription as string}
                     </p>
                 </div>
             </section>
@@ -109,7 +123,7 @@ export default async function PracticeDetailPage({ params }: Props) {
                                     Overview
                                 </h2>
                                 <p className="text-navy-600 leading-relaxed text-lg">
-                                    {practice.description}
+                                    {practice.description as string}
                                 </p>
                             </div>
 
@@ -119,7 +133,7 @@ export default async function PracticeDetailPage({ params }: Props) {
                                     Our Services
                                 </h2>
                                 <div className="grid sm:grid-cols-2 gap-4">
-                                    {practice.services.map((service, index) => (
+                                    {(practice.services as string[]).map((service, index) => (
                                         <div
                                             key={index}
                                             className="flex items-start gap-3 p-4 bg-navy-50 rounded-lg"
@@ -138,13 +152,13 @@ export default async function PracticeDetailPage({ params }: Props) {
                                 <h2 className="text-2xl font-semibold text-navy-800 mb-6 gold-underline pb-2">
                                     Frequently Asked Questions
                                 </h2>
-                                <FAQAccordion faqs={practice.faqs} />
+                                <FAQAccordion faqs={practice.faqs as { question: string; answer: string }[]} />
                             </div>
 
                             {/* CTA */}
                             <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-xl p-8 text-center">
                                 <h3 className="text-xl font-semibold text-white mb-4">
-                                    Need Assistance with {practice.name}?
+                                    Need Assistance with {practice.name as string}?
                                 </h3>
                                 <p className="text-navy-200 mb-6">
                                     Our experienced attorneys are ready to help. Contact us to discuss your specific needs.
@@ -159,29 +173,29 @@ export default async function PracticeDetailPage({ params }: Props) {
                         <div className="lg:col-span-1">
                             <div className="sticky top-28 space-y-8">
                                 {/* Related Attorneys */}
-                                {relatedAttorneyData.length > 0 && (
+                                {relatedAttorneys.length > 0 && (
                                     <div className="card p-6 border border-gray-100">
                                         <h3 className="font-semibold text-navy-800 mb-4 flex items-center gap-2">
                                             <span className="w-1 h-5 bg-gold-500 rounded" />
                                             Key Contacts
                                         </h3>
                                         <div className="space-y-4">
-                                            {relatedAttorneyData.map((attorney) => attorney && (
+                                            {relatedAttorneys.map((attorney) => attorney && (
                                                 <Link
-                                                    key={attorney.slug}
+                                                    key={attorney.slug as string}
                                                     href={`/attorneys/${attorney.slug}`}
                                                     className="flex items-center gap-4 p-3 rounded-lg hover:bg-navy-50 transition-colors group"
                                                 >
                                                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-navy-600 to-navy-800 flex items-center justify-center shrink-0">
                                                         <span className="text-sm font-bold text-white">
-                                                            {attorney.name.split(' ').map(n => n[0]).join('')}
+                                                            {(attorney.name as string).split(' ').map((n: string) => n[0]).join('')}
                                                         </span>
                                                     </div>
                                                     <div>
                                                         <div className="font-medium text-navy-800 group-hover:text-gold-600 transition-colors">
-                                                            {attorney.name}
+                                                            {attorney.name as string}
                                                         </div>
-                                                        <div className="text-navy-500 text-sm">{attorney.title}</div>
+                                                        <div className="text-navy-500 text-sm">{attorney.title as string}</div>
                                                     </div>
                                                 </Link>
                                             ))}
@@ -221,17 +235,17 @@ export default async function PracticeDetailPage({ params }: Props) {
                                         Other Practice Areas
                                     </h3>
                                     <div className="space-y-2">
-                                        {practiceAreas
-                                            .filter(p => p.slug !== practice.slug)
+                                        {otherPractices
+                                            .filter((p: Record<string, unknown>) => p.slug !== practice.slug)
                                             .slice(0, 5)
-                                            .map((p) => (
+                                            .map((p: Record<string, unknown>) => (
                                                 <Link
-                                                    key={p.slug}
+                                                    key={p.slug as string}
                                                     href={`/practices/${p.slug}`}
                                                     className="flex items-center gap-2 py-2 text-navy-600 hover:text-gold-600 transition-colors text-sm"
                                                 >
-                                                    <span>{p.icon}</span>
-                                                    <span>{p.name}</span>
+                                                    <span>{p.icon as string}</span>
+                                                    <span>{p.name as string}</span>
                                                 </Link>
                                             ))}
                                     </div>

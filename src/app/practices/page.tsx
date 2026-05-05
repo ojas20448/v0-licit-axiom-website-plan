@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { practiceAreas } from '@/data/practices';
+import client from "../../../tina/__generated__/client";
 
 export const metadata: Metadata = {
-    title: 'Practice Areas',
-    description: 'Explore our comprehensive legal services at Licit Axiom. We offer expertise in corporate law, M&A, employment law, intellectual property, real estate, dispute resolution, and more.',
+    title: 'Practice Areas | Licit Axiom Legal Consultants',
+    description: 'Comprehensive legal services including Corporate Law, M&A, Intellectual Property, Employment Law, and Dispute Resolution.',
 };
 
-export default function PracticesPage() {
+export default async function PracticesPage() {
+    const practicesResponse = await client.queries.practiceConnection();
+    const practices = practicesResponse.data.practiceConnection.edges?.map(edge => edge?.node) || [];
+
     return (
         <>
             {/* Hero Section */}

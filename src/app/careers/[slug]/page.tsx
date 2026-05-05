@@ -1,39 +1,45 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { jobPostings, getJobBySlug } from '@/data/careers';
+import { ArrowLeft, Briefcase, MapPin, Clock, Calendar, ChevronRight } from 'lucide-react';
+import client from "../../../../tina/__generated__/client";
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-    return jobPostings.map((job) => ({
-        slug: job.slug,
+    const response = await client.queries.careerConnection();
+    return (response.data.careerConnection.edges || []).map((job) => ({
+        slug: job?.node?._sys.filename,
     }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { slug } = await params;
-    const job = getJobBySlug(slug);
-
-    if (!job) {
+    const resolvedParams = await params;
+    let job;
+    try {
+        const response = await client.queries.career({ relativePath: `${resolvedParams.slug}.json` });
+        job = response.data.career;
+    } catch (e) {
         return {
             title: 'Job Not Found',
         };
     }
 
     return {
-        title: `${job.title} - Careers`,
-        description: `Join Licit Axiom as ${job.title}. ${job.location} | ${job.type} | ${job.experience}`,
+        title: `${job.title} - Careers | Licit Axiom`,
+        description: `Join Licit Axiom as a ${job.title} in ${job.location}.`,
     };
 }
 
 export default async function JobDetailPage({ params }: Props) {
-    const { slug } = await params;
-    const job = getJobBySlug(slug);
-
-    if (!job) {
+    const resolvedParams = await params;
+    let job;
+    try {
+        const response = await client.queries.career({ relativePath: `${resolvedParams.slug}.json` });
+        job = response.data.career;
+    } catch (e) {
         notFound();
     }
 

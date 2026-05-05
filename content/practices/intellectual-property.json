@@ -1,0 +1,33 @@
+{
+  "name": "Intellectual Property",
+  "slug": "intellectual-property",
+  "icon": "💡",
+  "shortDescription": "Protecting and monetizing your valuable intellectual assets.",
+  "description": "Our Intellectual Property practice helps clients protect, manage, and leverage their creative and innovative assets. From trademark registration to patent litigation, we provide strategic IP counsel that aligns with business objectives. We work across industries including technology, pharmaceuticals, media, and consumer goods.",
+  "services": [
+    "Trademark Registration and Protection",
+    "Patent Prosecution",
+    "Copyright Registration",
+    "IP Licensing Agreements",
+    "Trade Secret Protection",
+    "IP Due Diligence",
+    "IP Litigation and Enforcement"
+  ],
+  "faqs": [
+    {
+      "question": "How long does trademark registration take in India?",
+      "answer": "The trademark registration process typically takes 18-24 months if unopposed. We file applications strategically to maximize protection scope and handle any objections or oppositions that arise during the process."
+    },
+    {
+      "question": "What can be patented in India?",
+      "answer": "Inventions that are novel, non-obvious, and capable of industrial application can be patented. However, certain subject matter like mathematical methods, business methods, and computer programs per se are not patentable. We help identify patentable innovations and draft claims strategically."
+    },
+    {
+      "question": "How can I protect my trade secrets?",
+      "answer": "Trade secret protection requires implementing confidentiality agreements, access controls, and security measures. We help develop comprehensive trade secret protection programs and pursue remedies when misappropriation occurs."
+    }
+  ],
+  "relatedAttorneys": [
+    "vikram-singh"
+  ]
+}

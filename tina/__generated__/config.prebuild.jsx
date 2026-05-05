@@ -1,22 +1,17 @@
+// tina/config.ts
 import { defineConfig } from "tinacms";
-
-const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
-  "main";
-
-export default defineConfig({
+var branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
+var config_default = defineConfig({
   branch,
   build: {
     outputFolder: "admin",
-    publicFolder: "public",
+    publicFolder: "public"
   },
   media: {
     tina: {
       mediaRoot: "images",
-      publicFolder: "public",
-    },
+      publicFolder: "public"
+    }
   },
   schema: {
     collections: [
@@ -32,72 +27,71 @@ export default defineConfig({
             name: "name",
             label: "Full Name",
             isTitle: true,
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "slug",
             label: "URL Slug",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "title",
             label: "Job Title",
             required: true,
-            description: "e.g. Managing Partner, Senior Partner, Partner, Senior Associate",
+            description: "e.g. Managing Partner, Senior Partner, Partner, Senior Associate"
           },
           {
             type: "image",
             name: "photo",
             label: "Photo",
-            description: "Professional headshot (recommended 600x800px)",
+            description: "Professional headshot (recommended 600x800px)"
           },
           {
             type: "string",
             name: "email",
             label: "Email Address",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "phone",
             label: "Phone Number",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "education",
             label: "Education",
             list: true,
-            description: "One entry per degree/qualification",
+            description: "One entry per degree/qualification"
           },
           {
             type: "string",
             name: "experience",
             label: "Experience Highlights",
             list: true,
-            description: "Key experience bullet points",
+            description: "Key experience bullet points"
           },
           {
             type: "string",
             name: "practiceAreas",
             label: "Practice Areas",
             list: true,
-            description: "Areas of specialization",
+            description: "Areas of specialization"
           },
           {
             type: "string",
             name: "bio",
             label: "Biography",
             ui: {
-              component: "textarea",
+              component: "textarea"
             },
-            required: true,
-          },
-        ],
+            required: true
+          }
+        ]
       },
-
       // ==================== BLOG POSTS ====================
       {
         name: "blog",
@@ -110,42 +104,42 @@ export default defineConfig({
             name: "title",
             label: "Title",
             isTitle: true,
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "slug",
             label: "URL Slug",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "excerpt",
             label: "Excerpt",
             ui: {
-              component: "textarea",
+              component: "textarea"
             },
             required: true,
-            description: "Short summary shown in listings",
+            description: "Short summary shown in listings"
           },
           {
             type: "string",
             name: "author",
             label: "Author Name",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "authorSlug",
             label: "Author Slug",
             required: true,
-            description: "Must match an attorney slug for profile linking",
+            description: "Must match an attorney slug for profile linking"
           },
           {
             type: "datetime",
             name: "date",
             label: "Publish Date",
-            required: true,
+            required: true
           },
           {
             type: "string",
@@ -160,29 +154,28 @@ export default defineConfig({
               "Dispute Resolution",
               "Banking & Finance",
               "Technology Law",
-              "Mergers & Acquisitions",
-            ],
+              "Mergers & Acquisitions"
+            ]
           },
           {
             type: "string",
             name: "readTime",
             label: "Read Time",
-            description: "e.g. '5 min read'",
+            description: "e.g. '5 min read'"
           },
           {
             type: "image",
             name: "image",
-            label: "Featured Image",
+            label: "Featured Image"
           },
           {
             type: "rich-text",
             name: "body",
             label: "Content",
-            isBody: true,
-          },
-        ],
+            isBody: true
+          }
+        ]
       },
-
       // ==================== CAREERS ====================
       {
         name: "career",
@@ -195,74 +188,73 @@ export default defineConfig({
             name: "title",
             label: "Job Title",
             isTitle: true,
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "slug",
             label: "URL Slug",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "location",
             label: "Location",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "type",
             label: "Employment Type",
             required: true,
-            options: ["Full-time", "Part-time", "Internship", "Contract"],
+            options: ["Full-time", "Part-time", "Internship", "Contract"]
           },
           {
             type: "string",
             name: "department",
             label: "Department",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "experience",
             label: "Experience Required",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "description",
             label: "Job Description",
             ui: {
-              component: "textarea",
+              component: "textarea"
             },
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "responsibilities",
             label: "Key Responsibilities",
-            list: true,
+            list: true
           },
           {
             type: "string",
             name: "requirements",
             label: "Requirements",
-            list: true,
+            list: true
           },
           {
             type: "string",
             name: "benefits",
             label: "Benefits",
-            list: true,
+            list: true
           },
           {
             type: "datetime",
             name: "postedDate",
-            label: "Posted Date",
-          },
-        ],
+            label: "Posted Date"
+          }
+        ]
       },
-
       // ==================== PRACTICE AREAS ====================
       {
         name: "practice",
@@ -275,43 +267,43 @@ export default defineConfig({
             name: "name",
             label: "Practice Area Name",
             isTitle: true,
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "slug",
             label: "URL Slug",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "icon",
             label: "Icon Emoji",
             required: true,
-            description: "Single emoji character (e.g. 🏢, ⚖️, 💡)",
+            description: "Single emoji character (e.g. \u{1F3E2}, \u2696\uFE0F, \u{1F4A1})"
           },
           {
             type: "string",
             name: "shortDescription",
             label: "Short Description",
             required: true,
-            description: "One-liner shown in cards",
+            description: "One-liner shown in cards"
           },
           {
             type: "string",
             name: "description",
             label: "Full Description",
             ui: {
-              component: "textarea",
+              component: "textarea"
             },
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "services",
             label: "Services",
             list: true,
-            description: "List of services offered under this practice",
+            description: "List of services offered under this practice"
           },
           {
             type: "object",
@@ -323,28 +315,31 @@ export default defineConfig({
                 type: "string",
                 name: "question",
                 label: "Question",
-                required: true,
+                required: true
               },
               {
                 type: "string",
                 name: "answer",
                 label: "Answer",
                 ui: {
-                  component: "textarea",
+                  component: "textarea"
                 },
-                required: true,
-              },
-            ],
+                required: true
+              }
+            ]
           },
           {
             type: "string",
             name: "relatedAttorneys",
             label: "Related Attorney Slugs",
             list: true,
-            description: "Slugs of attorneys who handle this practice area",
-          },
-        ],
-      },
-    ],
-  },
+            description: "Slugs of attorneys who handle this practice area"
+          }
+        ]
+      }
+    ]
+  }
 });
+export {
+  config_default as default
+};

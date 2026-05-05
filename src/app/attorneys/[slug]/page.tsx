@@ -1,40 +1,47 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { attorneys, getAttorneyBySlug } from '@/data/attorneys';
+import { ArrowLeft, Mail, Phone, BookOpen, Briefcase, GraduationCap } from "lucide-react";
+import client from "../../../../tina/__generated__/client";
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-    return attorneys.map((attorney) => ({
-        slug: attorney.slug,
+    const response = await client.queries.attorneyConnection();
+    return (response.data.attorneyConnection.edges || []).map((attorney) => ({
+        slug: attorney.node._sys.filename,
     }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { slug } = await params;
-    const attorney = getAttorneyBySlug(slug);
-
-    if (!attorney) {
-        return {
-            title: 'Attorney Not Found',
-        };
-    }
-
+  const resolvedParams = await params;
+  let attorney;
+  try {
+    const response = await client.queries.attorney({ relativePath: `${resolvedParams.slug}.json` });
+    attorney = response.data.attorney;
+  } catch (e) {
     return {
-        title: `${attorney.name} - ${attorney.title}`,
-        description: `${attorney.name} is a ${attorney.title} at Licit Axiom Legal Consultants, specializing in ${attorney.practiceAreas.join(', ')}.`,
+      title: "Attorney Not Found | Licit Axiom Legal Consultants",
     };
+  }
+
+  return {
+    title: `${attorney.name} | Licit Axiom Legal Consultants`,
+    description: attorney.bio,
+  };
 }
 
 export default async function AttorneyPage({ params }: Props) {
-    const { slug } = await params;
-    const attorney = getAttorneyBySlug(slug);
-
-    if (!attorney) {
-        notFound();
+    const resolvedParams = await params;
+    let attorney;
+    try {
+      const response = await client.queries.attorney({ relativePath: `${resolvedParams.slug}.json` });
+      attorney = response.data.attorney;
+    } catch (e) {
+      notFound();
     }
 
     return (

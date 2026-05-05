@@ -1,8 +1,14 @@
 import Link from 'next/link';
-import { practiceAreas } from '@/data/practices';
+import Image from 'next/image';
+import { ArrowRight, CheckCircle2, Building2, Users, Scale, Globe } from 'lucide-react';
+import client from "../../../tina/__generated__/client";
 
-export default function Home() {
-  const featuredPractices = practiceAreas.slice(0, 6);
+export default async function HomePage() {
+    const practicesResponse = await client.queries.practiceConnection();
+    const practices = practicesResponse.data.practiceConnection.edges?.map(edge => edge?.node).slice(0, 4) || [];
+
+    const blogResponse = await client.queries.blogConnection();
+    const blogPosts = blogResponse.data.blogConnection.edges?.map(edge => edge?.node).slice(0, 3) || [];
 
   return (
     <>
@@ -86,7 +92,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredPractices.map((practice) => (
+            {practices.map((practice: Record<string, unknown>) => (
               <Link
                 key={practice.slug}
                 href={`/practices/${practice.slug}`}
@@ -232,26 +238,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Understanding the Digital Personal Data Protection Act, 2023',
-                category: 'Technology Law',
-                date: 'Jan 15, 2024',
-                slug: 'digital-personal-data-protection-act-2023',
-              },
-              {
-                title: 'Navigating Commercial Lease Negotiations',
-                category: 'Real Estate',
-                date: 'Jan 8, 2024',
-                slug: 'navigating-commercial-lease-negotiations',
-              },
-              {
-                title: 'Employment Law Updates 2024: What Employers Need to Know',
-                category: 'Employment Law',
-                date: 'Jan 2, 2024',
-                slug: 'employment-law-updates-2024',
-              },
-            ].map((post) => (
+            {blogPosts.map((post: Record<string, unknown>) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
@@ -262,7 +249,13 @@ export default function Home() {
                     <span className="px-3 py-1 bg-navy-100 text-navy-700 text-xs font-medium rounded-full">
                       {post.category}
                     </span>
-                    <span className="text-navy-400 text-sm">{post.date}</span>
+                    <span className="text-navy-400 text-sm">
+                      {new Date(post.date).toLocaleDateString('en-IN', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </span>
                   </div>
                   <h3 className="text-lg font-semibold text-navy-800 group-hover:text-gold-600 transition-colors leading-snug">
                     {post.title}

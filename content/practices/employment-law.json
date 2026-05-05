@@ -1,0 +1,33 @@
+{
+  "name": "Employment Law",
+  "slug": "employment-law",
+  "icon": "👥",
+  "shortDescription": "Expert guidance on all employment and labor law matters.",
+  "description": "Our Employment Law practice provides comprehensive advice on the full spectrum of workplace legal issues. We help employers navigate complex labor regulations, draft employment policies, handle disputes, and ensure compliance with evolving laws. Our proactive approach helps prevent issues before they escalate.",
+  "services": [
+    "Employment Contracts and Policies",
+    "Workplace Investigations",
+    "Termination and Severance",
+    "Labor Disputes and Litigation",
+    "POSH Compliance",
+    "Employee Benefits and Compensation",
+    "Trade Union Matters"
+  ],
+  "faqs": [
+    {
+      "question": "What should be included in an employee handbook?",
+      "answer": "A comprehensive handbook should cover employment policies, code of conduct, leave policies, anti-harassment policies, grievance procedures, disciplinary processes, and confidentiality obligations. We customize handbooks to reflect your company culture while ensuring legal compliance."
+    },
+    {
+      "question": "How do you handle wrongful termination claims?",
+      "answer": "We assess the termination circumstances, review documentation, and develop defense strategies. We represent clients before labor courts and industrial tribunals. We also advise on settlement negotiations when appropriate to minimize exposure and disruption."
+    },
+    {
+      "question": "What are POSH compliance requirements?",
+      "answer": "Under the POSH Act, organizations with 10+ employees must constitute an Internal Committee, conduct awareness programs, and have a formal complaints mechanism. We help establish compliant frameworks and conduct ICC training sessions."
+    }
+  ],
+  "relatedAttorneys": [
+    "priya-mehta"
+  ]
+}

@@ -1,31 +1,35 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { blogPosts, getBlogPostBySlug } from '@/data/blog';
-import { getAttorneyBySlug } from '@/data/attorneys';
+import { ArrowLeft, Calendar, Clock, Share2, Twitter, Linkedin, Facebook } from 'lucide-react';
+import client from "../../../../tina/__generated__/client";
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-    return blogPosts.map((post) => ({
-        slug: post.slug,
+    const response = await client.queries.blogConnection();
+    return (response.data.blogConnection.edges || []).map((post) => ({
+        slug: post?.node?._sys.filename,
     }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { slug } = await params;
-    const post = getBlogPostBySlug(slug);
-
-    if (!post) {
+    const resolvedParams = await params;
+    let post;
+    try {
+        const response = await client.queries.blog({ relativePath: `${resolvedParams.slug}.md` });
+        post = response.data.blog;
+    } catch (e) {
         return {
             title: 'Post Not Found',
         };
     }
 
     return {
-        title: post.title,
+        title: `${post.title} | Licit Axiom Blog`,
         description: post.excerpt,
         openGraph: {
             title: post.title,
@@ -38,81 +42,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-    const { slug } = await params;
-    const post = getBlogPostBySlug(slug);
+    const resolvedParams = await params;
+    let post;
+    let author;
+    let otherPosts = [];
+    try {
+        const response = await client.queries.blog({ relativePath: `${resolvedParams.slug}.md` });
+        post = response.data.blog;
 
-    if (!post) {
+        if (post.authorSlug) {
+            try {
+                const authorResponse = await client.queries.attorney({ relativePath: `${post.authorSlug}.json` });
+                author = authorResponse.data.attorney;
+            } catch (e) {
+                console.error("Author not found");
+            }
+        }
+
+        const postsResponse = await client.queries.blogConnection();
+        const allPosts = postsResponse.data.blogConnection.edges?.map(edge => edge?.node) || [];
+        otherPosts = allPosts.filter(p => p._sys.filename !== post._sys.filename).slice(0, 3);
+    } catch (e) {
         notFound();
     }
-
-    const author = getAttorneyBySlug(post.authorSlug);
-    const otherPosts = blogPosts.filter(p => p.slug !== post.slug).slice(0, 2);
-
-    // Simple markdown-like content rendering
-    const renderContent = (content: string) => {
-        const lines = content.trim().split('\n');
-        const elements: JSX.Element[] = [];
-        let currentList: string[] = [];
-
-        const flushList = () => {
-            if (currentList.length > 0) {
-                elements.push(
-                    <ul key={`list-${elements.length}`} className="list-disc list-inside space-y-2 mb-6 text-navy-600">
-                        {currentList.map((item, i) => (
-                            <li key={i}>{item.replace(/^- /, '')}</li>
-                        ))}
-                    </ul>
-                );
-                currentList = [];
-            }
-        };
-
-        lines.forEach((line, index) => {
-            const trimmedLine = line.trim();
-
-            if (trimmedLine.startsWith('## ')) {
-                flushList();
-                elements.push(
-                    <h2 key={index} className="text-2xl font-semibold text-navy-800 mt-8 mb-4">
-                        {trimmedLine.replace('## ', '')}
-                    </h2>
-                );
-            } else if (trimmedLine.startsWith('### ')) {
-                flushList();
-                elements.push(
-                    <h3 key={index} className="text-xl font-semibold text-navy-800 mt-6 mb-3">
-                        {trimmedLine.replace('### ', '')}
-                    </h3>
-                );
-            } else if (trimmedLine.startsWith('- ')) {
-                currentList.push(trimmedLine);
-            } else if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**')) {
-                flushList();
-                elements.push(
-                    <p key={index} className="font-semibold text-navy-800 mb-2">
-                        {trimmedLine.replace(/\*\*/g, '')}
-                    </p>
-                );
-            } else if (trimmedLine.startsWith('*') && trimmedLine.endsWith('*')) {
-                flushList();
-                elements.push(
-                    <p key={index} className="italic text-gold-600 mt-8 text-lg">
-                        {trimmedLine.replace(/\*/g, '')}
-                    </p>
-                );
-            } else if (trimmedLine.length > 0) {
-                flushList();
-                elements.push(
-                    <p key={index} className="text-navy-600 leading-relaxed mb-4">
-                        {trimmedLine}
-                    </p>
-                );
-            }
-        });
-
-        flushList();
-        return elements;
-    };
 
     return (
         <>
@@ -148,7 +100,7 @@ export default async function BlogPostPage({ params }: Props) {
 
                             <div className="flex items-center gap-4 pb-8 border-b border-gray-200">
                                 <Link
-                                    href={author ? `/attorneys/${author.slug}` : '#'}
+                                    href={author ? `/attorneys/${author._sys.filename}` : '#'}
                                     className="flex items-center gap-4 group"
                                 >
                                     <div className="w-14 h-14 rounded-full bg-gradient-to-br from-navy-600 to-navy-800 flex items-center justify-center">
@@ -173,8 +125,8 @@ export default async function BlogPostPage({ params }: Props) {
                         </header>
 
                         {/* Content */}
-                        <div className="prose prose-lg prose-navy max-w-none">
-                            {renderContent(post.content)}
+                        <div className="prose prose-lg max-w-none text-navy-600">
+                            <TinaMarkdown content={post.body} />
                         </div>
 
                         {/* Share */}
@@ -184,68 +136,75 @@ export default async function BlogPostPage({ params }: Props) {
                                     <span className="text-navy-600 text-sm font-medium">Share this article:</span>
                                     <div className="flex gap-2">
                                         <a
-                                            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://licitaxiom.com/blog/${post.slug}`)}`}
+                                            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://licitaxiom.com/blog/${post._sys.filename}`)}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center hover:bg-gold-500 hover:text-white transition-colors"
                                         >
-                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                            </svg>
+                                            <Linkedin className="w-5 h-5" />
                                         </a>
                                         <a
-                                            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://licitaxiom.com/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
+                                            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://licitaxiom.com/blog/${post._sys.filename}`)}&text=${encodeURIComponent(post.title)}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center hover:bg-gold-500 hover:text-white transition-colors"
                                         >
-                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                                            </svg>
+                                            <Twitter className="w-5 h-5" />
                                         </a>
                                     </div>
                                 </div>
                                 <Link href="/blog" className="text-gold-600 hover:text-gold-700 font-medium text-sm flex items-center gap-1">
-                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                    </svg>
+                                    <ArrowLeft className="w-4 h-4" />
                                     Back to Insights
                                 </Link>
                             </div>
                         </div>
+
+                        {/* Related Posts */}
+                        {otherPosts.length > 0 && (
+                            <div className="mt-20 pt-12 border-t border-navy-100">
+                                <h2 className="text-2xl font-bold text-navy-800 mb-8">Related Articles</h2>
+                                <div className="grid md:grid-cols-3 gap-8">
+                                    {otherPosts.map((relatedPost) => (
+                                        <Link
+                                            key={relatedPost._sys.filename}
+                                            href={`/blog/${relatedPost._sys.filename}`}
+                                            className="group"
+                                        >
+                                            <article className="card p-6 border border-gray-100 hover:border-gold-300 h-full flex flex-col">
+                                                <div className="flex items-center gap-3 mb-4">
+                                                    <span className="px-2 py-1 bg-gold-50 text-gold-700 text-xs font-medium rounded">
+                                                        {relatedPost.category}
+                                                    </span>
+                                                    <span className="text-navy-400 text-xs">
+                                                        {new Date(relatedPost.date).toLocaleDateString('en-IN', {
+                                                            month: 'short',
+                                                            day: 'numeric',
+                                                            year: 'numeric'
+                                                        })}
+                                                    </span>
+                                                </div>
+                                                <h3 className="font-semibold text-navy-800 group-hover:text-gold-600 transition-colors mb-3 line-clamp-2">
+                                                    {relatedPost.title}
+                                                </h3>
+                                                <p className="text-navy-600 text-sm mb-4 line-clamp-3 flex-1">
+                                                    {relatedPost.excerpt}
+                                                </p>
+                                                <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
+                                                    <span className="text-navy-700 text-sm font-medium">{relatedPost.author}</span>
+                                                    <span className="text-gold-600 group-hover:translate-x-1 transition-transform">
+                                                        →
+                                                    </span>
+                                                </div>
+                                            </article>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </article>
-
-            {/* Related Posts */}
-            {otherPosts.length > 0 && (
-                <section className="py-16 bg-navy-50">
-                    <div className="container-custom">
-                        <h2 className="text-2xl font-bold text-navy-800 mb-8">Related Articles</h2>
-                        <div className="grid md:grid-cols-2 gap-8">
-                            {otherPosts.map((relatedPost) => (
-                                <Link
-                                    key={relatedPost.slug}
-                                    href={`/blog/${relatedPost.slug}`}
-                                    className="group"
-                                >
-                                    <article className="card p-6 bg-white border border-gray-100 hover:border-gold-300 h-full">
-                                        <div className="flex items-center gap-3 mb-4">
-                                            <span className="px-3 py-1 bg-gold-50 text-gold-700 text-xs font-medium rounded-full">
-                                                {relatedPost.category}
-                                            </span>
-                                            <span className="text-navy-400 text-sm">{relatedPost.readTime}</span>
-                                        </div>
-                                        <h3 className="text-lg font-semibold text-navy-800 group-hover:text-gold-600 transition-colors leading-snug">
-                                            {relatedPost.title}
-                                        </h3>
-                                    </article>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            )}
         </>
     );
 }

@@ -1,0 +1,19 @@
+{
+  "name": "Arjun Kapoor",
+  "slug": "arjun-kapoor",
+  "title": "Partner",
+  "photo": "/images/attorneys/arjun-kapoor.jpg",
+  "email": "arjun.kapoor@licitaxiom.com",
+  "phone": "+91 98765 43214",
+  "education": [
+    "LL.M., NYU School of Law",
+    "B.A. LL.B. (Hons.), National Law University, Delhi"
+  ],
+  "experience": [
+    "14+ years of legal practice",
+    "Former litigation associate at a Magic Circle firm",
+    "Appeared before the Supreme Court of India"
+  ],
+  "practiceAreas": ["Dispute Resolution", "Commercial Litigation", "Arbitration"],
+  "bio": "Arjun Kapoor heads the Dispute Resolution practice at Licit Axiom. He represents clients in complex commercial disputes before courts, tribunals, and arbitral forums. Arjun has significant experience in international arbitration under ICC, SIAC, and LCIA rules. He is known for his sharp analytical skills and persuasive advocacy."
+}
