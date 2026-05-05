@@ -1,0 +1,19 @@
+{
+  "name": "Rajesh Sharma",
+  "slug": "rajesh-sharma",
+  "title": "Managing Partner",
+  "photo": "/images/attorneys/rajesh-sharma.jpg",
+  "email": "rajesh.sharma@licitaxiom.com",
+  "phone": "+91 98765 43210",
+  "education": [
+    "LL.M., Harvard Law School",
+    "B.A. LL.B. (Hons.), National Law School of India University"
+  ],
+  "experience": [
+    "25+ years of legal practice",
+    "Former Senior Partner at Amarchand Mangaldas",
+    "Advised on landmark M&A transactions worth over $5 billion"
+  ],
+  "practiceAreas": ["Corporate Law", "Mergers & Acquisitions", "Private Equity"],
+  "bio": "Rajesh Sharma is the Managing Partner of Licit Axiom and heads the Corporate and M&A practice. With over two decades of experience, he has advised major multinational corporations and Indian conglomerates on complex cross-border transactions. His expertise spans mergers and acquisitions, private equity investments, and corporate restructuring. Rajesh is recognized as a leading lawyer by Chambers Asia Pacific and Legal 500 Asia Pacific."
+}

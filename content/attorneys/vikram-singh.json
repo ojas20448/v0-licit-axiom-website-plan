@@ -1,0 +1,19 @@
+{
+  "name": "Vikram Singh",
+  "slug": "vikram-singh",
+  "title": "Partner",
+  "photo": "/images/attorneys/vikram-singh.jpg",
+  "email": "vikram.singh@licitaxiom.com",
+  "phone": "+91 98765 43212",
+  "education": [
+    "LL.M., Columbia Law School",
+    "B.A. LL.B. (Hons.), Gujarat National Law University"
+  ],
+  "experience": [
+    "15+ years of legal practice",
+    "Former in-house counsel at a Fortune 500 tech company",
+    "Expertise in tech licensing and data privacy"
+  ],
+  "practiceAreas": ["Intellectual Property", "Technology Law", "Data Privacy"],
+  "bio": "Vikram Singh heads the Intellectual Property and Technology practice. He advises clients on patent prosecution, trademark registration, IP licensing, and technology transactions. With his unique background as former in-house counsel, Vikram brings a business-oriented perspective to legal challenges. He is particularly renowned for his work in data privacy compliance and GDPR/IT Act matters."
+}
