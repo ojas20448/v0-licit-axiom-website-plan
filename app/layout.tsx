@@ -11,7 +11,7 @@ const _playfair = Playfair_Display({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Licit Axiom | Expert Legal Services Across India",
   description:
-    "Licit Axiom - A federate rostrum of expert professionals providing cost-effective legal solutions across 26+ practice areas. Empanelled with ONGC, Coal India, BSNL, and SBI.",
+    "Licit Axiom - An integrated legal platform offering a full spectrum of specialized legal services across multiple forums and jurisdictions. Empanelled with ONGC, Coal India, BSNL, and SBI.",
   keywords: "law firm India, legal services India, corporate law, litigation, intellectual property, real estate law, taxation India, arbitration, legal consultants India, empanelled lawyers",
   generator: 'v0.app',
   icons: {

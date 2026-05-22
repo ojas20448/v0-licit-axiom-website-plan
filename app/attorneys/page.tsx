@@ -1,9 +1,7 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AnimatedSection } from "@/components/animated-section"
+import { AttorneysList } from "@/components/attorneys-list"
 import attorneys from "@/data/attorneys.json"
 import type { Metadata } from "next"
 
@@ -19,7 +17,7 @@ export default function AttorneysPage() {
       <Header />
 
       <main className="flex-1">
-        <section className="bg-primary bg-pattern py-16 lg:py-24">
+        <section className="bg-primary bg-pattern pt-16 pb-12 lg:pt-24 lg:pb-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <AnimatedSection animation="fadeUp">
@@ -36,32 +34,9 @@ export default function AttorneysPage() {
         </section>
 
         {/* Attorneys Grid */}
-        <section className="py-16 lg:py-24">
+        <section className="pt-8 pb-16 lg:pt-12 lg:pb-24">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {attorneys.map((attorney, index) => (
-                <AnimatedSection key={attorney.id} animation="fadeUp" delay={index * 0.1}>
-                  <Link href={`/attorneys/${attorney.slug}`} className="group h-full block">
-                    <Card className="h-full overflow-hidden bg-card transition-colors hover:bg-secondary">
-                      <div className="relative aspect-[3/4]">
-                        <Image
-                          src={attorney.image || "/placeholder.svg"}
-                          alt={attorney.name}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                      </div>
-                      <CardContent className="p-6">
-                        <h2 className="font-serif text-xl font-semibold text-foreground">{attorney.name}</h2>
-                        <p className="text-sm font-medium text-accent">{attorney.title}</p>
-                        <p className="mt-3 text-sm text-muted-foreground">{attorney.practiceAreas.join(" • ")}</p>
-                        <p className="mt-2 text-sm text-muted-foreground">{attorney.experience}</p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </AnimatedSection>
-              ))}
-            </div>
+            <AttorneysList initialAttorneys={attorneys} />
           </div>
         </section>
       </main>

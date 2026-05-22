@@ -9,7 +9,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AnimatedSection } from "@/components/animated-section"
-import { AnimatedStat } from "@/components/animated-counter"
 import { ArrowRight, Building2, Handshake, Scale, Home, Lightbulb, Users, Award, Globe, Clock, HeartHandshake, Coins, Gavel, ShieldCheck, Zap } from "lucide-react"
 import attorneys from "@/data/attorneys.json"
 import practices from "@/data/practices.json"
@@ -22,13 +21,6 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Lightbulb,
   Users,
 }
-
-const stats = [
-  { value: "26+", label: "Practice Areas" },
-  { value: "9+", label: "Expert Professionals" },
-  { value: "100+", label: "Years Combined Experience" },
-  { value: "100%", label: "Client Focused" },
-]
 
 export default function HomePage() {
   const featuredPractices = practices.slice(0, 4)
@@ -59,19 +51,40 @@ export default function HomePage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               LICIT AXIOM
-              <br />
-              <span className="text-accent">The Only Axiom to Legal Recourse.</span>
             </motion.h1>
             <motion.p
-              className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground/80 leading-relaxed"
+              className="mx-auto mt-3 text-lg font-semibold tracking-widest text-accent uppercase font-serif md:text-xl lg:text-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+            >
+              Advocates &amp; Solicitors
+            </motion.p>
+            <motion.div
+              className="mx-auto mt-6 max-w-3xl text-sm md:text-base text-primary-foreground/80 leading-relaxed font-sans"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              A federate and coherent rostrum providing clients varied specialised services at varied locations.
-              We bring expert professionals, field experts, local lawyers, attorneys and solicitors to your cause.
-              A sui generis structure delivering cost-effective legal solutions through dedicated one-point contact.
-            </motion.p>
+              <p className="mb-6">
+                An integrated legal platform, offering a full spectrum of specialized legal services, across multiple forums and jurisdictions. Our strength lies in our team of experienced professionals and domain experts. Backed by our dedicated in-house team and strategic collaborations we deliver practical solutions to even the most complex legal problems with a commitment to professionalism, responsiveness, and result-oriented legal counsel.
+              </p>
+              <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 mt-6 border-t border-primary-foreground/10 pt-6 text-left max-w-2xl mx-auto">
+                <div className="flex-1">
+                  <span className="text-accent font-semibold tracking-wider block text-xs uppercase mb-1 font-serif">One Point Contact</span>
+                  <p className="text-xs md:text-sm text-primary-foreground/70">
+                    Delivering cost-effective, seamless legal solutions through a single, dedicated point of contact for every client.
+                  </p>
+                </div>
+                <div className="w-px bg-primary-foreground/10 hidden md:block" />
+                <div className="flex-1">
+                  <span className="text-accent font-semibold tracking-wider block text-xs uppercase mb-1 font-serif">Our Clients</span>
+                  <p className="text-xs md:text-sm text-primary-foreground/70">
+                    Our client list has prominent business entities, including corporates, start-ups, HNIs, reputed NGOs, as well as Insolvency professionals among others.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
             <motion.div
               className="mt-10 flex flex-wrap items-center justify-center gap-4"
               initial={{ opacity: 0, y: 20 }}
@@ -100,20 +113,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="border-y border-border bg-background py-12">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-              {stats.map((stat, index) => (
-                <AnimatedStat
-                  key={stat.label}
-                  value={stat.value}
-                  label={stat.label}
-                  delay={index * 0.1}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Practice Areas Section */}
         <section className="py-20 lg:py-28">

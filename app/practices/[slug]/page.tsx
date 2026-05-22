@@ -1,16 +1,13 @@
 import type React from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { notFound } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Card, CardContent } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AnimatedSection } from "@/components/animated-section"
 import { ArrowLeft, ArrowRight, CheckCircle, Building2, Handshake, Scale, Home, Lightbulb, Users } from "lucide-react"
 import practices from "@/data/practices.json"
-import attorneys from "@/data/attorneys.json"
 import type { Metadata } from "next"
 
 type Props = {
@@ -57,7 +54,6 @@ export default async function PracticePage({ params }: Props) {
   }
 
   const Icon = iconMap[practice.icon] || Building2
-  const keyAttorneys = attorneys.filter((a) => practice.keyAttorneys.includes(a.slug))
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -117,53 +113,11 @@ export default async function PracticePage({ params }: Props) {
                     ))}
                   </ul>
                 </div>
-
-                {/* FAQs */}
-                <div>
-                  <h2 className="font-serif text-2xl font-semibold text-foreground">Frequently Asked Questions</h2>
-                  <Accordion type="single" collapsible className="mt-6">
-                    {practice.faqs.map((faq, index) => (
-                      <AccordionItem key={index} value={`faq-${index}`}>
-                        <AccordionTrigger className="text-left text-foreground">{faq.question}</AccordionTrigger>
-                        <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
-                </div>
               </div>
 
               {/* Sidebar */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
-                  {/* Key Attorneys */}
-                  <Card className="bg-card">
-                    <CardHeader>
-                      <CardTitle className="font-serif text-lg">Key Attorneys</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      {keyAttorneys.map((attorney) => (
-                        <Link
-                          key={attorney.id}
-                          href={`/attorneys/${attorney.slug}`}
-                          className="flex items-center gap-4 rounded-lg p-2 transition-colors hover:bg-secondary"
-                        >
-                          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
-                            <Image
-                              src={attorney.image || "/placeholder.svg"}
-                              alt={attorney.name}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                          <div className="min-w-0">
-                            <p className="truncate font-medium text-foreground">{attorney.name}</p>
-                            <p className="truncate text-sm text-muted-foreground">{attorney.title}</p>
-                          </div>
-                        </Link>
-                      ))}
-                    </CardContent>
-                  </Card>
-
                   {/* CTA */}
                   <Card className="bg-primary text-primary-foreground">
                     <CardContent className="p-6">
