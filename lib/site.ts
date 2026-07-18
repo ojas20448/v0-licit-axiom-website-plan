@@ -1,0 +1,20 @@
+// Central site configuration.
+// NOTE: Update SITE_URL if the production domain is different.
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://licitaxiom.com"
+
+export const SITE_NAME = "Licit Axiom"
+
+export const SITE_DESCRIPTION =
+  "Licit Axiom - An integrated legal platform offering a full spectrum of specialized legal services across multiple forums and jurisdictions in India."
+
+export const CONTACT = {
+  phone: "+91-9811331306",
+  email: "licitaxiom@gmail.com",
+  address: {
+    streetAddress: "G-I/75, Lajpat Nagar-1",
+    addressLocality: "New Delhi",
+    addressRegion: "Delhi",
+    postalCode: "110024",
+    addressCountry: "IN",
+  },
+}

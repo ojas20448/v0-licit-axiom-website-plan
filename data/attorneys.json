@@ -1,53 +1,86 @@
 [
   {
     "id": "1",
-    "slug": "surender-kumar",
-    "name": "Mr Surender Kumar, IFS (Retd.)",
-    "title": "Senior Advisor",
+    "slug": "ashok-kumar-singh",
+    "name": "Mr. Ashok Kumar Singh",
+    "title": "Senior Consultant",
     "image": "/placeholder.svg?height=400&width=400",
     "email": "licitaxiom@gmail.com",
     "phone": "+91 9811331306",
-    "practiceAreas": ["Environmental Law", "Corporate Governance", "Technology Laws", "Energy & Power"],
+    "practiceAreas": ["Constitutional Law", "Environmental Law", "Taxation", "Arbitration", "Corporate & Commercial Litigation"],
     "education": [
-      "M.Phil. in Social Sciences",
-      "Masters in Physics",
-      "Law Degree, Delhi University"
+      "Advocate-on-Record, Supreme Court of India (1992)",
+      "Law Degree"
     ],
-    "experience": "33+ years in Indian Forest Service and legal practice",
-    "bio": "Mr Surender Kumar took voluntary retirement from Indian Forest Service after a distinguished career spanning more than 33 years. During his tenure, he held diverse assignments including Secretary, Environment Department, Member Secretary, Tripura Bio-diversity, CEO Indo-German Development Project, and Director, Ministry of Development of North Eastern Region. He contributed to the drafting of the amendment to the Wildlife Protection Act, 1972, and represented India in the Interpol group on wildlife crime. He has considerable experience in corporate governance and served as MD, TRPC, and represented the central government on the board of North Eastern Developmental Finance Corporation (NEDFi) and NERAMAC.",
-    "publications": [
-      "Policy for eco-tourism",
-      "Enforcement of CITES",
-      "Ban on single use polythene and Noise Pollution Rules"
-    ]
+    "experience": "35+ years before the Supreme Court of India (since 1987)",
+    "bio": "Mr. Ashok Kumar Singh is a highly accomplished Advocate-on-Record of the Supreme Court of India with an extensive and distinguished practice spanning more than three decades. He has been practicing before the Supreme Court of India since 1987 and qualified the Advocate-on-Record Examination in 1992.\n\nThroughout his career, Mr. Singh has held several prestigious appointments, reflecting the confidence reposed in him by various governmental authorities. He served as Standing Counsel for the State of Madhya Pradesh before the Supreme Court of India for a period of ten years commencing on 18 March 1997. He was subsequently empanelled as Counsel for the State of Uttar Pradesh before the Supreme Court from 14 August 2001 onwards. In 2009, he was appointed as Standing Counsel for the Central Agency by the Government of India, and in 2015, he was appointed as Special Standing Counsel for the State of Haryana in matters concerning inter-state water disputes.\n\nMr. Singh has advised and represented Central and State Governments, Public Sector Undertakings, statutory bodies, corporations, multinational enterprises, and private individuals across a wide spectrum of complex legal matters. His areas of expertise include Constitutional Law, Environmental Law, Taxation, Corporate and Commercial Litigation, Civil and Criminal Law, Arbitration, and Regulatory Disputes.\n\nOver the years, he has been associated with numerous reported judgments that have contributed to the development of jurisprudence across diverse fields of law, including constitutional, environmental, taxation, company, arbitration, civil, and criminal law. He has appeared in and successfully argued several matters involving substantial questions of law, public policy, and issues of national importance.\n\nKnown for his strategic insight, meticulous preparation, and persuasive advocacy, Mr. Singh has earned a reputation as a trusted counsel in high-stakes and complex litigation. His enduring contribution to the legal profession and commitment to excellence continue to make him a sought-after advisor and advocate before the Supreme Court of India and other judicial forums across the country.",
+    "publications": []
   },
   {
     "id": "2",
-    "slug": "hem-chandra-pant",
-    "name": "Mr Hem Chandra Pant",
-    "title": "Senior Counsel",
+    "slug": "surender-kumar",
+    "name": "Mr. Surender Kumar, IFS (Retd.)",
+    "title": "Senior Consultant",
     "image": "/placeholder.svg?height=400&width=400",
     "email": "licitaxiom@gmail.com",
     "phone": "+91 9811331306",
-    "practiceAreas": ["Telecom Law", "Corporate Law", "M&A", "Securities Law"],
+    "practiceAreas": ["Environmental Law", "Corporate Governance", "Government Advisory", "Project Implementation"],
     "education": [
-      "MBA (HR)",
-      "M.Com (Commerce)",
-      "FCS (Fellow of the Institute of Company Secretaries of India)",
-      "Law Graduate"
+      "Law Degree, Delhi University",
+      "M.Phil. in Social Sciences",
+      "Masters in Physics"
     ],
-    "experience": "30+ years in legal field, 20+ years with BSNL as Chief General Manager (Legal)",
-    "bio": "Mr Hem Chandra Pant has extensive hands-on experience dealing with a comprehensive range of legal issues. While working with BSNL as Chief General Manager (Legal) for over two decades, he advised top management on Corporate Laws, Capital market regulatory and Securities laws, contracts, Telecom regulatory & business laws, arbitration, employment & service laws, anti-corruption laws and compliance mechanism. He has handled high stake litigation involving direct and indirect taxes, contracts, employment and service matters. He has been a member of management teams for joint ventures, M&As, demergers and disinvestment.",
+    "experience": "33+ years in the Indian Forest Service and government advisory",
+    "bio": "Mr. Surender Kumar had a distinguished career in the Indian Forest Service spanning more than 33 years, during which he held diverse assignments including Secretary, Environment Department; Member Secretary, Tripura Bio-diversity; CEO, Indo-German Development Project; and Director, Ministry of Development of North Eastern Region.\n\nDuring his tenure with the Ministry of Environment & Forests, Government of India, he contributed to the drafting of the amendment to the Wildlife (Protection) Act, 1972, the framing of a policy for eco-tourism, and the enforcement of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES). He also represented India in the Interpol group on wildlife crime. As Secretary, Environment Department in Tripura, he introduced the ban on single-use polythene and the Noise (Pollution) Rules.\n\nApart from a Law degree from Delhi University, he holds a Masters in Physics and an M.Phil. in Social Sciences. He has considerable experience in corporate governance and served as MD, TRPC. He also represented the central government on the boards of the North Eastern Development Finance Corporation (NEDFi) and NERAMAC.\n\nDuring his years as a bureaucrat, he was responsible for overseeing the implementation of numerous high-worth projects. He has been instrumental in drafting and vetting legislations and parliamentary reports, and has been actively involved with parliamentary committees, having headed several committees including disciplinary committees.\n\nMr. Kumar has ample experience in project implementation and strategizing, including budget, timeline and personnel, along with hands-on experience in dealing with and strategizing litigation on behalf of the government.",
+    "publications": [
+      "Policy for eco-tourism",
+      "Enforcement of CITES",
+      "Ban on single-use polythene and Noise (Pollution) Rules"
+    ]
+  },
+  {
+    "id": "3",
+    "slug": "hem-chandra-pant",
+    "name": "Mr. Hem Chandra Pant",
+    "title": "Senior Consultant",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Corporate Law", "Telecom Regulatory", "Securities Law", "Arbitration", "Employment & Service Law"],
+    "education": [
+      "Law Graduate",
+      "FCS (Fellow, Institute of Company Secretaries of India)",
+      "M.Com (Commerce)",
+      "MBA (HR)"
+    ],
+    "experience": "30+ years in the legal field, 20+ years with BSNL as Chief General Manager (Legal)",
+    "bio": "Mr. Hem Chandra Pant is a well qualified professional with over three decades of experience in the legal field. He is a Law graduate, a Fellow of the Institute of Company Secretaries of India (FCS), and a Post Graduate in Commerce (M.Com) and Business Administration MBA (HR).\n\nMr. Pant has extensive hands-on experience of dealing with a comprehensive range of legal issues involving legal scrutiny and examination, drafting and vetting of various policies, deeds, documents, agreements and contracts. While working with BSNL as Chief General Manager (Legal) for over two decades, he advised the top management and business vertical heads on a broad range of areas including Corporate Laws, Capital market regulatory and Securities laws, contracts, Telecom regulatory & business laws, arbitration, employment & service laws, anti-corruption laws and compliance mechanisms.\n\nHe has handled and managed high-stake litigation on behalf of BSNL involving direct and indirect taxes, local taxes, contracts, employment and service matters. He has been a member of the management teams constituted for the purposes of joint ventures; drafting, vetting and negotiation of shareholders agreements; take-overs, mergers and acquisitions; demergers and disinvestment. He has also been actively involved in rendering legal opinions, offering comments on various draft legislations referred by the Administrative Ministry, and attending meetings of various Parliamentary Committees.",
     "publications": [
       "Legal opinions on draft legislations",
       "Parliamentary Committee reports"
     ]
   },
   {
-    "id": "3",
+    "id": "4",
+    "slug": "devender-kumar-sharma",
+    "name": "Mr. Devender Kumar Sharma",
+    "title": "Senior Consultant",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Property Law", "Land Acquisition", "Contracts", "Corporate Disputes", "Asset Management"],
+    "education": [
+      "Law Degree"
+    ],
+    "experience": "32+ years in legal practice",
+    "bio": "Mr. Devender Kumar Sharma is a practicing advocate with over 32 years of experience in managing and strategizing complex legal issues. Over his long and illustrious career, he has handled high-profile cases involving Land Acquisition, Contracts, and Corporate Disputes.\n\nHe is an expert in property due diligence and documentation, and handles high-value property deals on a regular basis. He also advises clients on asset management.",
+    "publications": []
+  },
+  {
+    "id": "5",
     "slug": "namrata-khandelwal",
-    "name": "Ms Namrata Khandelwal, C.A.",
-    "title": "Financial & Business Advisor",
+    "name": "Ms. Namrata Khandelwal, C.A.",
+    "title": "Senior Consultant",
     "image": "/placeholder.svg?height=400&width=400",
     "email": "licitaxiom@gmail.com",
     "phone": "+91 9811331306",
@@ -56,110 +89,191 @@
       "Chartered Accountant"
     ],
     "experience": "20+ years in Business, Financial and Project Management",
-    "bio": "Ms Namrata Khandelwal is a Chartered Accountant with more than 20 years of experience in Business, Financial and Project Management, Accounting, liaison and coordination with Government officials at all levels. She has handled ICAI Accounting Research Foundation (ICAI ARF), the research arm of the Institute of Chartered Accountants of India for more than 7 years. She has executed several projects for Government Ministries like Indian Railways, Ministry of Housing & Urban Affairs, Ministry of Rural Development, Ministry of Panchayati Raj, and regulators like Office of Comptroller & Auditor General of India. An expert at multi-tasking, handling multiple projects simultaneously with teams ranging from 5 to 100+ professionals.",
+    "bio": "Ms. Namrata Khandelwal is a Chartered Accountant with more than 20 years of experience in Business, Financial and Project Management, Accounting, and liaison and coordination with Government officials at all levels (both State and Central), with a proven track record of accomplishing the desired results with high integrity, work ethics and a keen eye for detail.\n\nShe handled the ICAI Accounting Research Foundation (ICAI ARF), the research arm of the Institute of Chartered Accountants of India, for more than 7 years. She has executed several projects for Government Ministries such as Indian Railways, Ministry of Housing & Urban Affairs, Ministry of Rural Development, and Ministry of Panchayati Raj, as well as other regulators and authorities like the Office of the Comptroller & Auditor General of India. She is an expert at multi-tasking, handling multiple projects simultaneously with teams ranging from 5 to 100+ professionals.",
     "publications": []
   },
   {
-    "id": "4",
-    "slug": "devender-kumar-sharma",
-    "name": "Mr Devender Kumar Sharma",
-    "title": "Senior Advocate",
+    "id": "6",
+    "slug": "shobhana-takiar",
+    "name": "Ms. Shobhana Takiar",
+    "title": "Senior Consultant",
     "image": "/placeholder.svg?height=400&width=400",
     "email": "licitaxiom@gmail.com",
     "phone": "+91 9811331306",
-    "practiceAreas": ["Property Law", "Contracts", "Land Acquisition", "Asset Management"],
+    "practiceAreas": ["Intellectual Property Rights", "RERA", "Land & Real Estate", "Company Law", "Civil Litigation"],
     "education": [
       "Law Degree"
     ],
-    "experience": "32+ years in legal practice",
-    "bio": "Mr Devender Kumar Sharma is a practicing advocate with over 32 years of experience in managing and strategizing complex legal issues. Over his long and illustrious career, he has handled high-profile cases involving Land Acquisition, Contracts, and Corporate Disputes. He is an expert in property due diligence and handles high-value property deals on a regular basis. He also advises clients on asset management, company and LLP registration, and estate planning.",
+    "experience": "35+ years of legal practice (since 1988)",
+    "bio": "Ms. Shobhana Takiar is a highly accomplished legal professional having a distinguished career that spans nearly four decades. Since commencing her legal practice in 1988, she has established a robust reputation for handling high-stakes litigation, advisory work, and complex dispute resolution across multiple legal domains.\n\nHer legal acumen has made her a highly trusted choice for major public institutions and regulatory bodies. She serves as a vital Standing Counsel for the Delhi Development Authority (DDA), actively defending the authority in complex land disputes, town planning issues, and writ petitions. Additionally, she is empanelled with the National Housing Bank (NHB) and previously served the public sector as the Additional Standing Counsel for the Government of NCT of Delhi (GNCTD), where she handled critical public interest and administrative civil matters.\n\nBeyond her extensive public sector portfolio, Ms. Takiar maintains a powerful private practice footprint, representing prominent corporate brands such as PVR Cinemas and premium heritage names like Neemrana Hotels. Her versatile corporate and commercial practice spans a wide array of civil disciplines, with specialized expertise in Intellectual Property Rights (IPR), Real Estate (Regulation and Development) Act (RERA) compliance, land revenue disputes, contractual litigation, company law, and tender disputes.",
     "publications": []
   },
   {
-    "id": "5",
+    "id": "7",
+    "slug": "mukta-sharma",
+    "name": "Ms. Mukta Sharma",
+    "title": "Senior Consultant",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Property & Real Estate Law", "Arbitration & Mediation", "Service, Labour & Employment", "Co-operative Societies & Banking"],
+    "education": [
+      "Law Degree"
+    ],
+    "experience": "36+ years of legal practice (since 1988)",
+    "bio": "With over 36 years of distinguished legal practice, Ms. Mukta Sharma is a seasoned litigator and advisor known for delivering comprehensive, tailored legal solutions across a vast spectrum of civil and constitutional domains. Her career is anchored on a client-centric philosophy, combining deep analytical acumen with an unwavering commitment to strategic dispute resolution.\n\nMs. Sharma commenced her legal career in 1988 under the prestigious mentorship of Mrs. Shobha Dikshit (eminent Supreme Court Advocate and former Judge of the Allahabad High Court). During her foundational years, she gained rigorous exposure to high-stakes civil, criminal, tax, service, and constitutional matters, alongside assisting Mr. Anil Dev Singh, Senior Advocate (Retd. Chief Justice, Rajasthan High Court).\n\nMs. Sharma operates at the intersection of complex litigation and alternative dispute resolution, specializing in Property & Real Estate Law, Arbitration & Mediation, Service, Labour & Employment, and Co-operative Societies & Banking.",
+    "publications": []
+  },
+  {
+    "id": "8",
+    "slug": "shantwanu-singh",
+    "name": "Mr. Shantwanu Singh, AoR",
+    "title": "Consultant",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Supreme Court Practice", "White Collar Crime (PMLA, UAPA, NSA)", "Real Estate", "Commercial Litigation"],
+    "education": [
+      "LL.M. in International Trade and Commercial Law, Durham University (England)",
+      "Advocate-on-Record, Supreme Court of India (2018)",
+      "Enrolled with the Bar Council of India (2011)"
+    ],
+    "experience": "13+ years before the Supreme Court, High Courts and tribunals",
+    "bio": "Mr. Shantwanu Singh got enrolled with the Bar Council of India in the year 2011, and thereafter pursued his LL.M. in International Trade and Commercial Law from Durham University (England). After his return, he has been practising in the Supreme Court, different High Courts and tribunals.\n\nHe successfully qualified the Advocate-on-Record Examination conducted by the Supreme Court of India in the year 2018 and was appointed as Special Public Prosecutor by Delhi Police in the Delhi Riots Case. He has been retained by several prestigious companies like the Sahara Group of Companies and Oil India Ltd, along with various real estate companies. He has also been engaged as Legal Consultant by companies like Kajima India Pvt. Ltd., Godrej, BCC Infrastructures, B.C.C Precast, J.K.G Constructions, M.R Proview, MRJV and many others.\n\nHe has to his credit the opportunity of appearing in several high-profile cases under the Prevention of Money Laundering Act, the Unlawful Activities (Prevention) Act, the National Security Act etc. before the Supreme Court and High Courts.",
+    "publications": []
+  },
+  {
+    "id": "9",
+    "slug": "shrishti-garg",
+    "name": "Ms. Shrishti Garg, C.A.",
+    "title": "Consultant",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Insolvency & Bankruptcy", "Valuation", "Taxation", "Audit & Assurance"],
+    "education": [
+      "Chartered Accountant",
+      "Registered Valuer",
+      "Insolvency Professional (2025)"
+    ],
+    "experience": "10+ years across financial and insolvency domains",
+    "bio": "Ms. Shrishti Garg is a Chartered Accountant, a Registered Valuer, and an Insolvency Professional (2025), with over a decade of diverse experience across financial and insolvency domains.\n\nShe has been actively involved in managing and advising on more than 30 assignments, including Corporate Insolvency Resolution Processes (CIRP), Liquidation, and Voluntary Liquidation. Her expertise lies in stakeholder coordination, process management, and maximizing value in stressed situations.\n\nPrior to her specialization in insolvency, she worked extensively in taxation, auditing, and assurance, building a strong foundation in financial reporting, compliance, and audit practices. She brings a structured and solution-oriented approach to complex engagements and is known for her collaborative style, adaptability, and ability to bring fresh perspectives to challenging situations.",
+    "publications": []
+  },
+  {
+    "id": "10",
+    "slug": "seema-jangid",
+    "name": "Ms. Seema Jangid, CS",
+    "title": "Consultant",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Corporate Governance", "Regulatory Compliance", "Contract Management", "Secretarial Functions"],
+    "education": [
+      "Company Secretary"
+    ],
+    "experience": "9+ years in corporate legal affairs and compliance",
+    "bio": "Ms. Seema Jangid is a qualified Company Secretary and legal professional with over 9 years of experience in corporate legal affairs, contract management, corporate governance, regulatory compliance, and secretarial functions.\n\nShe possesses extensive experience in advising businesses on legal and regulatory matters, drafting and negotiating commercial contracts, managing board and shareholder processes, and ensuring compliance with corporate laws.",
+    "publications": []
+  },
+  {
+    "id": "11",
+    "slug": "lakshay-narang",
+    "name": "Mr. Lakshay Narang",
+    "title": "Expert",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": [],
+    "education": [],
+    "experience": "Profile to be updated",
+    "bio": "Profile to be updated shortly.",
+    "publications": []
+  },
+  {
+    "id": "12",
+    "slug": "rakshit-jain",
+    "name": "Mr. Rakshit Jain",
+    "title": "Counsel",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Taxation", "Audit", "Banking & Finance", "Government Liaison"],
+    "education": [
+      "Professional Qualification in Finance and Taxation"
+    ],
+    "experience": "12+ years in Audit, Banking, Finance and Taxation",
+    "bio": "Mr. Rakshit Jain is a well qualified professional with over 12 years of experience in the field of Audit, Banking, Finance and Direct & Indirect Taxation. Given his effective liaison skills, he has an impressive track record of successfully coordinating with Government organizations in various matters.",
+    "publications": []
+  },
+  {
+    "id": "13",
+    "slug": "trivesh-mehlawat",
+    "name": "Mr. Trivesh Mehlawat",
+    "title": "Senior Associate",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9811331306",
+    "practiceAreas": ["Civil Litigation", "Dispute Resolution", "IPR & Trademarks", "Bail & Anticipatory Bail"],
+    "education": [
+      "Law Degree"
+    ],
+    "experience": "Extensive experience in civil litigation and dispute resolution",
+    "bio": "Mr. Trivesh Mehlawat, a practicing advocate, has immense experience in the field of Civil Litigation & Dispute Resolution and specializes in IPR with a focus on trademarks.\n\nHe has immense experience and a good success rate in securing Bail and Anticipatory Bail for clients.",
+    "publications": []
+  },
+  {
+    "id": "14",
+    "slug": "shubhankar-sharma",
+    "name": "Mr. Shubhankar Sharma",
+    "title": "Team Lead",
+    "image": "/placeholder.svg?height=400&width=400",
+    "email": "licitaxiom@gmail.com",
+    "phone": "+91 9999671943",
+    "practiceAreas": ["Litigation & Dispute Resolution", "Food & Beverage", "Hospitality & Tourism", "Real Estate & Compliances"],
+    "education": [
+      "Law Degree"
+    ],
+    "experience": "10+ years in litigation and regulatory compliance",
+    "bio": "Mr. Shubhankar Sharma, a practicing advocate, has immense experience in the field of Litigation & Dispute Resolution.\n\nHe has also worked extensively with the Food & Beverage industry, Hospitality & Tourism businesses and Education Companies, advising them on company incorporation, statutory registrations including FSSAI and Weights and Measures, Real Estate, Compliances and other documentation.",
+    "publications": []
+  },
+  {
+    "id": "15",
     "slug": "udayan-khandelwal",
-    "name": "Mr Udayan Khandelwal",
-    "title": "Managing Partner",
+    "name": "Mr. Udayan Khandelwal",
+    "title": "Partner",
     "image": "/placeholder.svg?height=400&width=400",
     "email": "udayankhandelwal@gmail.com",
     "phone": "+91 9811331306",
-    "practiceAreas": ["Arbitration", "Litigation", "Competition Law", "Insolvency & Bankruptcy"],
+    "practiceAreas": ["Arbitration", "Civil & Commercial Litigation", "Competition Law", "Insolvency & Bankruptcy", "Wills & Estate Planning"],
     "education": [
       "Law Degree",
       "Member, Bar Council of Delhi",
       "Member, Delhi High Court Bar Association"
     ],
     "experience": "15+ years in litigation and dispute resolution",
-    "bio": "Mr Udayan Khandelwal is a practising Advocate in various courts and quasi-judicial tribunals across the country including Arbitration. He has immense experience in successfully representing clients including high net-worth individuals and companies before various judicial and quasi-judicial fora. Mr Khandelwal is a result-oriented lawyer with extensive experience in Arbitral Claims, Defences, Petitions Under the Arbitration and Conciliation Act, Civil and Commercial Litigation, Economic Offences, Anti-Corruption Laws, Competition Law, Insolvency and Bankruptcy, and Family & Personal Laws. He also advises clients on alternative dispute resolution including mediation and conciliation.",
+    "bio": "Mr. Udayan Khandelwal is a distinguished practicing Advocate with an established track record of successfully representing high-net-worth individuals and corporate clients across India's diverse judicial and quasi-judicial landscape. Known for his analytical precision and result-oriented approach, Mr. Khandelwal excels at strategizing complex litigation to deliver favourable, high-stakes outcomes for his clients.\n\nHis expansive litigation and dispute resolution practice is heavily anchored in the field of Arbitration. He brings profound experience to handling intricate Arbitral Claims, robust Defences, and critical petitions under Sections 9, 11, 14, 15, 34, and 37 of the Arbitration and Conciliation Act. Beyond alternative dispute resolution, his courtroom mastery spans comprehensive Civil and Commercial Litigation, white-collar matters involving Economic Offences and Anti-Corruption Laws, and complex corporate interventions under Competition Law and Insolvency & Bankruptcy frameworks.\n\nRecognizing that modern enterprise and personal wealth require adaptive legal safeguards, Mr. Khandelwal also maintains a forward-looking practice that services dynamic market sectors and private clients. He regularly advises on the structuring and enforcement of commercial Contracts, Consumer Laws, and modern digital compliance frameworks covering E-Commerce and Privacy regulations. Additionally, he provides trusted counsel to individuals navigating sensitive personal asset management through tailored Wills & Estate Planning.\n\nAs an active and respected member of the legal community, Mr. Khandelwal is enrolled with the Bar Council of Delhi and is a member of the Delhi High Court Bar Association, continuously contributing to the highest standards of advocacy and legal strategy across various courts and tribunals nationwide.",
     "publications": []
   },
   {
-    "id": "6",
+    "id": "16",
     "slug": "rahul-dubey",
-    "name": "Mr Rahul Dubey, LLM (UCL, London)",
-    "title": "Intellectual Property Counsel",
+    "name": "Mr. Rahul Dubey, LL.M. (UCL, London)",
+    "title": "Partner",
     "image": "/placeholder.svg?height=400&width=400",
     "email": "licitaxiom@gmail.com",
     "phone": "+91 9811331306",
-    "practiceAreas": ["Intellectual Property", "Patents", "Trademarks", "Corporate Law"],
+    "practiceAreas": ["Intellectual Property", "Litigation & Arbitration", "Commercial Law", "Conveyancing & Legal Opinions"],
     "education": [
-      "LL.M. in Intellectual Property Rights, University College London",
-      "Law Degree",
-      "Certificates in IPR and Competition Laws from WIPO, Geneva"
+      "LL.M. in Intellectual Property Law, University College London (UCL)",
+      "Law Degree"
     ],
-    "experience": "10+ years in IP litigation and corporate law",
-    "bio": "Mr Rahul Dubey is an alumnus of University College London holding a degree of Masters in Law (LL.M.) in Intellectual Property Rights. He was Delhi ambassador for World Bank Group in its programmes of Ease of Doing Business in India and Enforcement of Contracts in India. Mr Dubey has represented clients in high profile IPR litigation culminating into textbook cases. He has appeared in landmark cases including Monsanto Technology LLC vs Nuziveedu Seeds Ltd., Sungro Seeds Ltd. vs S.K. Tripathi, Delhi Public School Society vs DPS World Foundation, and Prabhat Agri Biotech Ltd. vs Registrar of Plant Varieties. He was invited by University of Helsinki, Finland to speak on IPR and Artificial Intelligence.",
+    "experience": "10+ years across commercial, civil and criminal law",
+    "bio": "Mr. Rahul Dubey is a versatile litigator with over a decade of experience spanning commercial, civil, and criminal law. He has developed deep expertise in litigation and arbitration, with a strong focus on intellectual property rights, including trademark, copyright, patent, and design infringement. He frequently appears before the Hon'ble Supreme Court of India, the Hon'ble Delhi High Court, and various trial courts.\n\nRahul holds an LL.M. in Intellectual Property Law from University College London (UCL) and has a strong academic and practical grounding in dispute resolution under the Arbitration and Conciliation Act, contractual matters, and complex civil suits. In addition to litigation, he is adept in conveyancing and rendering legal opinions, particularly in matters involving IPR.\n\nA published author and speaker at national and international legal forums, Rahul actively contributes to thought leadership in emerging legal issues. He is a member of the Delhi High Court Bar Association and serves as a panel lawyer for GAIL and SBI, amongst other entities.",
     "publications": [
       "Arbitrability of IPR disputes (Satyam International Publication, ISBN: 978-93-91345-11-2)",
       "IPR and Artificial Intelligence (University of Helsinki)"
     ]
-  },
-  {
-    "id": "7",
-    "slug": "shubhankar-sharma",
-    "name": "Mr Shubhankar Sharma",
-    "title": "Partner",
-    "image": "/placeholder.svg?height=400&width=400",
-    "email": "licitaxiom@gmail.com",
-    "phone": "+91 9999671943",
-    "practiceAreas": ["Food & Beverage", "Hospitality & Tourism", "Drone Law", "Real Estate"],
-    "education": [
-      "Law Degree"
-    ],
-    "experience": "10+ years in litigation and regulatory compliance",
-    "bio": "Mr Shubhankar Sharma, a practicing advocate, has immense experience in the field of Litigation & Dispute Resolution. He has worked extensively with Food & Beverage industry, Hospitality & Tourism businesses and Education Companies, advising them on company incorporation, statutory registrations including FSSAI, Weights and Measures, Real Estate, Compliances & other documentation. He is also an expert in the newly drafted Drone Rules, 2021 and Certification Scheme for Unmanned Aircraft Systems.",
-    "publications": []
-  },
-  {
-    "id": "8",
-    "slug": "abhishek-tewathia",
-    "name": "Mr Abhishek Tewathia",
-    "title": "Associate",
-    "image": "/placeholder.svg?height=400&width=400",
-    "email": "licitaxiom@gmail.com",
-    "phone": "+91 9811331306",
-    "practiceAreas": ["Criminal Law", "Matrimonial Law", "Bail Matters"],
-    "education": [
-      "Law Degree"
-    ],
-    "experience": "8+ years in criminal and matrimonial litigation",
-    "bio": "Mr Abhishek Tewathia, a practicing advocate, has immense experience in the field of Criminal and Matrimonial Litigation & Dispute Resolution. He has extensive experience and a good success rate in securing Bail and Anticipatory Bail for clients. His expertise includes handling complex criminal matters, matrimonial disputes, and providing strategic legal counsel in sensitive cases.",
-    "publications": []
-  },
-  {
-    "id": "9",
-    "slug": "rakshit-jain",
-    "name": "Mr. Rakshit Jain",
-    "title": "Tax & Financial Advisor",
-    "image": "/placeholder.svg?height=400&width=400",
-    "email": "licitaxiom@gmail.com",
-    "phone": "+91 9811331306",
-    "practiceAreas": ["Taxation", "Startups", "Insolvency & Bankruptcy", "Business Advisory"],
-    "education": [
-      "Professional Qualification in Finance and Taxation"
-    ],
-    "experience": "12+ years in Audit, Banking, Finance and Taxation",
-    "bio": "Mr. Rakshit Jain is a well qualified professional with over 12 years of experience in the field of Audit, Banking, Finance and Direct & Indirect Taxation. Given his effective liaison skills, he has an impressive track record of successfully coordinating with Government organizations in various matters. He specializes in business advisory with a special focus on Startups including documentation, Mergers and De-mergers, and Insolvency & Bankruptcy Advisory.",
-    "publications": []
   }
 ]
