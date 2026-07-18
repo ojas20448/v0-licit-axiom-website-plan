@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"
-import { AnimatedSection } from "@/components/animated-section"
 
 interface Attorney {
   id: string
@@ -30,7 +29,65 @@ interface AttorneysListProps {
 
 // Helper to get normalized name without titles for alphabetical operations
 const getNormalizedName = (name: string) => {
-  return name.replace(/^(Mr\.|Mr|Ms\.|Ms|Dr\.|Dr)\s+/i, "").trim()
+  return name.replace(/^(Mr\.|Mr|Ms\.|Ms|Mrs\.|Mrs|Dr\.|Dr)\s+/i, "").trim()
+}
+
+const isPartner = (attorney: Attorney) => attorney.title.toLowerCase().includes("partner")
+
+const byNormalizedName = (a: Attorney, b: Attorney) =>
+  getNormalizedName(a.name).toLowerCase().localeCompare(getNormalizedName(b.name).toLowerCase())
+
+function AttorneyCard({ attorney, index }: { attorney: Attorney; index: number }) {
+  return (
+    <motion.div
+      key={attorney.id}
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.3, delay: index * 0.05 }}
+    >
+      <Link href={`/attorneys/${attorney.slug}`} className="group h-full block">
+        <Card className="h-full overflow-hidden bg-card transition-all hover:shadow-lg border border-border group-hover:border-accent/40 flex flex-col">
+          <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+            <Image
+              src={attorney.image || "/placeholder.svg"}
+              alt={attorney.name}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <CardContent className="p-6 flex-1 flex flex-col justify-between">
+            <div className="space-y-2">
+              <h2 className="font-serif text-xl font-semibold text-foreground group-hover:text-accent transition-colors leading-snug">
+                {attorney.name}
+              </h2>
+              <p className="text-xs font-semibold tracking-wider text-accent uppercase">{attorney.title}</p>
+            </div>
+            <div className="mt-4 pt-4 border-t border-border/50 space-y-2 text-xs text-muted-foreground">
+              <p className="line-clamp-2">
+                <span className="font-semibold text-foreground">Practice Areas:</span>{" "}
+                {attorney.practiceAreas.length > 0 ? attorney.practiceAreas.join(", ") : "—"}
+              </p>
+              <p>
+                <span className="font-semibold text-foreground">Experience:</span> {attorney.experience}
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </Link>
+    </motion.div>
+  )
+}
+
+function SectionHeading({ title, subtitle }: { title: string; subtitle?: string }) {
+  return (
+    <div className="flex items-center gap-4">
+      <h2 className="font-serif text-2xl font-bold text-foreground md:text-3xl">{title}</h2>
+      <div className="h-px flex-1 bg-border" />
+      {subtitle && <span className="text-sm text-muted-foreground">{subtitle}</span>}
+    </div>
+  )
 }
 
 export function AttorneysList({ initialAttorneys }: AttorneysListProps) {
@@ -42,14 +99,13 @@ export function AttorneysList({ initialAttorneys }: AttorneysListProps) {
     return Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i))
   }, [])
 
-  // Process and sort attorneys
+  // Process and sort attorneys alphabetically
   const sortedAttorneys = useMemo(() => {
-    return [...initialAttorneys].sort((a, b) => {
-      const nameA = getNormalizedName(a.name).toLowerCase()
-      const nameB = getNormalizedName(b.name).toLowerCase()
-      return nameA.localeCompare(nameB)
-    })
+    return [...initialAttorneys].sort(byNormalizedName)
   }, [initialAttorneys])
+
+  const partners = useMemo(() => sortedAttorneys.filter(isPartner), [sortedAttorneys])
+  const team = useMemo(() => sortedAttorneys.filter((a) => !isPartner(a)), [sortedAttorneys])
 
   // Get active letters that actually have team members
   const lettersWithMembers = useMemo(() => {
@@ -62,6 +118,8 @@ export function AttorneysList({ initialAttorneys }: AttorneysListProps) {
     })
     return letters
   }, [sortedAttorneys])
+
+  const isFiltering = searchTerm.trim() !== "" || selectedLetter !== "ALL"
 
   // Filter attorneys based on search term and selected letter
   const filteredAttorneys = useMemo(() => {
@@ -147,71 +205,64 @@ export function AttorneysList({ initialAttorneys }: AttorneysListProps) {
         </div>
       </div>
 
-      {/* Attorneys Grid */}
-      {filteredAttorneys.length > 0 ? (
-        <motion.div 
-          layout 
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredAttorneys.map((attorney, index) => (
-              <motion.div
-                key={attorney.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-              >
-                <Link href={`/attorneys/${attorney.slug}`} className="group h-full block">
-                  <Card className="h-full overflow-hidden bg-card transition-all hover:shadow-lg border border-border group-hover:border-accent/40 flex flex-col">
-                    <div className="relative aspect-[3/4] overflow-hidden bg-muted">
-                      <Image
-                        src={attorney.image || "/placeholder.svg"}
-                        alt={attorney.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                    <CardContent className="p-6 flex-1 flex flex-col justify-between">
-                      <div className="space-y-2">
-                        <h2 className="font-serif text-xl font-semibold text-foreground group-hover:text-accent transition-colors leading-snug">
-                          {attorney.name}
-                        </h2>
-                        <p className="text-xs font-semibold tracking-wider text-accent uppercase">{attorney.title}</p>
-                      </div>
-                      <div className="mt-4 pt-4 border-t border-border/50 space-y-2 text-xs text-muted-foreground">
-                        <p className="line-clamp-2">
-                          <span className="font-semibold text-foreground">Practice Areas:</span> {attorney.practiceAreas.join(", ")}
-                        </p>
-                        <p>
-                          <span className="font-semibold text-foreground">Experience:</span> {attorney.experience}
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      ) : (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center py-16 bg-card border border-border rounded-xl shadow-sm"
-        >
-          <p className="text-lg text-muted-foreground">No team members match your criteria.</p>
-          <button
-            onClick={() => {
-              setSearchTerm("")
-              setSelectedLetter("ALL")
-            }}
-            className="mt-4 text-sm font-semibold text-accent hover:underline"
+      {/* Filtered results (search or alphabet filter active) */}
+      {isFiltering ? (
+        filteredAttorneys.length > 0 ? (
+          <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <AnimatePresence mode="popLayout">
+              {filteredAttorneys.map((attorney, index) => (
+                <AttorneyCard key={attorney.id} attorney={attorney} index={index} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-16 bg-card border border-border rounded-xl shadow-sm"
           >
-            Clear Filters
-          </button>
-        </motion.div>
+            <p className="text-lg text-muted-foreground">No team members match your criteria.</p>
+            <button
+              onClick={() => {
+                setSearchTerm("")
+                setSelectedLetter("ALL")
+              }}
+              className="mt-4 text-sm font-semibold text-accent hover:underline"
+            >
+              Clear Filters
+            </button>
+          </motion.div>
+        )
+      ) : (
+        <>
+          {/* Partners Section */}
+          {partners.length > 0 && (
+            <div className="space-y-6">
+              <SectionHeading title="Partners" />
+              <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <AnimatePresence mode="popLayout">
+                  {partners.map((attorney, index) => (
+                    <AttorneyCard key={attorney.id} attorney={attorney} index={index} />
+                  ))}
+                </AnimatePresence>
+              </motion.div>
+            </div>
+          )}
+
+          {/* Rest of the Team (alphabetical) */}
+          {team.length > 0 && (
+            <div className="space-y-6 pt-4">
+              <SectionHeading title="Our Professionals" />
+              <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <AnimatePresence mode="popLayout">
+                  {team.map((attorney, index) => (
+                    <AttorneyCard key={attorney.id} attorney={attorney} index={index} />
+                  ))}
+                </AnimatePresence>
+              </motion.div>
+            </div>
+          )}
+        </>
       )}
     </div>
   )

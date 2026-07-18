@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${attorney.name} - ${attorney.title} | Licit Axiom`,
-    description: attorney.bio,
+    description: attorney.bio.split("\n")[0],
   }
 }
 
@@ -97,7 +97,9 @@ export default async function AttorneyPage({ params }: Props) {
                           </a>
                         </div>
                         <Button className="w-full" asChild>
-                          <Link href={`/contact?attorney=${attorney.slug}`}>Contact {attorney.name.split(" ")[0]}</Link>
+                          <Link href={`/contact?attorney=${attorney.slug}`}>
+                            Contact {attorney.name.replace(/^(Mr\.?|Ms\.?|Mrs\.?|Dr\.?)\s+/i, "").split(" ")[0]}
+                          </Link>
                         </Button>
                       </CardContent>
                     </Card>
@@ -130,7 +132,7 @@ export default async function AttorneyPage({ params }: Props) {
                         <Briefcase className="h-5 w-5 text-accent" />
                         Biography
                       </h2>
-                      <p className="mt-4 text-muted-foreground leading-relaxed">{attorney.bio}</p>
+                      <p className="mt-4 whitespace-pre-line text-muted-foreground leading-relaxed">{attorney.bio}</p>
                     </div>
                   </AnimatedSection>
 
