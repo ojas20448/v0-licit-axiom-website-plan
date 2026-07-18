@@ -165,4 +165,32 @@
   .pause-on-hover:hover .animate-scroll {
     animation-play-state: paused;
   }
+
+  @keyframes pageFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /*
+   * Page-level fade-in. Deliberately uses the DEFAULT fill-mode (not `both`/
+   * `forwards`): the element's resting state is fully visible (opacity:1), and
+   * the animation only provides a brief entrance. If the animation never runs
+   * for any reason, the content still shows — a page can never get stuck blank.
+   */
+  .page-fade-in {
+    animation: pageFadeIn 0.3s ease-in-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page-fade-in {
+      animation: none;
+    }
+  }
 }

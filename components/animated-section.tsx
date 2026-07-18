@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 interface AnimatedSectionProps {
     children: ReactNode;
@@ -48,13 +48,24 @@ export function AnimatedSection({
         typeof window !== 'undefined' &&
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Safety fallback: content must never remain permanently invisible.
+    // If the IntersectionObserver never fires (scroll-locked modal, offscreen
+    // render, client-side navigation timing, etc.), reveal the content anyway
+    // shortly after mount so the page can never get stuck as a blank screen.
+    const [forceVisible, setForceVisible] = useState(false);
+    useEffect(() => {
+        const timer = setTimeout(() => setForceVisible(true), 400);
+        return () => clearTimeout(timer);
+    }, []);
+
     const selectedAnimation = animations[animation];
+    const isVisible = prefersReducedMotion || isInView || forceVisible;
 
     return (
         <motion.div
             ref={ref}
             initial={prefersReducedMotion ? 'visible' : 'hidden'}
-            animate={isInView ? 'visible' : 'hidden'}
+            animate={isVisible ? 'visible' : 'hidden'}
             variants={selectedAnimation}
             transition={{
                 duration: prefersReducedMotion ? 0 : 0.6,
