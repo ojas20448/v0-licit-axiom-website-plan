@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Lock, LogOut, Plus, Trash2, Edit, FileText, Briefcase, CheckCircle, AlertCircle } from "lucide-react"
+import { Lock, LogOut, Plus, Trash2, Edit, FileText, Briefcase, Upload, ImageIcon, AlertCircle } from "lucide-react"
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -24,6 +24,7 @@ export default function AdminPage() {
   const [careers, setCareers] = useState<any[]>([])
   const [loadingData, setLoadingData] = useState(false)
   const [statusMessage, setStatusMessage] = useState("")
+  const [uploadingImage, setUploadingImage] = useState(false)
 
   // Blog Form State
   const [editingBlogId, setEditingBlogId] = useState<string | null>(null)
@@ -104,6 +105,34 @@ export default function AdminPage() {
       console.error("Error loading data:", err)
     } finally {
       setLoadingData(false)
+    }
+  }
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    setUploadingImage(true)
+    setStatusMessage("Uploading photo...")
+
+    try {
+      const formData = new FormData()
+      formData.append("file", file)
+
+      const res = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: formData,
+      })
+
+      if (!res.ok) throw new Error("Upload failed")
+      const data = await res.json()
+
+      setBlogForm((prev) => ({ ...prev, image: data.url }))
+      setStatusMessage("Photo uploaded successfully!")
+    } catch (err: any) {
+      setStatusMessage(`Error uploading photo: ${err.message}`)
+    } finally {
+      setUploadingImage(false)
     }
   }
 
@@ -304,7 +333,7 @@ export default function AdminPage() {
         <div className="flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-center md:justify-between">
           <div>
             <h1 className="font-serif text-3xl font-bold text-foreground">Licit Axiom Content Console</h1>
-            <p className="text-sm text-muted-foreground mt-1">Manage Blog Insights and Career Opportunities live on your website.</p>
+            <p className="text-sm text-muted-foreground mt-1">Manage Blog Insights, Cover Photos, and Career Opportunities live on your website.</p>
           </div>
           <Button variant="outline" className="self-start md:self-auto" onClick={handleLogout}>
             <LogOut className="mr-2 h-4 w-4" />
@@ -339,7 +368,7 @@ export default function AdminPage() {
                 <CardTitle className="text-xl font-serif">
                   {editingBlogId ? "Edit Blog Post" : "Create New Blog Post"}
                 </CardTitle>
-                <CardDescription>Publish thought leadership and legal insights to the blog page.</CardDescription>
+                <CardDescription>Publish thought leadership, legal insights, and cover photos to the blog page.</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleBlogSubmit} className="space-y-4">
@@ -383,6 +412,45 @@ export default function AdminPage() {
                         value={blogForm.date}
                         onChange={(e) => setBlogForm({ ...blogForm, date: e.target.value })}
                       />
+                    </div>
+                  </div>
+
+                  {/* Cover Photo Uploader Field */}
+                  <div className="space-y-2 rounded-lg border border-border p-4 bg-muted/20">
+                    <Label htmlFor="coverPhoto" className="font-semibold text-foreground flex items-center gap-2">
+                      <ImageIcon className="h-4 w-4 text-primary" />
+                      Upload Cover Photo / Image
+                    </Label>
+                    <div className="grid gap-4 sm:grid-cols-[1fr_auto]">
+                      <div className="space-y-2">
+                        <div className="flex gap-2 items-center">
+                          <Input
+                            id="photoFile"
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageUpload}
+                            disabled={uploadingImage}
+                            className="bg-card text-xs cursor-pointer"
+                          />
+                          {uploadingImage && <span className="text-xs text-muted-foreground animate-pulse">Uploading...</span>}
+                        </div>
+                        <Input
+                          id="imageUrl"
+                          value={blogForm.image}
+                          onChange={(e) => setBlogForm({ ...blogForm, image: e.target.value })}
+                          placeholder="Or paste Image URL (e.g. /images/uploads/my-photo.jpg)"
+                          className="bg-card text-xs font-mono"
+                        />
+                      </div>
+                      {blogForm.image && (
+                        <div className="relative h-20 w-32 shrink-0 rounded-md overflow-hidden border border-border bg-card">
+                          <img
+                            src={blogForm.image}
+                            alt="Cover Preview"
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -430,7 +498,12 @@ export default function AdminPage() {
               <h3 className="font-serif text-xl font-semibold mb-4">Existing Blog Posts</h3>
               <div className="grid gap-4 md:grid-cols-2">
                 {blogPosts.map((post) => (
-                  <Card key={post.id} className="bg-card flex flex-col justify-between">
+                  <Card key={post.id} className="bg-card flex flex-col justify-between overflow-hidden">
+                    {post.image && (
+                      <div className="h-40 w-full overflow-hidden bg-muted">
+                        <img src={post.image} alt={post.title} className="h-full w-full object-cover" />
+                      </div>
+                    )}
                     <CardHeader className="pb-2">
                       <div className="flex items-center justify-between text-xs text-muted-foreground mb-1">
                         <span>{post.category || "General"}</span>
