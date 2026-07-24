@@ -8,9 +8,29 @@ import { ArrowRight, MapPin, Briefcase, Clock } from "lucide-react"
 import careers from "@/data/careers.json"
 import type { Metadata } from "next"
 
+import { SITE_URL, SITE_NAME } from "@/lib/site"
+
 export const metadata: Metadata = {
-  title: "Careers | Licit Axiom",
-  description: "Join our team of talented legal professionals. Explore career opportunities at Licit Axiom.",
+  title: "Careers & Opportunities | Licit Axiom",
+  description: "Join our team of talented advocates, legal researchers, and domain specialists. Explore legal career and internship opportunities at Licit Axiom.",
+  alternates: {
+    canonical: `${SITE_URL}/careers`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/careers`,
+    siteName: SITE_NAME,
+    title: "Careers & Opportunities | Licit Axiom",
+    description: "Explore legal career and internship opportunities at Licit Axiom.",
+    locale: "en_IN",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Careers & Opportunities | Licit Axiom",
+    description: "Explore legal career and internship opportunities at Licit Axiom.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function CareersPage() {

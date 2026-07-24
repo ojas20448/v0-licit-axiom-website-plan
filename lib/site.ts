@@ -18,4 +18,27 @@ export const CONTACT = {
     postalCode: "110024",
     addressCountry: "IN",
   },
+  geo: {
+    latitude: 28.5684,
+    longitude: 77.2435,
+  },
+}
+
+export const KEYWORDS = [
+  "Licit Axiom",
+  "Law Firm New Delhi",
+  "Advocates and Solicitors Delhi",
+  "Supreme Court Lawyers India",
+  "Commercial Arbitration Lawyers",
+  "Corporate Law Firm Delhi",
+  "Intellectual Property Advocates",
+  "Mergers and Acquisitions Counsel",
+  "Insolvency and Bankruptcy Lawyers",
+  "Empanelled Legal Consultants",
+  "ONGC Coal India BSNL Empanelled Lawyers",
+]
+
+export const SOCIAL_LINKS = {
+  maps: "https://share.google/LYXy1OUAUESDdzkWC",
+  linkedin: "https://www.linkedin.com/company/licit-axiom",
 }

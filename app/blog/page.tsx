@@ -8,9 +8,29 @@ import { CalendarDays, User } from "lucide-react"
 import blogPosts from "@/data/blog.json"
 import type { Metadata } from "next"
 
+import { SITE_URL, SITE_NAME } from "@/lib/site"
+
 export const metadata: Metadata = {
-  title: "Blog & Insights | Licit Axiom",
-  description: "Legal insights, industry updates, and thought leadership from the attorneys at Licit Axiom.",
+  title: "Legal Blog & Industry Insights | Licit Axiom",
+  description: "Read the latest legal insights, regulatory analysis, arbitration updates, and commercial law commentaries from Licit Axiom.",
+  alternates: {
+    canonical: `${SITE_URL}/blog`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/blog`,
+    siteName: SITE_NAME,
+    title: "Legal Blog & Industry Insights | Licit Axiom",
+    description: "Read legal insights, regulatory analysis, and commentaries from Licit Axiom.",
+    locale: "en_IN",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Legal Blog & Industry Insights | Licit Axiom",
+    description: "Read legal insights, regulatory analysis, and commentaries from Licit Axiom.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function BlogPage() {

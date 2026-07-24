@@ -6,10 +6,30 @@ import { AnimatedSection } from "@/components/animated-section"
 import { Card, CardContent } from "@/components/ui/card"
 import { Target, Users, Lightbulb, Scale } from "lucide-react"
 
+import { SITE_URL, SITE_NAME } from "@/lib/site"
+
 export const metadata: Metadata = {
+  title: "About Us | Licit Axiom - Advocates & Solicitors",
+  description:
+    "Learn about Licit Axiom, an integrated legal platform founded on a sui-generis structure bringing together senior advocates, domain experts, and former government officials.",
+  alternates: {
+    canonical: `${SITE_URL}/about`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/about`,
+    siteName: SITE_NAME,
     title: "About Us | Licit Axiom",
-    description:
-        "We bring together diverse experts to deliver expert-driven legal and business counsel with the precision, responsiveness, and personalised attention that you deserve.",
+    description: "Learn about Licit Axiom's sui-generis structure, core legal philosophy, and team of experts.",
+    locale: "en_IN",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Licit Axiom",
+    description: "Learn about Licit Axiom's sui-generis structure, core legal philosophy, and team of experts.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function AboutPage() {

@@ -29,6 +29,8 @@ export async function generateStaticParams() {
   }))
 }
 
+import { SITE_URL, SITE_NAME } from "@/lib/site"
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const practice = practices.find((p) => p.slug === slug)
@@ -39,9 +41,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
+  const pageUrl = `${SITE_URL}/practices/${practice.slug}`
+
   return {
-    title: `${practice.name} | Licit Axiom`,
-    description: practice.description,
+    title: `${practice.name} - Specialized Legal Services | Licit Axiom`,
+    description: practice.description || practice.shortDescription,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: "article",
+      url: pageUrl,
+      siteName: SITE_NAME,
+      title: `${practice.name} | Licit Axiom`,
+      description: practice.description || practice.shortDescription,
+      locale: "en_IN",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${practice.name} Legal Services - Licit Axiom`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${practice.name} | Licit Axiom`,
+      description: practice.description || practice.shortDescription,
+      images: ["/og-image.png"],
+    },
   }
 }
 
@@ -54,9 +83,60 @@ export default async function PracticePage({ params }: Props) {
   }
 
   const Icon = iconMap[practice.icon] || Building2
+  const pageUrl = `${SITE_URL}/practices/${practice.slug}`
+
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: practice.name,
+    description: practice.description || practice.shortDescription,
+    provider: {
+      "@type": "LegalService",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "India",
+    },
+    url: pageUrl,
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Practice Areas",
+        item: `${SITE_URL}/practices`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: practice.name,
+        item: pageUrl,
+      },
+    ],
+  }
 
   return (
     <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Header />
 
       <main className="flex-1">

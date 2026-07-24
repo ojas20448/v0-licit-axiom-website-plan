@@ -8,10 +8,30 @@ import { ArrowRight, Building2, Handshake, Scale, Home, Lightbulb, Users } from 
 import practices from "@/data/practices.json"
 import type { Metadata } from "next"
 
+import { SITE_URL, SITE_NAME } from "@/lib/site"
+
 export const metadata: Metadata = {
-  title: "Practice Areas | Licit Axiom",
+  title: "Practice Areas & Legal Solutions | Licit Axiom",
   description:
-    "Explore our comprehensive legal services including corporate law, M&A, litigation, real estate, intellectual property, and employment law.",
+    "Explore our full spectrum of specialized legal services including Arbitration, Corporate Law, Litigation, IPR, Insolvency & Bankruptcy, M&A, and Regulatory Advisory across India.",
+  alternates: {
+    canonical: `${SITE_URL}/practices`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/practices`,
+    siteName: SITE_NAME,
+    title: "Practice Areas & Legal Solutions | Licit Axiom",
+    description: "Explore Licit Axiom's comprehensive practice areas and legal solutions.",
+    locale: "en_IN",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Practice Areas & Legal Solutions | Licit Axiom",
+    description: "Explore Licit Axiom's comprehensive practice areas and legal solutions.",
+    images: ["/og-image.png"],
+  },
 }
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {

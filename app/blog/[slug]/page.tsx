@@ -19,6 +19,8 @@ export async function generateStaticParams() {
   }))
 }
 
+import { SITE_URL, SITE_NAME } from "@/lib/site"
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const post = blogPosts.find((p) => p.slug === slug)
@@ -29,9 +31,38 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
+  const pageUrl = `${SITE_URL}/blog/${post.slug}`
+
   return {
-    title: `${post.title} | Licit Axiom Blog`,
+    title: `${post.title} | Licit Axiom Insights`,
     description: post.excerpt,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: "article",
+      url: pageUrl,
+      siteName: SITE_NAME,
+      title: `${post.title} | Licit Axiom`,
+      description: post.excerpt,
+      locale: "en_IN",
+      publishedTime: post.date,
+      authors: post.author ? [post.author] : undefined,
+      images: [
+        {
+          url: post.image && !post.image.includes("placeholder") ? post.image : "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | Licit Axiom`,
+      description: post.excerpt,
+      images: [post.image && !post.image.includes("placeholder") ? post.image : "/og-image.png"],
+    },
   }
 }
 
@@ -44,9 +75,66 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const author = attorneys.find((a) => a.slug === post.authorSlug)
+  const pageUrl = `${SITE_URL}/blog/${post.slug}`
+
+  const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author || "Licit Axiom",
+    },
+    publisher: {
+      "@type": "LegalService",
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/licit-axiom-logo-dark.png`,
+      },
+    },
+    url: pageUrl,
+    mainEntityOfPage: pageUrl,
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${SITE_URL}/blog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: pageUrl,
+      },
+    ],
+  }
 
   return (
     <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Header />
 
       <main className="flex-1">

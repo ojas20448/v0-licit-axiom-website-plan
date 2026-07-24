@@ -20,6 +20,8 @@ export async function generateStaticParams() {
   }))
 }
 
+import { SITE_URL, SITE_NAME } from "@/lib/site"
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const attorney = attorneys.find((a) => a.slug === slug)
@@ -30,9 +32,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
+  const pageUrl = `${SITE_URL}/attorneys/${attorney.slug}`
+  const bioSummary = attorney.bio.split("\n")[0]
+
   return {
     title: `${attorney.name} - ${attorney.title} | Licit Axiom`,
-    description: attorney.bio.split("\n")[0],
+    description: bioSummary,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: "profile",
+      url: pageUrl,
+      siteName: SITE_NAME,
+      title: `${attorney.name} - ${attorney.title} | Licit Axiom`,
+      description: bioSummary,
+      locale: "en_IN",
+      images: [
+        {
+          url: attorney.image && !attorney.image.includes("placeholder") ? attorney.image : "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${attorney.name} - ${attorney.title} at Licit Axiom`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${attorney.name} - ${attorney.title} | Licit Axiom`,
+      description: bioSummary,
+      images: [attorney.image && !attorney.image.includes("placeholder") ? attorney.image : "/og-image.png"],
+    },
   }
 }
 
@@ -44,8 +74,60 @@ export default async function AttorneyPage({ params }: Props) {
     notFound()
   }
 
+  const pageUrl = `${SITE_URL}/attorneys/${attorney.slug}`
+
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: attorney.name,
+    jobTitle: attorney.title,
+    worksFor: {
+      "@type": "LegalService",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    email: attorney.email,
+    telephone: attorney.phone,
+    knowsAbout: attorney.practiceAreas,
+    description: attorney.bio.split("\n")[0],
+    url: pageUrl,
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Our Team",
+        item: `${SITE_URL}/attorneys`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: attorney.name,
+        item: pageUrl,
+      },
+    ],
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Header />
 
       <main className="flex-1">

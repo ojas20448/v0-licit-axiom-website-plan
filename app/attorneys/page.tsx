@@ -5,10 +5,30 @@ import { AttorneysList } from "@/components/attorneys-list"
 import attorneys from "@/data/attorneys.json"
 import type { Metadata } from "next"
 
+import { SITE_URL, SITE_NAME } from "@/lib/site"
+
 export const metadata: Metadata = {
-  title: "Our Team | Licit Axiom",
+  title: "Our Team & Legal Counsel | Licit Axiom",
   description:
-    "Meet the experienced attorneys at Licit Axiom. Our team brings decades of legal expertise across corporate law, M&A, litigation, and more.",
+    "Meet our team of experienced advocates, senior advisors, domain experts, and former senior government officials delivering strategic legal counsel across India.",
+  alternates: {
+    canonical: `${SITE_URL}/attorneys`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/attorneys`,
+    siteName: SITE_NAME,
+    title: "Our Team & Legal Counsel | Licit Axiom",
+    description: "Experienced advocates, domain experts, and senior advisors at Licit Axiom.",
+    locale: "en_IN",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Team & Legal Counsel | Licit Axiom",
+    description: "Experienced advocates, domain experts, and senior advisors at Licit Axiom.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function AttorneysPage() {
