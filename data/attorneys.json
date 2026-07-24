@@ -180,14 +180,22 @@
     "id": "11",
     "slug": "lakshay-narang",
     "name": "Mr. Lakshay Narang",
-    "title": "Expert",
+    "title": "Domain Expert - Fintech & Strategy",
     "image": "/placeholder.svg?height=400&width=400",
     "email": "mail@licitaxiom.com",
     "phone": "+91 11 47504976",
-    "practiceAreas": [],
-    "education": [],
-    "experience": "Profile to be updated",
-    "bio": "Profile to be updated shortly.",
+    "practiceAreas": [
+      "Fintech & Digital Financial Services",
+      "Business Management & Strategy",
+      "Corporate Networking & Alliances",
+      "Financial Technology Advisory"
+    ],
+    "education": [
+      "Specialization in Business Management & Financial Technology",
+      "Corporate Strategy & Networking Professional"
+    ],
+    "experience": "10+ years in Fintech, Business Management & Strategic Networking",
+    "bio": "Mr. Lakshay Narang is a distinguished domain expert in Financial Technology (Fintech), Business Management, and Strategic Enterprise Networking. With extensive experience across dynamic business sectors, Mr. Narang specializes in guiding enterprises through digital financial transformation, strategic business scaling, and high-impact partnership development.\n\nHe possesses deep-seated expertise in fintech ecosystems, regulatory alignment for digital financial products, and business management operations. His proficiency in corporate networking and stakeholder engagement enables organizations to establish strategic alliances, streamline operational workflows, and capitalize on emerging market opportunities.\n\nKnown for his versatile domain knowledge and strategic vision, Mr. Narang provides invaluable business and financial technology counsel to corporate clients, startups, and institutional stakeholders across diverse industry verticals.",
     "publications": []
   },
   {
