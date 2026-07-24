@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AnimatedSection } from "@/components/animated-section"
-import { ArrowLeft, Mail, Phone, GraduationCap, Briefcase, FileText } from "lucide-react"
+import { ArrowLeft, Mail, Phone, GraduationCap, Briefcase, FileText, Scale } from "lucide-react"
 import attorneys from "@/data/attorneys.json"
 import type { Metadata } from "next"
 
@@ -70,15 +70,35 @@ export default async function AttorneyPage({ params }: Props) {
               <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
                   <AnimatedSection animation="scale">
-                    <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
-                      <Image
-                        src={attorney.image || "/placeholder.svg"}
-                        alt={attorney.name}
-                        fill
-                        className="object-cover"
-                        priority
-                      />
-                    </div>
+                    {attorney.image && !attorney.image.includes("placeholder") ? (
+                      <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-border shadow-md">
+                        <Image
+                          src={attorney.image}
+                          alt={attorney.name}
+                          fill
+                          className="object-cover"
+                          priority
+                        />
+                      </div>
+                    ) : (
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-gradient-to-br from-slate-950 via-primary to-slate-900 flex flex-col items-center justify-center border border-accent/30 shadow-lg">
+                        <Scale className="absolute -right-4 -bottom-4 h-36 w-36 text-accent/5 -rotate-12 pointer-events-none" />
+                        <div className="flex flex-col items-center justify-center space-y-3 z-10 p-6 text-center">
+                          <div className="h-24 w-24 rounded-full bg-accent/15 border-2 border-accent/60 flex items-center justify-center shadow-xl shadow-black/40">
+                            <span className="font-serif text-3xl font-bold text-accent tracking-wider">
+                              {(() => {
+                                const clean = attorney.name.replace(/^(Mr\.|Mr|Ms\.|Ms|Mrs\.|Mrs|Dr\.|Dr)\s+/i, "").trim()
+                                const parts = clean.split(" ").filter(Boolean)
+                                return parts.length >= 2 ? `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase() : clean.slice(0, 2).toUpperCase()
+                              })()}
+                            </span>
+                          </div>
+                          <span className="text-xs tracking-widest text-accent/80 font-mono uppercase font-semibold">
+                            Licit Axiom
+                          </span>
+                        </div>
+                      </div>
+                    )}
                   </AnimatedSection>
 
                   <AnimatedSection animation="fadeUp" delay={0.1}>

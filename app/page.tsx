@@ -24,7 +24,10 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export default function HomePage() {
   const featuredPractices = practices.slice(0, 4)
-  const featuredAttorneys = attorneys.slice(0, 3)
+  const featuredSlugs = ["udayan-khandelwal", "rahul-dubey"]
+  const featuredAttorneys = featuredSlugs
+    .map((slug) => attorneys.find((a) => a.slug === slug))
+    .filter(Boolean) as typeof attorneys
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -243,53 +246,110 @@ export default function HomePage() {
             <AnimatedSection animation="fadeUp">
               <div className="mx-auto max-w-2xl text-center">
                 <h2 className="font-serif text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
-                  Meet Our Team
+                  Meet Our Leadership
                 </h2>
                 <p className="mt-4 text-primary-foreground/80 leading-relaxed">
-                  Our team combines deep legal expertise with business acumen to deliver exceptional results for our
-                  clients.
+                  Our partners bring deep legal expertise, strategic vision, and commitment to delivering practical, result-oriented legal counsel.
                 </p>
               </div>
             </AnimatedSection>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {featuredAttorneys.map((attorney, index) => (
-                <AnimatedSection key={attorney.id} animation="fadeUp" delay={index * 0.15}>
-                  <Link href={`/attorneys/${attorney.slug}`} className="group block h-full">
-                    <motion.div
-                      whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                      className="h-full"
-                    >
-                      <Card className="overflow-hidden bg-card border-none transition-all hover:shadow-lg h-full">
-                        <div className="relative aspect-[3/4] overflow-hidden">
-                          <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.4 }}
-                            className="h-full w-full"
-                          >
-                            <Image
-                              src={attorney.image || "/placeholder.svg"}
-                              alt={attorney.name}
-                              fill
-                              className="object-cover"
-                            />
-                          </motion.div>
-                        </div>
-                        <CardContent className="p-6">
-                          <h3 className="font-serif text-lg font-semibold text-foreground">{attorney.name}</h3>
-                          <p className="text-sm text-accent">{attorney.title}</p>
-                          <p className="mt-2 text-sm text-muted-foreground">{attorney.practiceAreas.join(" • ")}</p>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  </Link>
-                </AnimatedSection>
-              ))}
+            <div className="mt-12 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+              {featuredAttorneys.map((attorney, index) => {
+                const cleanName = attorney.name.replace(/^(Mr\.|Mr|Ms\.|Ms|Mrs\.|Mrs|Dr\.|Dr)\s+/i, "").trim()
+                const nameParts = cleanName.split(" ").filter(Boolean)
+                const initials = nameParts.length >= 2
+                  ? `${nameParts[0][0]}${nameParts[nameParts.length - 1][0]}`.toUpperCase()
+                  : cleanName.slice(0, 2).toUpperCase()
+                const hasRealImage = attorney.image && !attorney.image.includes("placeholder")
+
+                return (
+                  <AnimatedSection key={attorney.id} animation="fadeUp" delay={index * 0.15}>
+                    <Link href={`/attorneys/${attorney.slug}`} className="group block h-full">
+                      <motion.div
+                        whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                        className="h-full"
+                      >
+                        <Card className="overflow-hidden bg-card border border-border/80 group-hover:border-accent/60 transition-all hover:shadow-xl h-full flex flex-col justify-between">
+                          {/* Header Avatar / Monogram Section */}
+                          <div className="relative h-48 bg-gradient-to-br from-slate-950 via-primary to-slate-900 overflow-hidden flex flex-col items-center justify-center border-b border-accent/20">
+                            <Scale className="absolute -right-4 -bottom-4 h-32 w-32 text-accent/5 -rotate-12 pointer-events-none" />
+                            {hasRealImage ? (
+                              <Image
+                                src={attorney.image}
+                                alt={attorney.name}
+                                fill
+                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                            ) : (
+                              <div className="flex flex-col items-center justify-center space-y-2 z-10">
+                                <div className="h-20 w-20 rounded-full bg-accent/15 border-2 border-accent/60 flex items-center justify-center shadow-lg shadow-black/40 group-hover:border-accent group-hover:scale-105 transition-all duration-300">
+                                  <span className="font-serif text-2xl font-bold text-accent tracking-wider">
+                                    {initials}
+                                  </span>
+                                </div>
+                                <span className="text-[10px] tracking-widest text-accent/80 font-mono uppercase">
+                                  Licit Axiom
+                                </span>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Card Content */}
+                          <CardContent className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div className="space-y-2">
+                              <div className="flex items-center justify-between gap-2">
+                                <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+                                  {attorney.title}
+                                </span>
+                                <span className="text-[11px] text-muted-foreground bg-secondary px-2.5 py-0.5 rounded-full font-medium">
+                                  {attorney.experience}
+                                </span>
+                              </div>
+                              <h3 className="font-serif text-xl font-bold text-foreground group-hover:text-accent transition-colors leading-snug">
+                                {attorney.name}
+                              </h3>
+                            </div>
+
+                            <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                              {attorney.bio}
+                            </p>
+
+                            {/* Practice Area Badges */}
+                            <div className="space-y-3 pt-2">
+                              <div className="flex flex-wrap gap-1.5">
+                                {attorney.practiceAreas.slice(0, 3).map((practice) => (
+                                  <span
+                                    key={practice}
+                                    className="inline-block px-2.5 py-1 rounded-md text-[11px] font-medium bg-secondary text-foreground/80 border border-border/60"
+                                  >
+                                    {practice}
+                                  </span>
+                                ))}
+                                {attorney.practiceAreas.length > 3 && (
+                                  <span className="inline-block px-2 py-1 rounded-md text-[11px] font-medium bg-secondary text-muted-foreground">
+                                    +{attorney.practiceAreas.length - 3} more
+                                  </span>
+                                )}
+                              </div>
+
+                              <div className="pt-3 border-t border-border/40 flex items-center text-xs font-semibold text-accent group-hover:text-accent/80 transition-colors">
+                                <span>View Full Profile</span>
+                                <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    </Link>
+                  </AnimatedSection>
+                )
+              })}
             </div>
 
-            <div className="mt-10 text-center">
+            <div className="mt-12 text-center">
               <Button variant="secondary" asChild>
-                <Link href="/attorneys">View All Team Members</Link>
+                <Link href="/attorneys">View Full Team & Advisors</Link>
               </Button>
             </div>
           </div>

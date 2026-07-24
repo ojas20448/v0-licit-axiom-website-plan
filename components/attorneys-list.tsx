@@ -6,7 +6,7 @@ import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Search } from "lucide-react"
+import { Search, Scale } from "lucide-react"
 
 interface Attorney {
   id: string
@@ -38,6 +38,13 @@ const byNormalizedName = (a: Attorney, b: Attorney) =>
   getNormalizedName(a.name).toLowerCase().localeCompare(getNormalizedName(b.name).toLowerCase())
 
 function AttorneyCard({ attorney, index }: { attorney: Attorney; index: number }) {
+  const cleanName = attorney.name.replace(/^(Mr\.|Mr|Ms\.|Ms|Mrs\.|Mrs|Dr\.|Dr)\s+/i, "").trim()
+  const nameParts = cleanName.split(" ").filter(Boolean)
+  const initials = nameParts.length >= 2
+    ? `${nameParts[0][0]}${nameParts[nameParts.length - 1][0]}`.toUpperCase()
+    : cleanName.slice(0, 2).toUpperCase()
+  const hasRealImage = attorney.image && !attorney.image.includes("placeholder")
+
   return (
     <motion.div
       key={attorney.id}
@@ -48,14 +55,28 @@ function AttorneyCard({ attorney, index }: { attorney: Attorney; index: number }
       transition={{ duration: 0.3, delay: index * 0.05 }}
     >
       <Link href={`/attorneys/${attorney.slug}`} className="group h-full block">
-        <Card className="h-full overflow-hidden bg-card transition-all hover:shadow-lg border border-border group-hover:border-accent/40 flex flex-col">
-          <div className="relative aspect-[3/4] overflow-hidden bg-muted">
-            <Image
-              src={attorney.image || "/placeholder.svg"}
-              alt={attorney.name}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+        <Card className="h-full overflow-hidden bg-card transition-all hover:shadow-lg border border-border group-hover:border-accent/40 flex flex-col justify-between">
+          <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-slate-950 via-primary to-slate-900 flex flex-col items-center justify-center border-b border-accent/20">
+            <Scale className="absolute -right-3 -bottom-3 h-28 w-28 text-accent/5 -rotate-12 pointer-events-none" />
+            {hasRealImage ? (
+              <Image
+                src={attorney.image}
+                alt={attorney.name}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            ) : (
+              <div className="flex flex-col items-center justify-center space-y-2 z-10">
+                <div className="h-16 w-16 rounded-full bg-accent/15 border-2 border-accent/60 flex items-center justify-center shadow-lg shadow-black/40 group-hover:border-accent group-hover:scale-105 transition-all duration-300">
+                  <span className="font-serif text-xl font-bold text-accent tracking-wider">
+                    {initials}
+                  </span>
+                </div>
+                <span className="text-[9px] tracking-widest text-accent/80 font-mono uppercase">
+                  Licit Axiom
+                </span>
+              </div>
+            )}
           </div>
           <CardContent className="p-6 flex-1 flex flex-col justify-between">
             <div className="space-y-2">
