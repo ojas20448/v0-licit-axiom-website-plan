@@ -28,9 +28,9 @@ export function Footer() {
               <Image
                 src="/images/licit-axiom-logo-dark.png"
                 alt="Licit Axiom Legal Consultants"
-                width={200}
-                height={160}
-                className="h-16 md:h-20 w-auto object-contain"
+                width={280}
+                height={220}
+                className="h-20 md:h-24 w-auto object-contain"
               />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
