@@ -133,12 +133,12 @@ export default async function CareerPage({ params }: Props) {
                         Interested in this role? Send your resume and cover letter to our recruiting team.
                       </p>
                       <Button variant="secondary" className="w-full" asChild>
-                        <a href={`mailto:careers@licitaxiom.com?subject=Application for ${job.title}`}>
+                        <a href={`mailto:mail@licitaxiom.com?subject=Application for ${encodeURIComponent(job.title)}&body=Dear%20Licit%20Axiom%20Recruitment%20Team,%0D%0A%0D%0AI%20would%20like%20to%20apply%20for%20the%20position%20of%20${encodeURIComponent(job.title)}.%0D%0A%0D%0APlease%20find%20my%20resume%20and%20details%20attached.%0D%0A%0D%0ABest%20regards,`}>
                           Apply Now
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </a>
                       </Button>
-                      <p className="text-center text-xs text-primary-foreground/60">Or email careers@licitaxiom.com</p>
+                      <p className="text-center text-xs text-primary-foreground/60">Or email mail@licitaxiom.com</p>
                     </CardContent>
                   </Card>
                 </div>
