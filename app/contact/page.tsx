@@ -26,14 +26,52 @@ const practiceAreas = [
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    practiceArea: "",
+    message: "",
+  })
+
+  const handleChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setSubmitted(true)
-    setLoading(false)
+    setErrorMessage("")
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        const resData = await response.json()
+        throw new Error(resData.error || "Failed to submit message.")
+      }
+
+      setSubmitted(true)
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        practiceArea: "",
+        message: "",
+      })
+    } catch (err: any) {
+      setErrorMessage(err.message || "An unexpected error occurred. Please try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -74,7 +112,7 @@ export default function ContactPage() {
                       </div>
                       <h3 className="mt-6 font-serif text-xl font-semibold text-foreground">Thank You!</h3>
                       <p className="mt-2 text-muted-foreground">
-                        Your message has been received. A member of our team will contact you shortly.
+                        Your message has been sent to mail@licitaxiom.com. A member of our team will contact you shortly.
                       </p>
                       <Button className="mt-6" onClick={() => setSubmitted(false)}>
                         Send Another Message
@@ -83,36 +121,73 @@ export default function ContactPage() {
                   </Card>
                 ) : (
                   <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+                    {errorMessage && (
+                      <div className="rounded-md bg-destructive/10 p-4 text-sm text-destructive font-medium">
+                        {errorMessage}
+                      </div>
+                    )}
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="firstName">First Name</Label>
-                        <Input id="firstName" placeholder="Amit" required className="bg-card" />
+                        <Input
+                          id="firstName"
+                          value={formData.firstName}
+                          onChange={(e) => handleChange("firstName", e.target.value)}
+                          placeholder="Amit"
+                          required
+                          className="bg-card"
+                        />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="lastName">Last Name</Label>
-                        <Input id="lastName" placeholder="Sharma" required className="bg-card" />
+                        <Input
+                          id="lastName"
+                          value={formData.lastName}
+                          onChange={(e) => handleChange("lastName", e.target.value)}
+                          placeholder="Sharma"
+                          required
+                          className="bg-card"
+                        />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="amit.sharma@example.com" required className="bg-card" />
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => handleChange("email", e.target.value)}
+                        placeholder="amit.sharma@example.com"
+                        required
+                        className="bg-card"
+                      />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone (Optional)</Label>
-                      <Input id="phone" type="tel" placeholder="+91 98765 43210" className="bg-card" />
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => handleChange("phone", e.target.value)}
+                        placeholder="+91 98765 43210"
+                        className="bg-card"
+                      />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="practiceArea">Practice Area of Interest</Label>
-                      <Select>
+                      <Select
+                        value={formData.practiceArea}
+                        onValueChange={(val) => handleChange("practiceArea", val)}
+                      >
                         <SelectTrigger className="bg-card">
                           <SelectValue placeholder="Select a practice area" />
                         </SelectTrigger>
                         <SelectContent>
                           {practiceAreas.map((area) => (
-                            <SelectItem key={area} value={area.toLowerCase().replace(/\s+/g, "-")}>
+                            <SelectItem key={area} value={area}>
                               {area}
                             </SelectItem>
                           ))}
@@ -124,6 +199,8 @@ export default function ContactPage() {
                       <Label htmlFor="message">Message</Label>
                       <Textarea
                         id="message"
+                        value={formData.message}
+                        onChange={(e) => handleChange("message", e.target.value)}
                         placeholder="Please describe how we can help you..."
                         rows={5}
                         required
