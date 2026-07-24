@@ -72,31 +72,33 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold text-foreground">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 text-accent" />
+                <MapPin className="mt-0.5 h-4 w-4 text-accent shrink-0" />
                 <div className="text-sm text-muted-foreground">
-                  <p>G-I/75, Lajpat Nagar-1</p>
-                  <p>New Delhi 110024</p>
+                  <a
+                    href="https://share.google/LYXy1OUAUESDdzkWC"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors block"
+                    title="Open location in Google Maps"
+                  >
+                    <p>G-I/75, Lajpat Nagar-1</p>
+                    <p>New Delhi 110024</p>
+                  </a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-accent" />
+                <Phone className="h-4 w-4 text-accent shrink-0" />
                 <div className="text-sm text-muted-foreground">
-                  <a href="tel:+919811331306" className="hover:text-primary block">
-                    +91 9811331306 (Udayan)
-                  </a>
-                  <a href="tel:+919999671943" className="hover:text-primary block">
-                    +91 9999671943 (Shubhankar)
+                  <a href="tel:+911147504976" className="hover:text-primary block">
+                    +91 11 47504976
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="mt-0.5 h-4 w-4 text-accent" />
+                <Mail className="mt-0.5 h-4 w-4 text-accent shrink-0" />
                 <div className="text-sm text-muted-foreground">
-                  <a href="mailto:licitaxiom@gmail.com" className="hover:text-primary block">
-                    licitaxiom@gmail.com
-                  </a>
-                  <a href="mailto:udayankhandelwal@gmail.com" className="hover:text-primary block">
-                    udayankhandelwal@gmail.com
+                  <a href="mailto:mail@licitaxiom.com" className="hover:text-primary block">
+                    mail@licitaxiom.com
                   </a>
                 </div>
               </li>

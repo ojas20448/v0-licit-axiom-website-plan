@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react"
+import { Mail, MapPin, Phone, Send, CheckCircle, ExternalLink } from "lucide-react"
 
 const practiceAreas = [
   "Corporate Law",
@@ -166,9 +166,19 @@ export default function ContactPage() {
                           G-I/75, Lajpat Nagar-1<br />
                           New Delhi 110024
                         </p>
+                        <a
+                          href="https://share.google/LYXy1OUAUESDdzkWC"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 inline-flex items-center text-xs font-semibold text-accent hover:underline"
+                        >
+                          View Location on Google Maps
+                          <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+                        </a>
                       </div>
                     </CardContent>
                   </Card>
+
                   <Card className="bg-card">
                     <CardContent className="flex items-start gap-4 p-6">
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10">
@@ -177,11 +187,8 @@ export default function ContactPage() {
                       <div className="flex-1">
                         <h3 className="font-semibold text-foreground">Phone</h3>
                         <p className="mt-1 text-muted-foreground">
-                          <a href="tel:+919811331306" className="hover:text-accent block">
-                            +91 9811331306 (Udayan Khandelwal)
-                          </a>
-                          <a href="tel:+919999671943" className="hover:text-accent block">
-                            +91 9999671943 (Shubhankar Sharma)
+                          <a href="tel:+911147504976" className="hover:text-accent font-medium text-foreground block text-base">
+                            +91 11 47504976
                           </a>
                         </p>
                         <p className="mt-2 text-sm text-muted-foreground">Monday - Saturday, 10am - 6pm IST</p>
@@ -197,11 +204,8 @@ export default function ContactPage() {
                       <div className="flex-1">
                         <h3 className="font-semibold text-foreground">Email</h3>
                         <p className="mt-1 text-muted-foreground">
-                          <a href="mailto:licitaxiom@gmail.com" className="hover:text-accent block">
-                            licitaxiom@gmail.com
-                          </a>
-                          <a href="mailto:udayankhandelwal@gmail.com" className="hover:text-accent block">
-                            udayankhandelwal@gmail.com
+                          <a href="mailto:mail@licitaxiom.com" className="hover:text-accent font-medium text-foreground block text-base">
+                            mail@licitaxiom.com
                           </a>
                         </p>
                         <p className="mt-2 text-sm text-muted-foreground">We respond within 24 hours</p>
@@ -210,9 +214,9 @@ export default function ContactPage() {
                   </Card>
                 </div>
 
-                {/* Map Placeholder */}
-                <Card className="overflow-hidden bg-card">
-                  <div className="aspect-video w-full bg-secondary">
+                {/* Map Section */}
+                <Card className="overflow-hidden bg-card border border-border shadow-sm">
+                  <div className="aspect-video w-full bg-secondary relative">
                     <iframe
                       src="https://maps.google.com/maps?q=G-I%2F75%2C%20Lajpat%20Nagar-1%2C%20New%20Delhi%20110024&t=&z=15&ie=UTF8&iwloc=&output=embed"
                       width="100%"
@@ -221,8 +225,20 @@ export default function ContactPage() {
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      title="Office Location"
+                      title="Licit Axiom Office Location"
                     />
+                  </div>
+                  <div className="p-4 bg-card border-t border-border flex items-center justify-between">
+                    <span className="text-xs text-muted-foreground font-medium">G-I/75, Lajpat Nagar-1, New Delhi 110024</span>
+                    <a
+                      href="https://share.google/LYXy1OUAUESDdzkWC"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-xs font-semibold text-accent hover:underline"
+                    >
+                      Open in Maps
+                      <ExternalLink className="ml-1 h-3 w-3" />
+                    </a>
                   </div>
                 </Card>
               </div>

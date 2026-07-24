@@ -8,8 +8,9 @@ export const SITE_DESCRIPTION =
   "Licit Axiom - An integrated legal platform offering a full spectrum of specialized legal services across multiple forums and jurisdictions in India."
 
 export const CONTACT = {
-  phone: "+91-9811331306",
-  email: "licitaxiom@gmail.com",
+  phone: "+91 11 47504976",
+  email: "mail@licitaxiom.com",
+  mapUrl: "https://share.google/LYXy1OUAUESDdzkWC",
   address: {
     streetAddress: "G-I/75, Lajpat Nagar-1",
     addressLocality: "New Delhi",
