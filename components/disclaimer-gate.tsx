@@ -54,11 +54,11 @@ export function DisclaimerGate() {
       <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-xl border border-border bg-background shadow-2xl">
         <div className="flex flex-col items-center gap-4 px-6 pt-8 text-center md:px-10">
           <Image
-            src="/images/licit-axiom-no-bg-20-281-29.png"
+            src="/images/licit-axiom-logo-dark.png"
             alt="Licit Axiom"
-            width={180}
-            height={72}
-            className="h-16 w-auto"
+            width={200}
+            height={160}
+            className="h-16 w-auto object-contain"
             priority
           />
           <h2 id="bci-disclaimer-title" className="font-serif text-2xl font-bold text-foreground">

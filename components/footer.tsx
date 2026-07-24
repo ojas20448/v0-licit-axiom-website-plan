@@ -26,11 +26,11 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <Image
-                src="/images/licit-axiom-no-bg-20-281-29.png"
+                src="/images/licit-axiom-logo-dark.png"
                 alt="Licit Axiom Legal Consultants"
-                width={220}
-                height={88}
-                className="h-20 w-auto"
+                width={200}
+                height={160}
+                className="h-16 md:h-20 w-auto object-contain"
               />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">

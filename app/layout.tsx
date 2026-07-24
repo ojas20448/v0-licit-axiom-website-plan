@@ -60,7 +60,7 @@ const legalServiceJsonLd = {
   alternateName: "Licit Axiom LLP",
   description: SITE_DESCRIPTION,
   url: SITE_URL,
-  logo: `${SITE_URL}/images/licit-axiom-no-bg-20-281-29.png`,
+  logo: `${SITE_URL}/images/licit-axiom-logo-dark.png`,
   image: `${SITE_URL}/og-image.png`,
   telephone: CONTACT.phone,
   email: CONTACT.email,

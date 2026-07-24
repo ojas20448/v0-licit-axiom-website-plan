@@ -46,7 +46,22 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/80 to-primary" />
           </div>
 
-          <div className="container relative z-10 mx-auto px-4 py-24 text-center md:px-6">
+          <div className="container relative z-10 mx-auto px-4 py-20 text-center md:px-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="mb-6 inline-block"
+            >
+              <Image
+                src="/images/licit-axiom-logo-gold.png"
+                alt="Licit Axiom Logo"
+                width={220}
+                height={180}
+                className="h-20 md:h-28 w-auto mx-auto object-contain drop-shadow-lg"
+                priority
+              />
+            </motion.div>
             <motion.h1
               className="font-serif text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl text-balance"
               initial={{ opacity: 0, y: 20 }}

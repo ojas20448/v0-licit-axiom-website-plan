@@ -35,17 +35,17 @@ export function Header() {
       : 'border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'
       }`}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group py-2">
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.2 }}
           >
             <Image
-              src="/images/871fa8c7-b6ad-489c-b2f4-7aaa78ed3a34.png"
+              src="/images/licit-axiom-logo-dark.png"
               alt="Licit Axiom Legal Consultants"
-              width={160}
-              height={56}
-              className="h-14 w-fit border-0 opacity-100"
+              width={200}
+              height={160}
+              className="h-14 md:h-16 w-auto object-contain py-1"
               priority
             />
           </motion.div>
@@ -81,11 +81,11 @@ export function Header() {
           <SheetContent side="right" className="w-[300px] bg-background">
             <div className="flex flex-col gap-6 pt-8">
               <Image
-                src="/images/logo.png"
+                src="/images/licit-axiom-logo-dark.png"
                 alt="Licit Axiom Legal Consultants"
-                width={220}
-                height={88}
-                className="h-20 w-auto"
+                width={200}
+                height={160}
+                className="h-16 w-auto object-contain"
               />
               <nav className="flex flex-col gap-4">
                 {navigation.map((item) => (
