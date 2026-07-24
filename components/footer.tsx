@@ -26,7 +26,7 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <Image
-                src="/images/licit-axiom-logo-black.png"
+                src="/images/licit-axiom-logo-dark.png"
                 alt="Licit Axiom Legal Consultants"
                 width={280}
                 height={220}

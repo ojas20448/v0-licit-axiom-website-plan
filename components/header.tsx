@@ -41,7 +41,7 @@ export function Header() {
             transition={{ duration: 0.2 }}
           >
             <Image
-              src="/images/licit-axiom-logo-black.png"
+              src="/images/licit-axiom-logo-dark.png"
               alt="Licit Axiom Legal Consultants"
               width={280}
               height={220}
@@ -81,7 +81,7 @@ export function Header() {
           <SheetContent side="right" className="w-[300px] bg-background">
             <div className="flex flex-col gap-6 pt-8">
               <Image
-                src="/images/licit-axiom-logo-black.png"
+                src="/images/licit-axiom-logo-dark.png"
                 alt="Licit Axiom Legal Consultants"
                 width={280}
                 height={220}
