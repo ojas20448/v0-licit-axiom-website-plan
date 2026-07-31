@@ -34,7 +34,7 @@ export function Header() {
       ? 'border-border bg-background/95 backdrop-blur shadow-sm supports-[backdrop-filter]:bg-background/80'
       : 'border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'
       }`}>
-      <div className="container mx-auto flex h-24 md:h-28 items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex h-16 sm:h-20 md:h-28 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 group py-1">
           <motion.div
             whileHover={{ scale: 1.03 }}
@@ -45,7 +45,7 @@ export function Header() {
               alt="Licit Axiom Legal Consultants"
               width={280}
               height={220}
-              className="h-20 md:h-24 w-auto object-contain"
+              className="h-11 sm:h-14 md:h-24 w-auto object-contain"
               priority
             />
           </motion.div>
@@ -78,32 +78,39 @@ export function Header() {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] bg-background">
-            <div className="flex flex-col gap-6 pt-8">
+          <SheetContent
+            side="right"
+            /* Fixed 300px overflows a 320px-wide phone once the sheet's own
+               padding is added. Cap it against the viewport instead. */
+            className="w-[min(20rem,85vw)] bg-background overflow-y-auto"
+          >
+            <div className="flex h-full flex-col px-5 pt-6 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
               <Image
                 src="/images/licit-axiom-logo-dark.png"
                 alt="Licit Axiom Legal Consultants"
                 width={280}
                 height={220}
-                className="h-24 w-auto object-contain"
+                className="h-14 w-auto object-contain"
               />
-              <nav className="flex flex-col gap-4">
+              {/* Full-width rows with dividers: each link gets a 48px hit area
+                  instead of the ~24px a bare text node would give. */}
+              <nav className="mt-6 flex flex-col divide-y divide-border/70">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="text-lg font-medium text-foreground transition-colors hover:text-primary"
+                    className="flex min-h-12 items-center text-base font-medium text-foreground transition-colors hover:text-primary active:text-accent"
                   >
                     {item.name}
                   </Link>
                 ))}
-                <Button asChild className="mt-4">
-                  <Link href="/contact" onClick={() => setOpen(false)}>
-                    Contact Us
-                  </Link>
-                </Button>
               </nav>
+              <Button asChild className="mt-8 w-full">
+                <Link href="/contact" onClick={() => setOpen(false)}>
+                  Contact Us
+                </Link>
+              </Button>
             </div>
           </SheetContent>
         </Sheet>

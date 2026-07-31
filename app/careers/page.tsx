@@ -39,14 +39,14 @@ export default function CareersPage() {
       <Header />
 
       <main className="flex-1">
-        <section className="bg-primary bg-pattern py-16 lg:py-24">
+        <section className="section-hero bg-primary bg-pattern">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <AnimatedSection animation="fadeUp">
-                <h1 className="font-serif text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
+                <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
                   Join Our Team
                 </h1>
-                <p className="mt-4 text-lg text-primary-foreground/80 leading-relaxed">
+                <p className="mt-3 sm:mt-4 text-base sm:text-lg text-primary-foreground/80 leading-relaxed">
                   We are always looking for talented individuals who share our commitment to excellence and client
                   service. Explore our current openings and take the next step in your legal career.
                 </p>
@@ -61,10 +61,10 @@ export default function CareersPage() {
             <h2 className="text-center font-serif text-2xl font-semibold text-foreground md:text-3xl">
               Why Join Licit Axiom?
             </h2>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <div className="mt-8 grid gap-4 sm:gap-6 md:mt-10 md:grid-cols-3">
               <AnimatedSection animation="fadeUp" delay={0.1}>
-                <Card className="bg-card h-full">
-                  <CardContent className="p-6 text-center">
+                <Card className="py-0 gap-0 bg-card h-full">
+                  <CardContent className="p-4 sm:p-6 text-center">
                     <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10">
                       <Briefcase className="h-6 w-6 text-accent" />
                     </div>
@@ -76,8 +76,8 @@ export default function CareersPage() {
                 </Card>
               </AnimatedSection>
               <AnimatedSection animation="fadeUp" delay={0.2}>
-                <Card className="bg-card h-full">
-                  <CardContent className="p-6 text-center">
+                <Card className="py-0 gap-0 bg-card h-full">
+                  <CardContent className="p-4 sm:p-6 text-center">
                     <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10">
                       <Clock className="h-6 w-6 text-accent" />
                     </div>
@@ -89,8 +89,8 @@ export default function CareersPage() {
                 </Card>
               </AnimatedSection>
               <AnimatedSection animation="fadeUp" delay={0.3}>
-                <Card className="bg-card h-full">
-                  <CardContent className="p-6 text-center">
+                <Card className="py-0 gap-0 bg-card h-full">
+                  <CardContent className="p-4 sm:p-6 text-center">
                     <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10">
                       <MapPin className="h-6 w-6 text-accent" />
                     </div>
@@ -106,15 +106,15 @@ export default function CareersPage() {
         </section>
 
         {/* Job Listings */}
-        <section className="bg-secondary py-16 lg:py-24">
+        <section className="bg-secondary section">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="font-serif text-2xl font-semibold text-foreground md:text-3xl">Open Positions</h2>
             <div className="mt-8 space-y-4">
               {careers.map((job, index) => (
                 <AnimatedSection key={job.id} animation="fadeUp" delay={index * 0.1}>
                   <Link href={`/careers/${job.slug}`} className="group block">
-                    <Card className="bg-card transition-colors hover:bg-card/80">
-                      <CardContent className="flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between">
+                    <Card className="py-0 gap-0 bg-card transition-colors hover:bg-card/80">
+                      <CardContent className="flex flex-col gap-3 p-4 sm:gap-4 sm:p-6 md:flex-row md:items-center md:justify-between">
                         <div className="space-y-2">
                           <h3 className="font-serif text-xl font-semibold text-foreground group-hover:text-accent">
                             {job.title}

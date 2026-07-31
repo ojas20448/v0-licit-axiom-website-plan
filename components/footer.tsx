@@ -21,19 +21,21 @@ const navigation = {
 export function Footer() {
   return (
     <footer className="border-t border-border bg-secondary">
-      <div className="container mx-auto px-4 py-12 md:px-6 lg:py-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-4">
+      <div className="container mx-auto px-4 py-8 md:px-6 md:py-12 lg:py-16">
+        {/* Two-up on phones so four columns become two short rows rather than
+            one four-deep stack. */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4 lg:gap-8">
+          <div className="col-span-2 space-y-3 lg:col-span-1 lg:space-y-4">
             <Link href="/" className="inline-block">
               <Image
                 src="/images/licit-axiom-logo-dark.png"
                 alt="Licit Axiom Legal Consultants"
                 width={280}
                 height={220}
-                className="h-20 md:h-24 w-auto object-contain"
+                className="h-10 sm:h-16 md:h-24 w-auto object-contain"
               />
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="max-w-prose text-sm text-muted-foreground leading-relaxed">
               Expert legal counsel for businesses and individuals. Trusted advisors in corporate law, M&A, litigation,
               and more.
             </p>
@@ -41,11 +43,14 @@ export function Footer() {
 
           {/* Practice Areas */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-foreground">Practice Areas</h3>
-            <ul className="space-y-2">
+            <h3 className="mb-2 text-sm font-semibold text-foreground lg:mb-4">Practice Areas</h3>
+            <ul className="lg:space-y-2">
               {navigation.practices.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                  <Link
+                    href={item.href}
+                    className="flex min-h-9 items-center text-sm text-muted-foreground transition-colors hover:text-primary lg:min-h-0"
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -55,11 +60,14 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-foreground">Company</h3>
-            <ul className="space-y-2">
+            <h3 className="mb-2 text-sm font-semibold text-foreground lg:mb-4">Company</h3>
+            <ul className="lg:space-y-2">
               {navigation.company.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                  <Link
+                    href={item.href}
+                    className="flex min-h-9 items-center text-sm text-muted-foreground transition-colors hover:text-primary lg:min-h-0"
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -68,8 +76,8 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold text-foreground">Contact</h3>
+          <div className="col-span-2 lg:col-span-1">
+            <h3 className="mb-3 text-sm font-semibold text-foreground lg:mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 text-accent shrink-0" />
@@ -86,18 +94,20 @@ export function Footer() {
                   </a>
                 </div>
               </li>
+              {/* Phone and email are the two highest-intent taps in the footer;
+                  give them a full-height hit area rather than a 20px text line. */}
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-accent shrink-0" />
                 <div className="text-sm text-muted-foreground">
-                  <a href="tel:+911147504976" className="hover:text-primary block">
+                  <a href="tel:+911147504976" className="flex min-h-11 items-center hover:text-primary sm:min-h-0">
                     +91 11 47504976
                   </a>
                 </div>
               </li>
-              <li className="flex items-start gap-3">
-                <Mail className="mt-0.5 h-4 w-4 text-accent shrink-0" />
+              <li className="flex items-center gap-3">
+                <Mail className="h-4 w-4 text-accent shrink-0" />
                 <div className="text-sm text-muted-foreground">
-                  <a href="mailto:mail@licitaxiom.com" className="hover:text-primary block">
+                  <a href="mailto:mail@licitaxiom.com" className="flex min-h-11 items-center hover:text-primary sm:min-h-0">
                     mail@licitaxiom.com
                   </a>
                 </div>
@@ -106,7 +116,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border pt-8">
+        <div className="mt-8 border-t border-border pt-6 lg:mt-12 lg:pt-8">
           <p className="text-center text-sm text-muted-foreground">
             © {new Date().getFullYear()} Licit Axiom LLP. All rights reserved.
           </p>

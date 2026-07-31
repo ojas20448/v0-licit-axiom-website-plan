@@ -1,6 +1,7 @@
 'use client'
 
 import type React from "react"
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
@@ -23,6 +24,10 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 export default function HomePage() {
+  // On phones the 430-character firm summary runs to ~10 lines and pushes the
+  // primary CTAs below the fold. It stays in the DOM in full (crawlable, and
+  // shown outright from `sm` up) but collapses to four lines on small screens.
+  const [introExpanded, setIntroExpanded] = useState(false)
   const featuredPractices = practices.slice(0, 4)
   const featuredSlugs = ["udayan-khandelwal", "rahul-dubey"]
   const featuredAttorneys = featuredSlugs
@@ -34,36 +39,40 @@ export default function HomePage() {
       <Header />
 
       <main className="flex-1">
-        <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-primary">
+        {/* `min-h-[90vh]` forced ~730px of hero on every phone before content
+            was even measured. Let the hero be as tall as its content on small
+            screens and only claim the viewport from `md` up. */}
+        <section className="relative flex min-h-0 items-center justify-center overflow-hidden bg-primary md:min-h-[90vh]">
           <div className="absolute inset-0 z-0">
             <Image
               src="/elegant-law-office-interior-with-navy-blue-and-gol.jpg"
               alt="Law office"
               fill
+              sizes="100vw"
               className="object-cover opacity-20"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/80 to-primary" />
           </div>
 
-          <div className="container relative z-10 mx-auto px-4 py-20 text-center md:px-6">
+          <div className="container section-hero relative z-10 mx-auto px-4 text-center md:px-6">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="mb-6 inline-block"
+              className="mb-4 inline-block md:mb-6"
             >
               <Image
                 src="/images/licit-axiom-logo-gold.png"
                 alt="Licit Axiom Logo"
                 width={220}
                 height={180}
-                className="h-20 md:h-28 w-auto mx-auto object-contain drop-shadow-lg"
+                className="h-16 sm:h-20 md:h-28 w-auto mx-auto object-contain drop-shadow-lg"
                 priority
               />
             </motion.div>
             <motion.h1
-              className="font-serif text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl text-balance"
+              className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl text-balance"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -79,15 +88,32 @@ export default function HomePage() {
               Advocates &amp; Solicitors
             </motion.p>
             <motion.div
-              className="mx-auto mt-6 max-w-3xl text-sm md:text-base text-primary-foreground/80 leading-relaxed font-sans"
+              className="mx-auto mt-4 md:mt-6 max-w-3xl text-sm md:text-base text-primary-foreground/80 leading-relaxed font-sans"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              <p className="mb-6">
+              <p
+                id="firm-intro"
+                className={
+                  introExpanded
+                    ? "text-pretty"
+                    : "line-clamp-4 text-pretty sm:line-clamp-none"
+                }
+              >
                 An integrated legal platform, offering a full spectrum of specialized legal services, across multiple forums and jurisdictions. Our strength lies in our team of experienced professionals and domain experts. Backed by our dedicated in-house team and strategic collaborations we deliver practical solutions to even the most complex legal problems with a commitment to professionalism, responsiveness, and result-oriented legal counsel.
               </p>
-              <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 mt-6 border-t border-primary-foreground/10 pt-6 text-left max-w-2xl mx-auto">
+              <button
+                type="button"
+                onClick={() => setIntroExpanded((v) => !v)}
+                aria-expanded={introExpanded}
+                aria-controls="firm-intro"
+                className="mt-2 inline-flex min-h-11 items-center text-xs font-semibold uppercase tracking-wider text-accent underline underline-offset-4 sm:hidden"
+              >
+                {introExpanded ? "Show less" : "Read more"}
+              </button>
+
+              <div className="mt-5 flex flex-col md:flex-row items-stretch justify-center gap-4 md:gap-6 border-t border-primary-foreground/10 pt-5 md:mt-6 md:pt-6 text-left max-w-2xl mx-auto">
                 <div className="flex-1">
                   <span className="text-accent font-semibold tracking-wider block text-xs uppercase mb-1 font-serif">One Point Contact</span>
                   <p className="text-xs md:text-sm text-primary-foreground/70">
@@ -104,13 +130,13 @@ export default function HomePage() {
               </div>
             </motion.div>
             <motion.div
-              className="mt-10 flex flex-wrap items-center justify-center gap-4"
+              className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" variant="secondary" asChild>
+                <Button size="lg" variant="secondary" className="w-full sm:w-auto" asChild>
                   <Link href="/contact">
                     Schedule a Consultation
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -121,7 +147,7 @@ export default function HomePage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
+                  className="w-full border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent sm:w-auto"
                   asChild
                 >
                   <Link href="/practices">Our Practice Areas</Link>
@@ -133,21 +159,23 @@ export default function HomePage() {
 
 
         {/* Practice Areas Section */}
-        <section className="py-20 lg:py-28">
+        <section className="section">
           <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection animation="fadeUp">
               <div className="mx-auto max-w-2xl text-center">
-                <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                   Our Practice Areas
                 </h2>
-                <p className="mt-4 text-muted-foreground leading-relaxed">
+                <p className="mt-3 md:mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                   We offer comprehensive legal services across key practice areas, providing expert counsel tailored to
                   your specific needs.
                 </p>
               </div>
             </AnimatedSection>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {/* Two-up on phones: four cards become two rows instead of a
+                four-deep stack, and the whole card is the tap target. */}
+            <div className="section-gap grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
               {featuredPractices.map((practice, index) => {
                 const Icon = iconMap[practice.icon] || Building2
                 return (
@@ -156,34 +184,35 @@ export default function HomePage() {
                       whileHover={{ y: -8, transition: { duration: 0.3 } }}
                       className="h-full"
                     >
-                      <Card className="group bg-card transition-all hover:shadow-lg h-full">
-                        <CardContent className="p-6">
-                          <motion.div
-                            className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10"
-                            whileHover={{ scale: 1.1, rotate: 5 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            <Icon className="h-6 w-6 text-accent" />
-                          </motion.div>
-                          <h3 className="font-serif text-lg font-semibold text-foreground">{practice.name}</h3>
-                          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{practice.shortDescription}</p>
-                          <Link
-                            href={`/practices/${practice.slug}`}
-                            className="mt-4 inline-flex items-center text-sm font-medium text-primary hover:text-accent transition-colors"
-                          >
-                            Learn More
-                            <ArrowRight className="ml-1 h-3 w-3" />
-                          </Link>
-                        </CardContent>
-                      </Card>
+                      <Link href={`/practices/${practice.slug}`} className="group block h-full">
+                        <Card className="py-0 gap-0 bg-card transition-all hover:shadow-lg h-full">
+                          <CardContent className="flex h-full flex-col p-4 sm:p-6">
+                            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 sm:mb-4 sm:h-12 sm:w-12">
+                              <Icon className="h-5 w-5 text-accent sm:h-6 sm:w-6" />
+                            </div>
+                            <h3 className="font-serif text-base sm:text-lg font-semibold text-foreground text-balance">
+                              {practice.name}
+                            </h3>
+                            <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed sm:mt-2">
+                              {practice.shortDescription}
+                            </p>
+                            {/* `mt-auto` pins the link to the card's bottom edge so
+                                the four cards' links align across uneven copy. */}
+                            <span className="mt-auto pt-3 inline-flex items-center text-xs sm:text-sm font-medium text-primary transition-colors group-hover:text-accent">
+                              Learn More
+                              <ArrowRight className="ml-1 h-3 w-3" />
+                            </span>
+                          </CardContent>
+                        </Card>
+                      </Link>
                     </motion.div>
                   </AnimatedSection>
                 )
               })}
             </div>
 
-            <div className="mt-10 text-center">
-              <Button variant="outline" asChild>
+            <div className="mt-8 text-center md:mt-10">
+              <Button variant="outline" className="w-full sm:w-auto" asChild>
                 <Link href="/practices">View All Practice Areas</Link>
               </Button>
             </div>
@@ -191,18 +220,23 @@ export default function HomePage() {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="bg-secondary py-20 lg:py-28">
+        <section className="section bg-secondary">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center mb-16">
-              <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            <div className="text-center">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-foreground md:text-4xl text-balance">
                 Why Clients Trust Licit Axiom
               </h2>
-              <p className="mt-4 text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              <p className="mt-3 md:mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                 We believe that legal help should be accessible, expert-driven, and results-oriented.
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-8">
+            {/* Seven identical full-width cards ran to roughly two and a half
+                phone screens. Below `md` these collapse to compact list rows —
+                icon beside the text, hairline dividers, no card chrome — which
+                reads faster and costs about a third of the height. The desktop
+                card grid is unchanged. */}
+            <div className="section-gap flex flex-col divide-y divide-border md:flex-row md:flex-wrap md:justify-center md:gap-8 md:divide-y-0">
               {[
                 {
                   title: '"Step Into Your Shoes" Approach',
@@ -242,13 +276,19 @@ export default function HomePage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="bg-card p-6 rounded-lg border border-border shadow-sm w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.34rem)] xl:w-[calc(25%-1.5rem)] flex flex-col"
+                  className="flex items-start gap-3.5 py-4 md:block md:py-0 md:bg-card md:p-6 md:rounded-lg md:border md:border-border md:shadow-sm md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.34rem)] xl:w-[calc(25%-1.5rem)]"
                 >
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-                    <item.icon className="h-6 w-6 text-accent" />
+                  <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 md:mb-4 md:h-12 md:w-12">
+                    <item.icon className="h-5 w-5 text-accent md:h-6 md:w-6" />
                   </div>
-                  <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <div className="min-w-0">
+                    <h3 className="font-bold text-[0.9375rem] leading-snug text-balance md:mb-2 md:text-lg">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1 text-[0.8125rem] leading-relaxed text-muted-foreground md:mt-0 md:text-sm">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -256,20 +296,20 @@ export default function HomePage() {
         </section>
 
         {/* Featured Attorneys Section */}
-        <section className="py-20 lg:py-28 bg-primary bg-pattern text-primary-foreground">
+        <section className="section bg-primary bg-pattern text-primary-foreground">
           <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection animation="fadeUp">
               <div className="mx-auto max-w-2xl text-center">
-                <h2 className="font-serif text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
                   Meet Our Leadership
                 </h2>
-                <p className="mt-4 text-primary-foreground/80 leading-relaxed">
+                <p className="mt-3 md:mt-4 text-sm sm:text-base text-primary-foreground/80 leading-relaxed">
                   Our partners bring deep legal expertise, strategic vision, and commitment to delivering practical, result-oriented legal counsel.
                 </p>
               </div>
             </AnimatedSection>
 
-            <div className="mt-12 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+            <div className="section-gap grid gap-4 sm:gap-8 md:grid-cols-2 max-w-4xl mx-auto">
               {featuredAttorneys.map((attorney, index) => {
                 const cleanName = attorney.name.replace(/^(Mr\.|Mr|Ms\.|Ms|Mrs\.|Mrs|Dr\.|Dr)\s+/i, "").trim()
                 const nameParts = cleanName.split(" ").filter(Boolean)
@@ -285,21 +325,22 @@ export default function HomePage() {
                         whileHover={{ y: -6, transition: { duration: 0.3 } }}
                         className="h-full"
                       >
-                        <Card className="overflow-hidden bg-card border border-border/80 group-hover:border-accent/60 transition-all hover:shadow-xl h-full flex flex-col justify-between">
+                        <Card className="py-0 gap-0 overflow-hidden bg-card border border-border/80 group-hover:border-accent/60 transition-all hover:shadow-xl h-full flex flex-col justify-between">
                           {/* Header Avatar / Monogram Section */}
-                          <div className="relative h-48 bg-gradient-to-br from-slate-950 via-primary to-slate-900 overflow-hidden flex flex-col items-center justify-center border-b border-accent/20">
-                            <Scale className="absolute -right-4 -bottom-4 h-32 w-32 text-accent/5 -rotate-12 pointer-events-none" />
+                          <div className="relative h-32 sm:h-40 md:h-48 bg-gradient-to-br from-slate-950 via-primary to-slate-900 overflow-hidden flex flex-col items-center justify-center border-b border-accent/20">
+                            <Scale className="absolute -right-4 -bottom-4 h-24 w-24 sm:h-32 sm:w-32 text-accent/5 -rotate-12 pointer-events-none" />
                             {hasRealImage ? (
                               <Image
                                 src={attorney.image}
                                 alt={attorney.name}
                                 fill
+                                sizes="(max-width: 768px) 100vw, 50vw"
                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                               />
                             ) : (
                               <div className="flex flex-col items-center justify-center space-y-2 z-10">
-                                <div className="h-20 w-20 rounded-full bg-accent/15 border-2 border-accent/60 flex items-center justify-center shadow-lg shadow-black/40 group-hover:border-accent group-hover:scale-105 transition-all duration-300">
-                                  <span className="font-serif text-2xl font-bold text-accent tracking-wider">
+                                <div className="h-14 w-14 sm:h-20 sm:w-20 rounded-full bg-accent/15 border-2 border-accent/60 flex items-center justify-center shadow-lg shadow-black/40 group-hover:border-accent group-hover:scale-105 transition-all duration-300">
+                                  <span className="font-serif text-xl sm:text-2xl font-bold text-accent tracking-wider">
                                     {initials}
                                   </span>
                                 </div>
@@ -311,7 +352,7 @@ export default function HomePage() {
                           </div>
 
                           {/* Card Content */}
-                          <CardContent className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                          <CardContent className="p-4 sm:p-6 flex-1 flex flex-col justify-between space-y-3 sm:space-y-4">
                             <div className="space-y-2">
                               <div className="flex items-center justify-between gap-2">
                                 <span className="text-xs font-semibold uppercase tracking-wider text-accent">
@@ -362,8 +403,8 @@ export default function HomePage() {
               })}
             </div>
 
-            <div className="mt-12 text-center">
-              <Button variant="secondary" asChild>
+            <div className="mt-8 text-center md:mt-12">
+              <Button variant="secondary" className="w-full sm:w-auto" asChild>
                 <Link href="/attorneys">View Full Team & Advisors</Link>
               </Button>
             </div>
@@ -371,23 +412,23 @@ export default function HomePage() {
         </section>
 
         {/* Clients Section */}
-        <section className="py-16 lg:py-24 bg-secondary overflow-hidden">
+        <section className="section bg-secondary overflow-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <AnimatedSection animation="fadeUp">
-              <div className="mx-auto max-w-3xl text-center mb-12">
-                <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              <div className="mx-auto max-w-3xl text-center">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-foreground md:text-4xl text-balance">
                   Trusted by Leading Organizations
                 </h2>
-                <p className="mt-4 text-muted-foreground">
+                <p className="mt-3 md:mt-4 text-sm sm:text-base text-muted-foreground">
                   Our partners have assisted some of India's most prestigious organizations
                 </p>
               </div>
             </AnimatedSection>
 
-            <div className="relative w-full overflow-hidden pause-on-hover">
+            <div className="section-gap relative w-full overflow-hidden pause-on-hover">
               <div className="flex w-max animate-scroll whitespace-nowrap items-center">
                 {[...Array(2)].map((_, i) => (
-                  <div key={i} className="flex items-center gap-12 mx-6">
+                  <div key={i} className="flex items-center gap-6 mx-3 sm:gap-12 sm:mx-6">
                     {[
                       { name: "ONGC", logo: "/clients/ongc.png" },
                       { name: "Coal India Ltd.", logo: "/clients/coal-india.png" },
@@ -398,37 +439,38 @@ export default function HomePage() {
                       { name: "National Housing Bank", logo: "/clients/nhb.png" },
                       { name: "Karim Hotels", logo: "/clients/karims.png" },
                     ].map((client) => (
-                      <div key={`${i}-${client.name}`} className="relative h-24 w-48 shrink-0 transition-all duration-300">
+                      <div key={`${i}-${client.name}`} className="relative h-14 w-28 shrink-0 transition-all duration-300 sm:h-24 sm:w-48">
                         <Image
                           src={client.logo}
                           alt={client.name}
                           fill
+                          sizes="(max-width: 640px) 112px, 192px"
                           className="object-contain mix-blend-multiply"
                         />
                       </div>
                     ))}
-                    <div className="text-xl font-serif font-semibold text-muted-foreground shrink-0 px-4">
+                    <div className="text-base sm:text-xl font-serif font-semibold text-muted-foreground shrink-0 px-2 sm:px-4">
                       And Many More...
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-secondary to-transparent z-10" />
-              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-secondary to-transparent z-10" />
+              <div className="absolute inset-y-0 left-0 w-10 sm:w-24 bg-gradient-to-r from-secondary to-transparent z-10" />
+              <div className="absolute inset-y-0 right-0 w-10 sm:w-24 bg-gradient-to-l from-secondary to-transparent z-10" />
             </div>
           </div>
         </section>
 
-        <section className="bg-primary bg-pattern py-20">
+        <section className="section bg-primary bg-pattern">
           <div className="container mx-auto px-4 text-center md:px-6">
-            <h2 className="font-serif text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl text-balance">
               Ready to Discuss Your Legal Needs?
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/80">
+            <p className="mx-auto mt-3 md:mt-4 max-w-2xl text-sm sm:text-base text-primary-foreground/80">
               Contact us today to schedule a consultation with one of our experienced attorneys. We are here to help you
               navigate complex legal challenges.
             </p>
-            <Button size="lg" variant="secondary" className="mt-8" asChild>
+            <Button size="lg" variant="secondary" className="mt-6 w-full sm:mt-8 sm:w-auto" asChild>
               <Link href="/contact">
                 Get in Touch
                 <ArrowRight className="ml-2 h-4 w-4" />

@@ -39,14 +39,14 @@ export default function BlogPage() {
       <Header />
 
       <main className="flex-1">
-        <section className="bg-primary bg-pattern py-16 lg:py-24">
+        <section className="section-hero bg-primary bg-pattern">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <AnimatedSection animation="fadeUp">
-                <h1 className="font-serif text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
+                <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
                   Blog & Insights
                 </h1>
-                <p className="mt-4 text-lg text-primary-foreground/80 leading-relaxed">
+                <p className="mt-3 sm:mt-4 text-base sm:text-lg text-primary-foreground/80 leading-relaxed">
                   Stay informed with the latest legal developments, industry insights, and thought leadership from our
                   experienced attorneys.
                 </p>
@@ -56,13 +56,13 @@ export default function BlogPage() {
         </section>
 
         {/* Blog Grid */}
-        <section className="py-16 lg:py-24">
+        <section className="section">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
               {blogPosts.map((post, index) => (
                 <AnimatedSection key={post.id} animation="fadeUp" delay={index * 0.1}>
                   <Link href={`/blog/${post.slug}`} className="group h-full block">
-                    <Card className="h-full overflow-hidden bg-card transition-colors hover:bg-secondary">
+                    <Card className="py-0 gap-0 h-full overflow-hidden bg-card transition-colors hover:bg-secondary">
                       <div className="relative aspect-[16/9]">
                         <Image
                           src={post.image || "/placeholder.svg"}
@@ -76,7 +76,7 @@ export default function BlogPage() {
                           </span>
                         </div>
                       </div>
-                      <CardContent className="p-6">
+                      <CardContent className="p-4 sm:p-6">
                         <h2 className="font-serif text-xl font-semibold text-foreground line-clamp-2">{post.title}</h2>
                         <p className="mt-3 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
                         <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">

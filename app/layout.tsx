@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { PageTransition } from "@/components/page-transition"
@@ -9,6 +9,20 @@ import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
 const _playfair = Playfair_Display({ subsets: ["latin"] })
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  // Let the page paint into the notch/rounded-corner area; the safe-area
+  // padding in globals.css keeps content clear of it.
+  viewportFit: "cover",
+  // Deliberately NOT setting maximumScale/userScalable — pinch-zoom must
+  // stay available. Touch targets are raised in CSS instead.
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f7f8fa" },
+    { media: "(prefers-color-scheme: dark)", color: "#141a22" },
+  ],
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

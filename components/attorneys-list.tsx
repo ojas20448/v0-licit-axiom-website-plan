@@ -52,10 +52,12 @@ function AttorneyCard({ attorney, index }: { attorney: Attorney; index: number }
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3, delay: index * 0.05 }}
+      /* Cap the stagger: with 16 cards an uncapped index delay left the last
+         card waiting most of a second before it appeared. */
+      transition={{ duration: 0.3, delay: Math.min(index, 6) * 0.05 }}
     >
       <Link href={`/attorneys/${attorney.slug}`} className="group h-full block">
-        <Card className="h-full overflow-hidden bg-card transition-all hover:shadow-lg border border-border group-hover:border-accent/40 flex flex-col justify-between">
+        <Card className="py-0 gap-0 h-full overflow-hidden bg-card transition-all hover:shadow-lg border border-border group-hover:border-accent/40 flex flex-col justify-between">
           <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-slate-950 via-primary to-slate-900 flex flex-col items-center justify-center border-b border-accent/20">
             <Scale className="absolute -right-3 -bottom-3 h-28 w-28 text-accent/5 -rotate-12 pointer-events-none" />
             {hasRealImage ? (
@@ -63,12 +65,13 @@ function AttorneyCard({ attorney, index }: { attorney: Attorney; index: number }
                 src={attorney.image}
                 alt={attorney.name}
                 fill
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             ) : (
               <div className="flex flex-col items-center justify-center space-y-2 z-10">
-                <div className="h-16 w-16 rounded-full bg-accent/15 border-2 border-accent/60 flex items-center justify-center shadow-lg shadow-black/40 group-hover:border-accent group-hover:scale-105 transition-all duration-300">
-                  <span className="font-serif text-xl font-bold text-accent tracking-wider">
+                <div className="h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-accent/15 border-2 border-accent/60 flex items-center justify-center shadow-lg shadow-black/40 group-hover:border-accent group-hover:scale-105 transition-all duration-300">
+                  <span className="font-serif text-base sm:text-xl font-bold text-accent tracking-wider">
                     {initials}
                   </span>
                 </div>
@@ -78,14 +81,14 @@ function AttorneyCard({ attorney, index }: { attorney: Attorney; index: number }
               </div>
             )}
           </div>
-          <CardContent className="p-6 flex-1 flex flex-col justify-between">
-            <div className="space-y-2">
-              <h2 className="font-serif text-xl font-semibold text-foreground group-hover:text-accent transition-colors leading-snug">
+          <CardContent className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
+            <div className="space-y-1.5 sm:space-y-2">
+              <h2 className="font-serif text-base sm:text-xl font-semibold text-foreground group-hover:text-accent transition-colors leading-snug text-balance">
                 {attorney.name}
               </h2>
-              <p className="text-xs font-semibold tracking-wider text-accent uppercase">{attorney.title}</p>
+              <p className="text-[0.6875rem] sm:text-xs font-semibold tracking-wider text-accent uppercase">{attorney.title}</p>
             </div>
-            <div className="mt-4 pt-4 border-t border-border/50 space-y-2 text-xs text-muted-foreground">
+            <div className="mt-3 pt-3 sm:mt-4 sm:pt-4 border-t border-border/50 space-y-1.5 sm:space-y-2 text-[0.6875rem] sm:text-xs text-muted-foreground">
               <p className="line-clamp-2">
                 <span className="font-semibold text-foreground">Practice Areas:</span>{" "}
                 {attorney.practiceAreas.length > 0 ? attorney.practiceAreas.join(", ") : "—"}
@@ -171,8 +174,8 @@ export function AttorneysList({ initialAttorneys }: AttorneysListProps) {
   return (
     <div className="space-y-8">
       {/* Search and Alphabet Filter Bar */}
-      <div className="bg-card border border-border rounded-xl p-6 shadow-sm space-y-6">
-        <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+      <div className="bg-card border border-border rounded-xl p-4 sm:p-6 shadow-sm space-y-4 sm:space-y-6">
+        <div className="flex flex-col md:flex-row gap-3 sm:gap-4 items-center justify-between">
           <div className="relative w-full md:max-w-md">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
@@ -189,12 +192,12 @@ export function AttorneysList({ initialAttorneys }: AttorneysListProps) {
         </div>
 
         {/* Alphabet Selection */}
-        <div className="border-t border-border/55 pt-6">
-          <p className="text-sm font-medium text-foreground mb-3">Filter by Alphabet:</p>
-          <div className="flex flex-wrap gap-1.5 justify-center md:justify-start">
+        <div className="border-t border-border/55 pt-4 sm:pt-6">
+          <p className="text-sm font-medium text-foreground mb-2 sm:mb-3">Filter by Alphabet:</p>
+          <div className="flex flex-wrap gap-1 sm:gap-1.5 justify-center md:justify-start">
             <button
               onClick={() => setSelectedLetter("ALL")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${
+              className={`inline-flex h-9 items-center rounded-lg px-3 text-xs font-semibold uppercase tracking-wider transition-all sm:h-auto sm:py-1.5 ${
                 selectedLetter === "ALL"
                   ? "bg-accent text-accent-foreground shadow-sm"
                   : "bg-transparent hover:bg-secondary text-muted-foreground"
@@ -209,7 +212,7 @@ export function AttorneysList({ initialAttorneys }: AttorneysListProps) {
                   key={letter}
                   disabled={!hasMembers}
                   onClick={() => setSelectedLetter(letter)}
-                  className={`w-8 h-8 rounded-lg text-xs font-bold transition-all ${
+                  className={`h-9 w-9 sm:h-8 sm:w-8 rounded-lg text-xs font-bold transition-all ${
                     selectedLetter === letter
                       ? "bg-accent text-accent-foreground shadow-sm"
                       : hasMembers
@@ -229,7 +232,7 @@ export function AttorneysList({ initialAttorneys }: AttorneysListProps) {
       {/* Filtered results (search or alphabet filter active) */}
       {isFiltering ? (
         filteredAttorneys.length > 0 ? (
-          <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <motion.div layout className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
             <AnimatePresence mode="popLayout">
               {filteredAttorneys.map((attorney, index) => (
                 <AttorneyCard key={attorney.id} attorney={attorney} index={index} />
@@ -260,7 +263,7 @@ export function AttorneysList({ initialAttorneys }: AttorneysListProps) {
           {partners.length > 0 && (
             <div className="space-y-6">
               <SectionHeading title="Partners" />
-              <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <motion.div layout className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
                 <AnimatePresence mode="popLayout">
                   {partners.map((attorney, index) => (
                     <AttorneyCard key={attorney.id} attorney={attorney} index={index} />
@@ -274,7 +277,7 @@ export function AttorneysList({ initialAttorneys }: AttorneysListProps) {
           {team.length > 0 && (
             <div className="space-y-6 pt-4">
               <SectionHeading title="Our Professionals" />
-              <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <motion.div layout className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
                 <AnimatePresence mode="popLayout">
                   {team.map((attorney, index) => (
                     <AttorneyCard key={attorney.id} attorney={attorney} index={index} />

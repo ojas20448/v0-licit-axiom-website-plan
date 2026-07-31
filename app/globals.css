@@ -124,10 +124,18 @@
 
   body {
     @apply bg-background text-foreground;
+    /* Guard against any single wide child (marquees, long unbroken strings)
+       forcing a horizontal scrollbar on narrow viewports. `clip` rather than
+       `hidden` so it never creates a scroll container that breaks
+       `position: sticky` on the header. */
+    overflow-x: clip;
   }
 
   html {
     scroll-behavior: smooth;
+    /* Stop iOS Safari inflating body text when a phone is rotated to landscape. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -139,9 +147,87 @@
   ::selection {
     @apply bg-accent/30 text-accent-foreground;
   }
+
+  /* Long-form paragraphs read better with pretty wrapping; cheap and safe. */
+  p {
+    text-wrap: pretty;
+  }
 }
 
 @layer utilities {
+  /* ---------------------------------------------------------------------
+     Fluid section rhythm.
+
+     Every section previously hard-coded `py-16 lg:py-24` or `py-20 lg:py-28`,
+     which spends 128–160px of pure padding on a phone screen that is only
+     ~810px tall. Across ~20 sections that alone accounted for roughly two
+     full screens of empty scrolling.
+
+     These scale with the viewport instead: ~40px of breathing room on a
+     phone, growing to the original desktop values on a large screen.
+     --------------------------------------------------------------------- */
+  .section {
+    padding-block: clamp(2.5rem, 6vw, 6rem);
+  }
+
+  /* Page-top hero bands: slightly tighter on mobile since the sticky header
+     already provides separation above them. */
+  .section-hero {
+    padding-block: clamp(2rem, 5.5vw, 5.5rem);
+  }
+
+  /* Space between a section heading block and the content it introduces. */
+  .section-gap {
+    margin-top: clamp(1.75rem, 4vw, 3rem);
+  }
+
+  /* ---------------------------------------------------------------------
+     Touch targets.
+
+     The shared Button component tops out at h-10 (40px) for `size="lg"` and
+     h-9 (36px) by default — both under the 44px minimum. Rather than change
+     the desktop metrics, raise the floor only where the pointer is coarse.
+     --------------------------------------------------------------------- */
+  @media (pointer: coarse) {
+
+    [data-slot='button'],
+    .tap-target {
+      min-height: 2.75rem;
+      min-width: 2.75rem;
+    }
+
+    /* Form controls ship at h-9 (36px). Same treatment — comfortable to hit
+       without changing the desktop metrics. */
+    [data-slot='input'],
+    [data-slot='select-trigger'] {
+      min-height: 2.75rem;
+    }
+
+    /* Inline text links inside prose stay inline, but standalone nav/list
+       links get a comfortable vertical hit area. */
+    .tap-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.75rem;
+    }
+  }
+
+  /* Avoid the 300ms tap delay and double-tap zoom on interactive elements. */
+  a,
+  button,
+  [role='button'],
+  summary {
+    touch-action: manipulation;
+  }
+
+  /* Respect the notch/rounded corners when a phone is held in landscape. */
+  @media (orientation: landscape) {
+    .container {
+      padding-left: max(1rem, env(safe-area-inset-left));
+      padding-right: max(1rem, env(safe-area-inset-right));
+    }
+  }
+
   .bg-pattern {
     background-color: var(--primary);
     background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
@@ -164,6 +250,19 @@
 
   .pause-on-hover:hover .animate-scroll {
     animation-play-state: paused;
+  }
+
+  /* An infinitely moving strip is exactly the kind of motion that triggers
+     vestibular discomfort. Hold it still and let the row scroll by touch. */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-scroll {
+      animation: none;
+    }
+
+    .pause-on-hover {
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+    }
   }
 
   @keyframes pageFadeIn {

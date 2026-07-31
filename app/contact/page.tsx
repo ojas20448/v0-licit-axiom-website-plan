@@ -79,13 +79,13 @@ export default function ContactPage() {
       <Header />
 
       <main className="flex-1">
-        <section className="bg-primary py-16 lg:py-24">
+        <section className="section-hero bg-primary">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center">
-              <h1 className="font-serif text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
+              <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl">
                 Contact Us
               </h1>
-              <p className="mt-4 text-lg text-primary-foreground/80 leading-relaxed">
+              <p className="mt-3 sm:mt-4 text-base sm:text-lg text-primary-foreground/80 leading-relaxed">
                 Ready to discuss your legal needs? Our team is here to help. Reach out to schedule a consultation or
                 learn more about our services.
               </p>
@@ -94,9 +94,9 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Content */}
-        <section className="py-16 lg:py-24">
+        <section className="section">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="grid gap-12 lg:grid-cols-2">
+            <div className="grid gap-8 lg:gap-12 lg:grid-cols-2">
               {/* Contact Form */}
               <div>
                 <h2 className="font-serif text-2xl font-semibold text-foreground">Send Us a Message</h2>
@@ -105,7 +105,7 @@ export default function ContactPage() {
                 </p>
 
                 {submitted ? (
-                  <Card className="mt-8 bg-card">
+                  <Card className="py-0 gap-0 mt-8 bg-card">
                     <CardContent className="flex flex-col items-center justify-center p-12 text-center">
                       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/10">
                         <CheckCircle className="h-8 w-8 text-accent" />
@@ -232,8 +232,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-6">
-                  <Card className="bg-card">
-                    <CardContent className="flex items-start gap-4 p-6">
+                  <Card className="py-0 gap-0 bg-card">
+                    <CardContent className="flex items-start gap-4 p-4 sm:p-6">
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10">
                         <MapPin className="h-6 w-6 text-accent" />
                       </div>
@@ -247,7 +247,7 @@ export default function ContactPage() {
                           href="https://share.google/LYXy1OUAUESDdzkWC"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-3 inline-flex items-center text-xs font-semibold text-accent hover:underline"
+                          className="mt-2 inline-flex min-h-11 items-center text-xs font-semibold text-accent hover:underline sm:mt-3 sm:min-h-0"
                         >
                           View Location on Google Maps
                           <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
@@ -256,8 +256,8 @@ export default function ContactPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-card">
-                    <CardContent className="flex items-start gap-4 p-6">
+                  <Card className="py-0 gap-0 bg-card">
+                    <CardContent className="flex items-start gap-4 p-4 sm:p-6">
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10">
                         <Phone className="h-6 w-6 text-accent" />
                       </div>
@@ -273,8 +273,8 @@ export default function ContactPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-card">
-                    <CardContent className="flex items-start gap-4 p-6">
+                  <Card className="py-0 gap-0 bg-card">
+                    <CardContent className="flex items-start gap-4 p-4 sm:p-6">
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-accent/10">
                         <Mail className="h-6 w-6 text-accent" />
                       </div>
@@ -292,7 +292,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Map Section */}
-                <Card className="overflow-hidden bg-card border border-border shadow-sm">
+                <Card className="py-0 gap-0 overflow-hidden bg-card border border-border shadow-sm">
                   <div className="aspect-video w-full bg-secondary relative">
                     <iframe
                       src="https://maps.google.com/maps?q=G-I%2F75%2C%20Lajpat%20Nagar-1%2C%20New%20Delhi%20110024&t=&z=15&ie=UTF8&iwloc=&output=embed"
