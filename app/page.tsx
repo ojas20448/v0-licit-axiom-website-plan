@@ -13,6 +13,7 @@ import { AnimatedSection } from "@/components/animated-section"
 import { ArrowRight, Building2, Handshake, Scale, Home, Lightbulb, Users, Award, Globe, Clock, HeartHandshake, Coins, Gavel, ShieldCheck, Zap } from "lucide-react"
 import attorneys from "@/data/attorneys.json"
 import practices from "@/data/practices.json"
+import { getAttorneyInitials } from "@/lib/attorney-name"
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Building2,
@@ -311,11 +312,7 @@ export default function HomePage() {
 
             <div className="section-gap grid gap-4 sm:gap-8 md:grid-cols-2 max-w-4xl mx-auto">
               {featuredAttorneys.map((attorney, index) => {
-                const cleanName = attorney.name.replace(/^(Mr\.|Mr|Ms\.|Ms|Mrs\.|Mrs|Dr\.|Dr)\s+/i, "").trim()
-                const nameParts = cleanName.split(" ").filter(Boolean)
-                const initials = nameParts.length >= 2
-                  ? `${nameParts[0][0]}${nameParts[nameParts.length - 1][0]}`.toUpperCase()
-                  : cleanName.slice(0, 2).toUpperCase()
+                const initials = getAttorneyInitials(attorney.name)
                 const hasRealImage = attorney.image && !attorney.image.includes("placeholder")
 
                 return (

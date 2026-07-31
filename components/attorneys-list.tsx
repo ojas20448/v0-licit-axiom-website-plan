@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Search, Scale } from "lucide-react"
+import { getNormalizedName, getAttorneyInitials } from "@/lib/attorney-name"
 
 interface Attorney {
   id: string
@@ -27,22 +28,13 @@ interface AttorneysListProps {
   initialAttorneys: Attorney[]
 }
 
-// Helper to get normalized name without titles for alphabetical operations
-const getNormalizedName = (name: string) => {
-  return name.replace(/^(Mr\.|Mr|Ms\.|Ms|Mrs\.|Mrs|Dr\.|Dr)\s+/i, "").trim()
-}
-
 const isPartner = (attorney: Attorney) => attorney.title.toLowerCase().includes("partner")
 
 const byNormalizedName = (a: Attorney, b: Attorney) =>
   getNormalizedName(a.name).toLowerCase().localeCompare(getNormalizedName(b.name).toLowerCase())
 
 function AttorneyCard({ attorney, index }: { attorney: Attorney; index: number }) {
-  const cleanName = attorney.name.replace(/^(Mr\.|Mr|Ms\.|Ms|Mrs\.|Mrs|Dr\.|Dr)\s+/i, "").trim()
-  const nameParts = cleanName.split(" ").filter(Boolean)
-  const initials = nameParts.length >= 2
-    ? `${nameParts[0][0]}${nameParts[nameParts.length - 1][0]}`.toUpperCase()
-    : cleanName.slice(0, 2).toUpperCase()
+  const initials = getAttorneyInitials(attorney.name)
   const hasRealImage = attorney.image && !attorney.image.includes("placeholder")
 
   return (
