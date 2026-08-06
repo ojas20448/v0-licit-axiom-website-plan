@@ -19,6 +19,8 @@ export async function generateStaticParams() {
   }))
 }
 
+import { SITE_URL, SITE_NAME } from "@/lib/site"
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const job = careers.find((j) => j.slug === slug)
@@ -29,9 +31,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
+  const pageUrl = `${SITE_URL}/careers/${job.slug}`
+
   return {
     title: `${job.title} | Careers at Licit Axiom`,
     description: job.description,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: "article",
+      url: pageUrl,
+      siteName: SITE_NAME,
+      title: `${job.title} | Careers at Licit Axiom`,
+      description: job.description,
+      locale: "en_IN",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${job.title} at Licit Axiom`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${job.title} | Careers at Licit Axiom`,
+      description: job.description,
+      images: ["/og-image.png"],
+    },
   }
 }
 
@@ -43,8 +72,67 @@ export default async function CareerPage({ params }: Props) {
     notFound()
   }
 
+  const pageUrl = `${SITE_URL}/careers/${job.slug}`
+
+  const jobJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: job.title,
+    description: job.description,
+    datePosted: new Date().toISOString(), // Assuming these are always active unless removed
+    validThrough: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+    employmentType: job.type === "Full-time" ? "FULL_TIME" : job.type === "Part-time" ? "PART_TIME" : "CONTRACTOR",
+    hiringOrganization: {
+      "@type": "Organization",
+      name: "Licit Axiom",
+      sameAs: SITE_URL,
+      logo: `${SITE_URL}/images/licit-axiom-logo-dark.png`,
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: job.location,
+        addressCountry: "IN",
+      },
+    },
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Careers",
+        item: `${SITE_URL}/careers`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: job.title,
+        item: pageUrl,
+      },
+    ],
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Header />
 
       <main className="flex-1">

@@ -32,8 +32,43 @@ export const metadata: Metadata = {
 }
 
 export default function AttorneysPage() {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Attorneys",
+        item: `${SITE_URL}/attorneys`,
+      },
+    ],
+  }
+
+  const collectionPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Licit Axiom Attorneys",
+    description: "Meet our team of experienced advocates, senior advisors, domain experts, and former senior government officials delivering strategic legal counsel across India.",
+    url: `${SITE_URL}/attorneys`,
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }}
+      />
       <Header />
 
       <main className="flex-1">

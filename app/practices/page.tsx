@@ -44,8 +44,43 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 export default function PracticesPage() {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Practices",
+        item: `${SITE_URL}/practices`,
+      },
+    ],
+  }
+
+  const collectionPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Licit Axiom Practice Areas",
+    description: "Comprehensive legal services provided by Licit Axiom.",
+    url: `${SITE_URL}/practices`,
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }}
+      />
       <Header />
 
       <main className="flex-1">

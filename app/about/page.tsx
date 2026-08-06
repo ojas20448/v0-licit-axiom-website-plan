@@ -34,8 +34,43 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "About Us",
+        item: `${SITE_URL}/about`,
+      },
+    ],
+  }
+
+  const aboutPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About Licit Axiom",
+    description: "Learn about Licit Axiom's sui-generis structure, core legal philosophy, and team of experts.",
+    url: `${SITE_URL}/about`,
+  }
+
     return (
         <div className="flex min-h-screen flex-col">
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageJsonLd) }}
+            />
             <Header />
 
             <main className="flex-1">
